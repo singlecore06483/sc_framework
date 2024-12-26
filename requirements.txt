@@ -1,0 +1,7 @@
+paramiko
+requests
+impacket
+subprocess
+socket
+ftplib
+nmap
