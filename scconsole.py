@@ -116,6 +116,8 @@ exploit/ssh-version                  24/01/18 08:32       for scan the ssh port 
 exploiit/ftp-login-test              24/01/19 11:15       for login on port 21 or 20 ftp port.
 exploit/http-login-test              24/01/19 12:01       for login on port 80 http port.
 exploit/reverse-shell                24/01/20 01:12       for get a reverse shell by sending a link.
+exploit/handler/handler              24/01/22 02:34       for listen on the target to open the exploit2.php.
+exploit/handler/listining            24/01/22 04:12       for listen on the target to open the exploit.php.
 """)
     elif scconsole == "search exploit":
         print("""
@@ -135,6 +137,8 @@ exploit/ssh-version                  24/01/18 08:32       for scan the ssh port 
 exploiit/ftp-login-test              24/01/19 11:15       for login on port 21 or 20 ftp port.
 exploit/http-login-test              24/01/19 12:01       for login on port 80 http port.
 exploit/reverse-shell                24/01/20 01:12       for get a reverse shell by sending a link.
+exploit/handler/handler              24/01/22 02:34       for listen on the target to open the exploit2.php.
+exploit/handler/listining            24/01/22 04:12       for listen on the target to open the exploit.php.
 """)
     elif scconsole == "show payloads":
         print("""
@@ -214,6 +218,14 @@ exploit/reverse-shell                24/01/20 01:12       for get a reverse shel
         time.sleep(0.5)
         exploitreverseshell()
         print("using exploit/reverse-shell.")
+    elif scconsole == "use exploit/handler/handler":
+        time.sleep(0.5)
+        exploithandlerhandler()
+        print("using exploit/handler/handler.")
+    elif scconsole == "use exploit/handler/listining":
+        time.sleep(0.5)
+        exploithandlerlistining()
+        print("using exploit/handler/listining.")
     elif scconsole == "use system commands":
             OSconsole()
             OSconsole()
@@ -849,6 +861,74 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole16 == "exit":
+        exit()
+
+def exploithandlerhandler():
+    scconsole17 = input("sc~" + color.red + "(exploit/handler/handler)" + color.white + ">")
+    if scconsole17 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        exploithandlerhandler()
+    elif scconsole17 == "clear":
+        os.system('clear')
+        exploithandlerhandler()
+    elif scconsole17 == "show options":
+        print("""
+NO OPTION OR DISCREPTIONS HERE!
+""")
+        exploithandlerhandler()
+    elif scconsole17 == "run":
+        os.system('python exploits/handler/handler.py')
+        exploithandlerhandler()
+    elif scconsole17 == "exploit":
+        os.system('python exploits/handler/handler.py')
+        exploithandlerhandler()
+    elif scconsole17 == "unuse":
+        print("unusing exploit/handler/handler.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole17 == "exit":
+        exit()
+
+def exploithandlerlistining():
+    scconsole18 = input("sc~" + color.red + "(exploit/handler/listining)" + color.white + ">")
+    if scconsole18 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        exploithandlerlistining()
+    elif scconsole18 == "clear":
+        os.system('clear')
+        exploithandlerlistining()
+    elif scconsole18 == "show options":
+        print("""
+NO OPTION OR DISCREPTIONS HERE!
+""")
+        exploithandlerlistining()
+    elif scconsole18 == "run":
+        os.system('python exploits/handler/listining.py')
+        exploithandlerlistining()
+    elif scconsole18 == "exploit":
+        os.system('python exploits/handler/listining.py')
+        exploithandlerlistining()
+    elif scconsole18 == "unuse":
+        print("unusing exploit/handler/listining.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole18 == "exit":
         exit()
 
 def OSconsole():
