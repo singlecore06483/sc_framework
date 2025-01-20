@@ -82,7 +82,7 @@ def Menu():
     print()
     print("to see help menu type 'help' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print("when you choose a exploit, you will type the options when you run the exploit!")
-    print("17 exploits / 8 payloads")
+    print("22 exploits / 8 payloads")
     Console()
 
 
