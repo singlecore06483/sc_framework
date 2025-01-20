@@ -1,3 +1,5 @@
+# This tool haves some tools in /sc_framework/tools/ .
+# haves some exploit and wireless attack tools in /tools/ directory.
 # imports
 
 import os
@@ -10,8 +12,10 @@ class color:
     red = '\33[91m'
     blue = '\033[94m'
     white = '\033[0m'
+    underline = '\033[4m'
+    green = '\033[92m'
 
-    
+
 def start():
     os.system('clear')
     print("starting sc console...")
@@ -74,13 +78,11 @@ def Menu():
           ░           ░  ░       ░      ░  ░    ░        ░ ░     ░     ░  ░   
 """ + color.white)
     print()
-    print("""
-to see help menu type help to see the scconsole commands.
-
-you will specifiy these options when you run or exploit it!
-
-17 exploits / 8 payloads
-""")
+    print("you can use some of the tools from: ",os.getcwd(),"/tools/")
+    print()
+    print("to see help menu type 'help' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
+    print("when you choose a exploit, you will type the options when you run the exploit!")
+    print("17 exploits / 8 payloads")
     Console()
 
 
@@ -92,6 +94,7 @@ help ---> to see this help menu.
 clear ---> to clear the screen.
 use <exploit> ---> to use the exploit.
 search exploit ---> to search and show all exploits.
+search windows --> to search and show all windows exploits.
 exit ---> to exit from sc-console.
 show payloads ---> to see avalable payloads in sc-framework.
 use system commands ---> to use system tools and commands 3 times, to come back here use (back to sc-console).
@@ -139,6 +142,15 @@ exploit/http-login-test              24/01/19 12:01       for login on port 80 h
 exploit/reverse-shell                24/01/20 01:12       for get a reverse shell by sending a link.
 exploit/handler/handler              24/01/22 02:34       for listen on the target to open the exploit2.php.
 exploit/handler/listining            24/01/22 04:12       for listen on the target to open the exploit.php.
+""")
+    elif scconsole == "search windows":
+        print("""
+    Exploits                         When created?        Discrepstion 
+windows/PDF-exploit                  24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
+windows/ftp-login-test               24/01/19 11:15       for login on port 21 or 20 ftp port.
+windows/java-rhino                   24/01/12 02:45       for excuteshellcommand http port.
+windows/ms17-010-psexec              24/01/13 08:20       for brute force windows smb port.
+windows/ssh-login-test               24/01/11 05:54       for brute forcing ssh port.
 """)
     elif scconsole == "show payloads":
         print("""
@@ -226,6 +238,26 @@ exploit/handler/listining            24/01/22 04:12       for listen on the targ
         time.sleep(0.5)
         exploithandlerlistining()
         print("using exploit/handler/listining.")
+    elif scconsole == "use windows/ssh-login-test":
+        time.sleep(0.5)
+        wexploitsshlogintest()
+        print("using windows/ssh-login-test.")
+    elif scconsole == "use windows/java-rhino":
+        time.sleep(0.5)
+        wexploitjavarhino()
+        print("using windows/java-rhino.")
+    elif scconsole == "use windows/ms17-010-psexec":
+        time.sleep(0.5)
+        wexploitms17010psexec()
+        print("using windows/ms17-010-psexec.")
+    elif scconsole == "use windows/PDF-exploit":
+        time.sleep(0.5)
+        wexploitPDFexploit()
+        print("using windows/PDF-exploit.")
+    elif scconsole == "use windows/ftp-login-test":
+        time.sleep(0.5)
+        wexploitftplogintest()
+        print("using windows/ftp-login-test.")
     elif scconsole == "use system commands":
             OSconsole()
             OSconsole()
@@ -234,7 +266,7 @@ exploit/handler/listining            24/01/22 04:12       for listen on the targ
         exit()
     else:
         time.sleep(0.5)
-        print("there is no command to use like that!")
+        print("there is no command or option to use like that!")
 
 def exploitsshlogintest():
     scconsole3 = input("sc~" + color.red + "(exploit/ssh-login-test)" + color.white + ">")
@@ -929,6 +961,202 @@ NO OPTION OR DISCREPTIONS HERE!
         time.sleep(0.5)
         Console()
     elif scconsole18 == "exit":
+        exit()
+
+def wexploitsshlogintest():
+    scconsole19 = input("sc~" + color.red + "(windows/ssh-login-test)" + color.white + ">")
+    if scconsole19 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        wexploitsshlogintest()
+    elif scconsole19 == "clear":
+        os.system('clear')
+        wexploitsshlogintest()
+    elif scconsole19 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+LHOST         | specifiy the target ip address or url.
+LPORT         | specified as 22. (ssh port).
+PASSLIST      | specifiy the password list path.
+USERNAMELIST  | specifiy the username list path.
+
+you will specifiy these options when you run or exploit it!
+""")
+        wexploitsshlogintest()
+    elif scconsole19 == "run":
+        os.system('python exploits/windows/ssh-login-test.py')
+        wexploitsshlogintest()
+    elif scconsole19 == "exploit":
+        os.system('python exploits/windows/ssh-login-test.py')
+        wexploitsshlogintest()
+    elif scconsole19 == "unuse":
+        print("unusing exploit/ssh-login-test.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole19 == "exit":
+        exit()
+
+def wexploitjavarhino():
+    scconsole20 = input("sc~" + color.red + "(windows/java-rhino)" + color.white + ">")
+    if scconsole20 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        wexploitjavarhino()
+    elif scconsole20 == "clear":
+        os.system('clear')
+        wexploitjavarhino()
+    elif scconsole20 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+LHOST         | specifiy the target ip address.
+LPORT         | specifiy the target port (port 445 needs to open on target).
+CMD           | specifiy the cmd command.
+
+you will specifiy these options when you run or exploit it!
+""")
+        wexploitjavarhino()
+    elif scconsole20 == "run":
+        os.system('python exploits/windows/java-rhino.py')
+        wexploitjavarhino()
+    elif scconsole20 == "exploit":
+        os.system('python exploits/windows/java-rhino.py')
+        wexploitjavarhino()
+    elif scconsole20 == "unuse":
+        print("unusing windows/java-rhino.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole20 == "exit":
+        exit()
+
+def wexploitms17010psexec():
+    scconsole21 = input("sc~" + color.red + "(windows/ms17-010-psexec)" + color.white + ">")
+    if scconsole21 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        wexploitms17010psexec()
+    elif scconsole21 == "clear":
+        os.system('clear')
+        wexploittomcatmgrlogin()
+    elif scconsole21 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target ip address.
+USERNAMELIST     | specifiy the username list.
+PASSLIST         | specifiy the password list.
+CMD              | specifiy the cmd command.
+
+you will specifiy these options when you run or exploit it!
+""")
+        wexploitms17010psexec()
+    elif scconsole21 == "run":
+        os.system('python exploits/windows/ms17-010-psexec.py')
+        wexploitms17010psexec()
+    elif scconsole21 == "exploit":
+        os.system('python exploits/windows/ms17-010-psexec.py')
+        wexploitms17010psexec()
+    elif scconsole21 == "unuse":
+        print("unusing windows/ms17-010-psexec.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole21 == "exit":
+        exit()
+
+def wexploitPDFexploit():
+    scconsole22 = input("sc~" + color.red + "(windows/PDF-exploit)" + color.white + ">")
+    if scconsole22 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        wexploitPDFexploit()
+    elif scconsole22 == "clear":
+        os.system('clear')
+        wexploitPDFexploit()
+    elif scconsole22 == "show options":
+        print("""
+NO OPTION OR DISCREPTIONS HERE!
+""")
+        wexploitPDFexploit()
+    elif scconsole22 == "run":
+        os.system('python exploits/windows/PDF-exploit.py')
+        wexploitPDFexploit()
+    elif scconsole22 == "exploit":
+        os.system('python exploits/windows/PDF-exploit.py')
+        wexploitPDFexploit()
+    elif scconsole22 == "unuse":
+        print("unusing windows/PDF-exploit.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole22 == "exit":
+        exit()
+
+def wexploitftplogintest():
+    scconsole23 = input("sc~" + color.red + "(windows/ftp-login-test)" + color.white + ">")
+    if scconsole23 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        wexploitftplogintest()
+    elif scconsole23 == "clear":
+        os.system('clear')
+        wexploitftplogintest()
+    elif scconsole23 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target ip address.
+USERNAMELIST     | specifiy the username list.
+PASSLIST         | specifiy the password list.
+
+you will specifiy these options when you run or exploit it!
+""")
+        wexploitftplogintest()
+    elif scconsole23 == "run":
+        os.system('python exploits/windows/ftp-login-test.py')
+        wexploitftplogintest()
+    elif scconsole23 == "exploit":
+        os.system('python exploits/windows/ftp-login-test.py')
+        wexploitftplogintest()
+    elif scconsole23 == "unuse":
+        print("unusing windows/ftp-login-test.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole23 == "exit":
         exit()
 
 def OSconsole():

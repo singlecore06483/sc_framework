@@ -1,0 +1,59 @@
+this is the help file to see help menu if you have any problem in sc_framework!.
+
+this tool haves 17 exploits and 8 payloads.
+
+and haves 6 exploit tools and 2 wireless tools.
+
+to use the exploit tools go to: /sc_framework/tools/exploit/
+
+when you using these exploit tools, just open it with your terminal or notepad and change the IP(set your target ip!).
+
+to use wireless tools go to: /sc_framework/tools/wireless/
+
+when you want run wireless tools, you need to download these tools:" airmon-ng, airodump-ng, aircrack-ng, airplay-ng ".
+-----------------------------------------------------------------------------------------------------
+
+to use the scconsole.py run this command: python scconsole.py  or  python3 scconsole.py
+
+when you run the tool, you can type "help" to see the help menu.
+-----------------------------------------------------------------------------------------------------
+
+to use system commands from scconsole, type "use system commands".(But you can use system commmands 3 times!)
+
+like if you type "ls" 3 times, it came out from system commands and uses the scconsole commands.
+-----------------------------------------------------------------------------------------------------
+
+to use a exploit like 'exploit/ZIP-exploit' type: use exploit/ZIP-exploit
+
+to unuse the exploit type: unuse
+
+to run the exploit type: run  or  exploit
+
+to see the options type: show options
+
+HELP!: (You can't set the options, you can set the options when you run or exploit!.)
+
+If you dosen't see "show payloads" command in the exploit, that means the exploit is using own payload!.
+----------------------------------------------------------------------------------------------------
+
+
+to use a exploit with payload like this this exploit "exploit/find_vulnerabilites_website" type: use exploit/find_vulnerabilites_website
+
+then type "show payloads" to see the payloads.
+
+HELP!: (to set the payload, you need to run or exploit!.)
+----------------------------------------------------------------------------------------------------
+
+in the menu, you can see the payloads and exploit.
+
+to see the payloads type: show payloads
+
+to see the exploits type: search exploit
+----------------------------------------------------------------------------------------------------
+
+use "clear" command to clear the command.
+
+use "exit" command to exit from scconsole.
+----------------------------------------------------------------------------------------------------
+
+
