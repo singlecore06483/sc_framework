@@ -1,7 +1,18 @@
+UPDATES
+-
+
+new udates and features in sc framework:
+
+- added 5 new exploits
+- added 5 new tools
+- added 1 new command ----> command: search windows
+- bugs and errors are fixed
+
+
 SC FRAMEWORK
 -
 
-this tool uses 17 exploits and 8 payloads.
+this tool uses 22 exploits and 8 payloads.
 wich some of the exploit like `ssh-loign, PDF-exploit, and more 15 exploits`.
 
 How this tool works?
@@ -53,6 +64,7 @@ help ---> to see this help menu.
 clear ---> to clear the screen.
 use <exploit> ---> to use the exploit.
 search exploit ---> to search and show all exploits.
+search windows --> to search all windows exploits.
 exit ---> to exit from sc-console.
 show payloads ---> to see avalable payloads in sc-framework.
 use system commands ---> to use system tools and commands 3 times, to come back here use (back to sc-console).
