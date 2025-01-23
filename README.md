@@ -1,19 +1,20 @@
 UPDATES
 -
 
-new udates and features in sc framework:
+new udates and features in sc_framework:
 
 - added 5 new exploits
 - added 5 new tools
-- added 1 new command ----> command: search windows
 - bugs and errors are fixed
+- added 3 new command ----> command: search      command: search site     commmand: search windows
+- removed two extra tools
 
 
 SC FRAMEWORK
 -
 
 this tool uses 22 exploits and 8 payloads.
-wich some of the exploit like `ssh-loign, PDF-exploit, and more 15 exploits`.
+wich some of the exploit like `ssh-loign, PDF-exploit, and more 20 exploits`.
 
 How this tool works?
 -
@@ -63,8 +64,7 @@ in Menu:
 help ---> to see this help menu.
 clear ---> to clear the screen.
 use <exploit> ---> to use the exploit.
-search exploit ---> to search and show all exploits.
-search windows --> to search all windows exploits.
+search ---> to see the options of search.
 exit ---> to exit from sc-console.
 show payloads ---> to see avalable payloads in sc-framework.
 use system commands ---> to use system tools and commands 3 times, to come back here use (back to sc-console).
@@ -94,8 +94,9 @@ show payloads ---> to see avalable payloads in sc-framework.
 This tool for educational purposes only! 
 
 ```
-bleave in your self,
-never let people,
-to put you down.
+Malevolent code crawled through cybernetic veins,
+consuming every digital defence mechanism In Darkness,
+Alone.
+No system is safe.
 --single core--
 ```
