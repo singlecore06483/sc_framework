@@ -1,21 +1,25 @@
 this is the help file to see help menu if you have any problem in sc_framework!.
 
-this tool haves 17 exploits and 8 payloads.
+this tool haves 22 exploits and 8 payloads.
 
-and haves 6 exploit tools and 2 wireless tools.
+and haves 7 exploit tools and 4 cve-exploits.
 
 to use the exploit tools go to: /sc_framework/tools/exploit/
 
 when you using these exploit tools, just open it with your terminal or notepad and change the IP(set your target ip!).
 
-to use wireless tools go to: /sc_framework/tools/wireless/
+to use wireless tools go to: /sc_framework/tools/cve-exploits/
 
-when you want run wireless tools, you need to download these tools:" airmon-ng, airodump-ng, aircrack-ng, airplay-ng ".
+when you using these exploit tools, just open it with your terminal or notepad and change the IP(set your target ip!).
 -----------------------------------------------------------------------------------------------------
 
 to use the scconsole.py run this command: python scconsole.py  or  python3 scconsole.py
 
-when you run the tool, you can type "help" to see the help menu.
+when you run the tool, you can type "help" or "h" to see the help menu.
+
+the "help" command show all the commands in sc_framework.
+
+the "h" command show the some of the commands in sc_framework.
 -----------------------------------------------------------------------------------------------------
 
 to use system commands from scconsole, type "use system commands".(But you can use system commmands 3 times!)
@@ -56,4 +60,5 @@ use "clear" command to clear the command.
 use "exit" command to exit from scconsole.
 ----------------------------------------------------------------------------------------------------
 
-
+use "search" command to see the search options.
+----------------------------------------------------------------------------------------------------
