@@ -93,6 +93,15 @@ show payloads ---> to see avalable payloads in sc-framework.
 
 This tool for educational purposes only! 
 
+Donate
+-
+BTC: `3J9EmswaqAkzDUz8693MVJ4CqKXzTCM2Vq`
+Eth: `0x055aa3c526ad33caec2d1ffbf686ca60071dfe81`
+FLO: `FIO6CkKECn61WFE8vbhfQFzuHrk7K9g23NmC8g45nG4kisrbypBHi`
+
+-------------------------------------------------------------------------
+
+
 ```
 Malevolent code crawled through cybernetic veins,
 consuming every digital defence mechanism In Darkness,
