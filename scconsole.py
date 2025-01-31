@@ -161,7 +161,7 @@ PLEASE CHOOSE AN EXPLOIT THEN TYPE THIS!
         os.system('clear')
     elif scconsole == "search":
         print("""
-search <exploit | windows | site>        
+search <exploit | windows | site | cve-exploits>        
 """)
     elif scconsole == "search exploits":
         print("""
@@ -217,13 +217,26 @@ windows/ssh-login-test               24/01/11 05:54       for brute forcing ssh 
     elif scconsole == "search site":
         print("""
     Exploits                         When created?        Discrepstion 
-site/XSS                          24/01/14 09:35       for alert the XSS attack in html file.
-site/find_vulnerabilites_website  24/01/14 11:40       for finding vulnerabilite in the target website.
-site/find-vulnerabilites-website2 24/01/14 12:31       for finding vulnerabilite with payload you specified.
-site/http-login-test              24/01/19 12:01       for login on port 80 http port.
-site/ZIP-exploit                  24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
-site/tomcat-mgr-login             24/01/12 04:23       for brute force login pages.
+site/XSS                             24/01/14 09:35       for alert the XSS attack in html file.
+site/find_vulnerabilites_website     24/01/14 11:40       for finding vulnerabilite in the target website.
+site/find-vulnerabilites-website2    24/01/14 12:31       for finding vulnerabilite with payload you specified.
+site/http-login-test                 24/01/19 12:01       for login on port 80 http port.
+site/ZIP-exploit                     24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
+site/tomcat-mgr-login                24/01/12 04:23       for brute force login pages.
 """)
+    elif scconsole == "search cve-exploits":
+        print()
+        print("    Exploits                                           When created?        Discrepstion")
+        print(color.red + "tools/cve-exploits/SOPlanning-1_52_01-52082" + color.white + "            25/01/12 08:14       Simple Online Planning Tool - Remote Code Execution (RCE) (Authenticated).")
+        print(color.red + "tools/cve-exploits/TCP-IP-DoS-52075" + color.white + "                    25/01/11 01:34       Windows IPv6 CVE-2024-38063 Checker and Denial-Of-Service.")
+        print(color.red + "tools/cve-exploits/http-post-request_cve-2024-48871" + color.white + "    24/04/18 03:40       uses the Flask framework to create a web server with an endpoint that executes arbitrary commands received from the client.")
+        print(color.red + "tools/cve-exploits/http-request_cve-2024-52320" + color.white + "         24/04/16 05:45       creates a payload that includes padding, NSEH, SEH, more padding, and shellcode. The payload is then sent to the target IP and port using a socket connection.")
+        print(color.red + "tools/cve-exploits/http-request_cve-2024-52558" + color.white + "         24/04/15 04:53       creates a payload that includes padding, NSEH, SEH, more padding, and shellcode. The payload is then sent to the target IP and port using a socket connection.")
+        print(color.red + "tools/cve-exploits/ipv6_cve-2024-38106" + color.white + "                 24/04/12 01:12       Windows IPv6 exploit.")
+        print(color.red + "tools/cve-exploits/wordfence_cve-2024-8543" + color.white + "             25/01/09 12:39       This is an exploit for a Cross-Site Scripting (XSS) vulnerability in the Slider Comparison Image plugin for WordPress.")
+        print()
+        print("You can't run these exploits from here, you need to run them from ",os.getcwd(),"/tools/cve-exploits/")
+        print()
     elif scconsole == "show payloads":
         print("""
 ' OR 1=1--   ---> SQL Injection payload.
