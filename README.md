@@ -5,6 +5,7 @@ new udates and features in sc_framework:
 
 - added 2 new tools
 - bugs and errors are fixed
+- added 1 new search command --> search cve-exploits
 
 
 
