@@ -3,11 +3,9 @@ UPDATES
 
 new udates and features in sc_framework:
 
-- added 5 new exploits
-- added 5 new tools
+- added 2 new tools
 - bugs and errors are fixed
-- added 3 new command ----> command: search      command: search site     commmand: search windows
-- removed two extra tools
+
 
 
 SC FRAMEWORK
