@@ -57,27 +57,16 @@ def start():
 
 
 def Menu():
-    list = [color.blue + """
-  ██████  ▄████▄  
-▒██    ▒ ▒██▀ ▀█  
-░ ▓██▄   ▒▓█    ▄ 
-  ▒   ██▒▒▓▓▄ ▄██▒
-▒██████▒▒▒ ▓███▀ ░
-▒ ▒▓▒ ▒ ░░ ░▒ ▒  ░
-░ ░▒  ░ ░  ░  ▒   
-░  ░  ░  ░        
-      ░  ░ ░      
-         ░        
-
-  █████▒██▀███   ▄▄▄       ███▄ ▄███▓▓█████  █     █░ ▒█████   ██▀███   ██ ▄█▀
-▓██   ▒▓██ ▒ ██▒▒████▄    ▓██▒▀█▀ ██▒▓█   ▀ ▓█░ █ ░█░▒██▒  ██▒▓██ ▒ ██▒ ██▄█▒ 
-▒████ ░▓██ ░▄█ ▒▒██  ▀█▄  ▓██    ▓██░▒███   ▒█░ █ ░█ ▒██░  ██▒▓██ ░▄█ ▒▓███▄░ 
-░▓█▒  ░▒██▀▀█▄  ░██▄▄▄▄██ ▒██    ▒██ ▒▓█  ▄ ░█░ █ ░█ ▒██   ██░▒██▀▀█▄  ▓██ █▄ 
-░▒█░   ░██▓ ▒██▒ ▓█   ▓██▒▒██▒   ░██▒░▒████▒░░██▒██▓ ░ ████▓▒░░██▓ ▒██▒▒██▒ █▄
- ▒ ░   ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░░ ▒░   ░  ░░░ ▒░ ░░ ▓░▒ ▒  ░ ▒░▒░▒░ ░ ▒▓ ░▒▓░▒ ▒▒ ▓▒
- ░       ░▒ ░ ▒░  ▒   ▒▒ ░░  ░      ░ ░ ░  ░  ▒ ░ ░    ░ ▒ ▒░   ░▒ ░ ▒░░ ░▒ ▒░
- ░ ░     ░░   ░   ░   ▒   ░      ░      ░     ░   ░  ░ ░ ░ ▒    ░░   ░ ░ ░░ ░ 
-          ░           ░  ░       ░      ░  ░    ░        ░ ░     ░     ░  ░   
+    list = [color.green + """
+                                                                                    *  *    *
+         o O o                                                                       * ______   *
+                o O                                                                   |      |* 
+                   o                  |''''''''''''|=========[***  ***  ***  ***      |""" + color.red + """error!""" + color.green + """|
+  |^^^^^^^^^^^^^^^|]___               |  """ + color.green + """EXPLOIT   \                                * |______|  *
+  |    """ + color.red + """PAYLOAD""" + color.green + """      |""\___,          |_____________\_______                             ||*
+  |_________________|__|)__|          |==[""" + color.white + """sc~>""" + color.green + """ ]============\                       * |""" + color.warning + """target""" + color.green + """| *
+  |(@)(@)'''***|(@)(@)**|(@)          |_____________________\\
+                                      \(O)(O)(O)(O)(O)(O)(O)/
 """,
 color.red + """
  ▄▀▀▀▀▄  ▄▀▄▄▄▄  
@@ -121,6 +110,19 @@ color.warning + """
     ██▪ ▐▀▀▄ ▄█▀▀█ ▐█ ▌▐▌▐█·▐▀▀▪▄██▪▐█▐▐▌ ▄█▀▄ ▐▀▀▄ ▐▀▀▄·      
     ██▌.▐█•█▌▐█ ▪▐▌██ ██▌▐█▌▐█▄▄▌▐█▌██▐█▌▐█▌.▐▌▐█•█▌▐█.█▌      
     ▀▀▀ .▀  ▀ ▀  ▀ ▀▀  █▪▀▀▀ ▀▀▀  ▀▀▀▀ ▀▪ ▀█▄▀▪.▀  ▀·▀  ▀      
+""",
+color.blue + """
+                     ______
+             \    .-        -. 
+     __<@\_______/            \__________________________________
+  (I)___|________}  .-.  .-.  ,{____framework___________________/
+       <@/      | )(_S/  \C_)( |  
+                |/     /\     \|     / 
+                <__    ^^    __>
+                 \__|IIIIII|__/
+                  \ \      / / 
+                   \ IIIIII /
+                    -------- 
 """]
     random_banner = random.choice(list)
     print(random_banner)
@@ -129,7 +131,7 @@ color.warning + """
     print()
     print("to see help menu type 'help' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print("when you choose a exploit, you will type the options when you run the exploit!")
-    print("22 exploits / 8 payloads")
+    print("24 exploits / 8 payloads")
     Console()
 
 
@@ -183,6 +185,8 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """exploit/reverse-shell""" + color.white + """                24/01/20 01:12       for get a reverse shell by sending a link.
 """ + color.red + """exploit/handler/handler""" + color.white + """              24/01/22 02:34       for listen on the target to open the exploit2.php.
 """ + color.red + """exploit/handler/listining""" + color.white + """            24/01/22 04:12       for listen on the target to open the exploit.php.
+""" + color.red + """exploit/cve-2023-22518/cve-2023-22518""" + color.white + """23/09/29 02:19       allow unauthenticated attackers with network access to the Confluence Instance to restore the database of the Confluence instance.
+""" + color.red + """exploit/cve-2023-22518/vuln-test-for-cve-2023-22518""" + color.white + """23/09/29 02:19       allow to test the target to find cve-2023-22518 vulnerabilitie.
 """)
     elif scconsole == "search exploit":
         print("""
@@ -325,6 +329,14 @@ search <exploit | windows | site | cve-exploits>
         time.sleep(0.5)
         exploithandlerlistining()
         print("using exploit/handler/listining.")
+    elif scconsole == "use exploit/cve-2023-22518/cve-2023-22518":
+        time.sleep(0.5)
+        exploitcve202322518cve202322518()
+        print("using exploit/cve-2023-22518/cve-2023-22518.")
+    elif scconsole == "use exploit/cve-2023-22518/vuln-test-for-cve-2023-22518":
+        time.sleep(0.5)
+        exploitvulncve202322518cve202322518()
+        print("using exploit/cve-2023-22518/vuln-test-for-cve-2023-22518.")
     elif scconsole == "use windows/ssh-login-test":
         time.sleep(0.5)
         wexploitsshlogintest()
@@ -1548,6 +1560,88 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole29 == "exit":
+        exit()
+
+def exploitcve202322518cve202322518():
+    scconsole30 = input("sc~" + color.red + "(exploit/cve-2023-22518/cve-2023-22518)" + color.white + ">")
+    if scconsole30 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        exploitcve202322518cve202322518()
+    elif scconsole30 == "clear":
+        os.system('clear')
+        exploitcve202322518cve202322518()
+    elif scconsole30 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+URL              | specifiy the target url.
+ZIP              | specifiy the zip from /sc_framework/exploits/cve-2023-22518/xmlexport-20231109-060519-1.zip .
+
+you will specifiy these options when you run or exploit it!
+""")
+        exploitcve202322518cve202322518()
+    elif scconsole30 == "run":
+        os.system('python exploits/cve-2023-22518/cve-2023-22518.py')
+        exploitcve202322518cve202322518()
+    elif scconsole30 == "exploit":
+        os.system('python exploits/cve-2023-22518/cve-2023-22518.py')
+        exploitcve202322518cve202322518()
+    elif scconsole30 == "unuse":
+        print("unusing exploit/cve-2023-22518/cve-2023-22518.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole30 == "exit":
+        exit()
+
+def exploitvulncve202322518cve202322518():
+    scconsole31 = input("sc~" + color.red + "(exploit/cve-2023-22518/vuln-test-for-cve-2023-22518)" + color.white + ">")
+    if scconsole31 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        exploitvulncve202322518cve202322518()
+    elif scconsole31 == "clear":
+        os.system('clear')
+        exploitvulncve202322518cve202322518()
+    elif scconsole31 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+URL              | specifiy the target url.
+URLLIST          | specifiy the path of url list.
+
+you will specifiy these options when you run or exploit it!
+""")
+        exploitvulncve202322518cve202322518()
+    elif scconsole31 == "run":
+        url = input("URL: ")
+        urllist = input("URLLIST: ")
+        os.system(f'python exploits/cve-2023-22518/vuln-test-for-cve-2023-22518.py --url {url} --file {urllist}')
+        exploitvulncve202322518cve202322518()
+    elif scconsole31 == "exploit":
+        url2 = input("URL: ")
+        urllist2 = input("URLLIST: ")
+        os.system(f'python exploits/cve-2023-22518/vuln-test-for-cve-2023-22518.py --url {url2} --file {urllist2}')
+        exploitvulncve202322518cve202322518()
+    elif scconsole31 == "unuse":
+        print("unusing exploit/cve-2023-22518/vuln-test-for-cve-2023-22518.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole31 == "exit":
         exit()
 
 def OSconsole():
