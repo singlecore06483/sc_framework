@@ -131,7 +131,7 @@ color.blue + """
     print()
     print("to see help menu type 'help' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print("when you choose a exploit, you will type the options when you run the exploit!")
-    print("24 exploits / 8 payloads")
+    print("25 exploits / 10 cve exploits / 8 payloads")
     Console()
 
 
@@ -187,6 +187,7 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """exploit/handler/listining""" + color.white + """            24/01/22 04:12       for listen on the target to open the exploit.php.
 """ + color.red + """exploit/cve-2023-22518/cve-2023-22518""" + color.white + """23/09/29 02:19       allow unauthenticated attackers with network access to the Confluence Instance to restore the database of the Confluence instance.
 """ + color.red + """exploit/cve-2023-22518/vuln-test-for-cve-2023-22518""" + color.white + """23/09/29 02:19       allow to test the target to find cve-2023-22518 vulnerabilitie.
+""" + color.red + """exploit/DD_D_Attack""" + color.white + """                 25/02/01 02:01       for DoS and DDoS Attack.
 """)
     elif scconsole == "search exploit":
         print("""
@@ -208,6 +209,9 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """exploit/reverse-shell""" + color.white + """                24/01/20 01:12       for get a reverse shell by sending a link.
 """ + color.red + """exploit/handler/handler""" + color.white + """              24/01/22 02:34       for listen on the target to open the exploit2.php.
 """ + color.red + """exploit/handler/listining""" + color.white + """            24/01/22 04:12       for listen on the target to open the exploit.php.
+""" + color.red + """exploit/cve-2023-22518/cve-2023-22518""" + color.white + """23/09/29 02:19       allow unauthenticated attackers with network access to the Confluence Instance to restore the database of the Confluence instance.
+""" + color.red + """exploit/cve-2023-22518/vuln-test-for-cve-2023-22518""" + color.white + """23/09/29 02:19       allow to test the target to find cve-2023-22518 vulnerabilitie.
+""" + color.red + """exploit/DD_D_Attack""" + color.white + """                 25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
 """)
     elif scconsole == "search windows":
         print("""
@@ -227,6 +231,7 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """site/http-login-test""" + color.white + """                 24/01/19 12:01       for login on port 80 http port.
 """ + color.red + """site/ZIP-exploit""" + color.white + """                     24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
 """ + color.red + """site/tomcat-mgr-login""" + color.white + """                24/01/12 04:23       for brute force login pages.
+""" + color.red + """site/DD_D_Attack""" + color.white + """                     25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
 """)
     elif scconsole == "search cve-exploits":
         print()
@@ -240,6 +245,7 @@ search <exploit | windows | site | cve-exploits>
         print(color.red + "tools/cve-exploits/wordfence_cve-2024-8543" + color.white + "             25/01/09 12:39       This is an exploit for a Cross-Site Scripting (XSS) vulnerability in the Slider Comparison Image plugin for WordPress.")
         print(color.red + "tools/cve-exploits/OpenSSH_5-3_32bit_86x_0day" + color.white + "          19/02/01 10:50       OpenSSH 5.3 32-bit x86 remote root 0day exploit.")
         print(color.red + "tools/cve-exploits/OpenSSH_5-3p1_cve-2022-28123" + color.white + "        22/04/08 11:21       OpenSSH 5.3p1 cve-2022-28123 exploit.")
+        print(color.red + "tools/cve/exploits/cve-2023-22518" + color.white + "                      23/09/29 02:19       allow unauthenticated attackers with network access to the Confluence Instance to restore the database of the Confluence instance.")
         print()
         print("You can't run these exploits from here, you need to run them from ",os.getcwd(),"/tools/cve-exploits/")
         print()
@@ -337,6 +343,10 @@ search <exploit | windows | site | cve-exploits>
         time.sleep(0.5)
         exploitvulncve202322518cve202322518()
         print("using exploit/cve-2023-22518/vuln-test-for-cve-2023-22518.")
+    elif scconsole == "use exploit/DD_D_Attack":
+        time.sleep(0.5)
+        exploitDDDAttack()
+        print("using exploit/DD_D_Attack.")
     elif scconsole == "use windows/ssh-login-test":
         time.sleep(0.5)
         wexploitsshlogintest()
@@ -361,6 +371,10 @@ search <exploit | windows | site | cve-exploits>
         time.sleep(0.5)
         texploitXSS()
         print("using site/XSS.")
+    elif scconsole == "use site/DD_D_Attack":
+        time.sleep(0.5)
+        texploitDDDAttack()
+        print("using site/DD_D_Attack.")
     elif scconsole == "use site/find_vulnerabilites_website":
         time.sleep(0.5)
         texploitfindvulnerabiliteswebsite()
@@ -1642,6 +1656,84 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole31 == "exit":
+        exit()
+
+def exploitDDDAttack():
+    scconsole32 = input("sc~" + color.red + "(exploit/DD_D_Attack)" + color.white + ">")
+    if scconsole32 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        exploitDDDAttack()
+    elif scconsole32 == "clear":
+        os.system('clear')
+        exploitDDDAttack()
+    elif scconsole32 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+URL              | specifiy the target url.
+TIME             | specifiy the time.
+
+you will specifiy these options when you run or exploit it!
+""")
+        exploitDDDAttack()
+    elif scconsole32 == "run":
+        os.system('python exploits/DD_D_Attack.py')
+        exploitDDDAttack()
+    elif scconsole32 == "exploit":
+        os.system('python exploits/DD_D_Attack.py')
+        exploitDDDAttack()
+    elif scconsole32 == "unuse":
+        print("unusing exploit/DD_D_Attack.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole32 == "exit":
+        exit()
+
+def texploitDDDAttack():
+    scconsole33 = input("sc~" + color.red + "(site/DD_D_Attack)" + color.white + ">")
+    if scconsole33 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        texploitDDDAttack()
+    elif scconsole33 == "clear":
+        os.system('clear')
+        texploitDDDAttack()
+    elif scconsole33 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+URL              | specifiy the target url.
+TIME             | specifiy the time.
+
+you will specifiy these options when you run or exploit it!
+""")
+        texploitDDDAttack()
+    elif scconsole33 == "run":
+        os.system('python exploits/site/DD_D_Attack.py')
+        texploitDDDAttack()
+    elif scconsole33 == "exploit":
+        os.system('python exploits/site/DD_D_Attack.py')
+        texploitDDDAttack()
+    elif scconsole33 == "unuse":
+        print("unusing site/DD_D_Attack.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole33 == "exit":
         exit()
 
 def OSconsole():
