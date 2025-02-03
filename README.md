@@ -3,11 +3,10 @@ UPDATES
 
 new udates and features in sc_framework:
 
-- added 2 new cve-exploits tools
-- added 2 new exploits.
+- added 1 new cve-exploits tools.
+- added 1 new exploits.
 - bugs and errors are fixed.
-- make the tool better to see the exploits and payloads names.
-- added 2 new banners.
+- updated ssh-login-tesst, the SSH Brute-Forcer.
 
 
 
