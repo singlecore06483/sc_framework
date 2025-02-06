@@ -89,6 +89,13 @@ exploit ---> to run the exploit you selected.
 show options ---> to see the options.
 show payloads ---> to see avalable payloads in sc-framework.
 ```
+
+here is the photos from sc_framework:
+
+[using ssh-login-test exploit](images/scframework.png)
+
+[brute-forcing SSH with ssh-login-test exploit](images/scframework2.png)
+
 -------------------------------------------------------------------------
 
 Supported platforms (as attacker):
