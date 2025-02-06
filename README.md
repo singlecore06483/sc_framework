@@ -6,15 +6,14 @@ new udates and features in sc_framework:
 - added 1 new cve-exploits tools.
 - added 1 new exploits.
 - bugs and errors are fixed.
-- updated ssh-login-tesst, the SSH Brute-Forcer.
 
 
 
 SC FRAMEWORK
 -
 
-this tool uses 22 exploits and 8 payloads.
-wich some of the exploit like `ssh-loign, PDF-exploit, and more 20 exploits`.
+this tool uses 22 exploits and 12 cve exploits and 8 payloads.
+wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 20 exploits`.
 
 How this tool works?
 -
@@ -90,11 +89,29 @@ exploit ---> to run the exploit you selected.
 show options ---> to see the options.
 show payloads ---> to see avalable payloads in sc-framework.
 ```
+-------------------------------------------------------------------------
+
+Supported platforms (as attacker):
+-
+
+- GNU/Linux
+- MAC OS X
+
+
+Supported platforms (as target):
+-
+
+- Windows
+- Linux
+- Mac
+
+-------------------------------------------------------------------------
 
 This tool for educational purposes only! 
 
 Donate
 -
+
 BTC: `3J9EmswaqAkzDUz8693MVJ4CqKXzTCM2Vq`
 
 Eth: `0x055aa3c526ad33caec2d1ffbf686ca60071dfe81`
