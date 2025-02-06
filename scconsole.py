@@ -1,5 +1,6 @@
 # This tool haves some tools in /sc_framework/tools/ .
 # haves some exploit and wireless attack tools in /tools/ directory.
+# DISCLAMER! : Every risk you done with this tool, is on your own sholder.
 # imports
 
 import os
@@ -7,6 +8,7 @@ import time
 import random
 from exploits import *
 from payloads import *
+from tools import *
 
 #colors
 class color:
@@ -131,7 +133,8 @@ color.blue + """
     print()
     print("to see help menu type 'help' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print("when you choose a exploit, you will type the options when you run the exploit!")
-    print("25 exploits / 10 cve exploits / 8 payloads")
+    print()
+    print("22 exploits / 12 cve exploits / 8 payloads")
     Console()
 
 
@@ -168,7 +171,7 @@ search <exploit | windows | site | cve-exploits>
     elif scconsole == "search exploits":
         print("""
     Exploits                         When created?        Discrepstion 
-""" + color.red + """exploit/ssh-login-test""" + color.white + """               24/01/11 05:54       for brute forcing ssh port.
+""" + color.red + """exploit/ssh-login-test""" + color.white + """               24/01/11 05:54       for brute forcing ssh port (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """exploit/java-rhino""" + color.white + """                   24/01/12 02:45       for excuteshellcommand http port.
 """ + color.red + """exploit/tomcat-mgr-login""" + color.white + """             24/01/12 04:23       for brute force login pages.
 """ + color.red + """exploit/ms17-010-psexec""" + color.white + """              24/01/13 08:20       for brute force windows smb port.
@@ -180,19 +183,20 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """exploit/ZIP-exploit""" + color.white + """                  24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
 """ + color.red + """exploit/PDF-exploit""" + color.white + """                  24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
 """ + color.red + """exploit/ssh-version""" + color.white + """                  24/01/18 08:32       for scan the ssh port 22, to scan it the port 22 is up or down if it is up shows the version to you.
-""" + color.red + """exploiit/ftp-login-test""" + color.white + """              24/01/19 11:15       for login on port 21 or 20 ftp port.
+""" + color.red + """exploit/ftp-login-test""" + color.white + """              24/01/19 11:15       for login on port 21 or 20 ftp port.
 """ + color.red + """exploit/http-login-test""" + color.white + """              24/01/19 12:01       for login on port 80 http port.
 """ + color.red + """exploit/reverse-shell""" + color.white + """                24/01/20 01:12       for get a reverse shell by sending a link.
 """ + color.red + """exploit/handler/handler""" + color.white + """              24/01/22 02:34       for listen on the target to open the exploit2.php.
 """ + color.red + """exploit/handler/listining""" + color.white + """            24/01/22 04:12       for listen on the target to open the exploit.php.
 """ + color.red + """exploit/cve-2023-22518/cve-2023-22518""" + color.white + """23/09/29 02:19       allow unauthenticated attackers with network access to the Confluence Instance to restore the database of the Confluence instance.
 """ + color.red + """exploit/cve-2023-22518/vuln-test-for-cve-2023-22518""" + color.white + """23/09/29 02:19       allow to test the target to find cve-2023-22518 vulnerabilitie.
-""" + color.red + """exploit/DD_D_Attack""" + color.white + """                 25/02/01 02:01       for DoS and DDoS Attack.
+""" + color.red + """exploit/DD_D_Attack""" + color.white + """                  25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
+""" + color.red + """exploit/7-zip_cve-2025-0411""" + color.white + """          25/02/04 04:18       This flaw bypasses Windows' MotW protections, allowing remote code execution via malicious archives.
 """)
     elif scconsole == "search exploit":
         print("""
     Exploits                         When created?        Discrepstion 
-""" + color.red + """exploit/ssh-login-test""" + color.white + """               24/01/11 05:54       for brute forcing ssh port.
+""" + color.red + """exploit/ssh-login-test""" + color.white + """               24/01/11 05:54       for brute forcing ssh port (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """exploit/java-rhino""" + color.white + """                   24/01/12 02:45       for excuteshellcommand http port.
 """ + color.red + """exploit/tomcat-mgr-login""" + color.white + """             24/01/12 04:23       for brute force login pages.
 """ + color.red + """exploit/ms17-010-psexec""" + color.white + """              24/01/13 08:20       for brute force windows smb port.
@@ -204,7 +208,7 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """exploit/ZIP-exploit""" + color.white + """                  24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
 """ + color.red + """exploit/PDF-exploit""" + color.white + """                  24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
 """ + color.red + """exploit/ssh-version""" + color.white + """                  24/01/18 08:32       for scan the ssh port 22, to scan it the port 22 is up or down if it is up shows the version to you.
-""" + color.red + """exploiit/ftp-login-test""" + color.white + """              24/01/19 11:15       for login on port 21 or 20 ftp port.
+""" + color.red + """exploit/ftp-login-test""" + color.white + """              24/01/19 11:15       for login on port 21 or 20 ftp port.
 """ + color.red + """exploit/http-login-test""" + color.white + """              24/01/19 12:01       for login on port 80 http port.
 """ + color.red + """exploit/reverse-shell""" + color.white + """                24/01/20 01:12       for get a reverse shell by sending a link.
 """ + color.red + """exploit/handler/handler""" + color.white + """              24/01/22 02:34       for listen on the target to open the exploit2.php.
@@ -212,6 +216,7 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """exploit/cve-2023-22518/cve-2023-22518""" + color.white + """23/09/29 02:19       allow unauthenticated attackers with network access to the Confluence Instance to restore the database of the Confluence instance.
 """ + color.red + """exploit/cve-2023-22518/vuln-test-for-cve-2023-22518""" + color.white + """23/09/29 02:19       allow to test the target to find cve-2023-22518 vulnerabilitie.
 """ + color.red + """exploit/DD_D_Attack""" + color.white + """                 25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
+""" + color.red + """exploit/7-zip_cve-2025-0411""" + color.white + """          25/02/04 04:18       This flaw bypasses Windows' MotW protections, allowing remote code execution via malicious archives.
 """)
     elif scconsole == "search windows":
         print("""
@@ -221,6 +226,7 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """windows/java-rhino""" + color.white + """                   24/01/12 02:45       for excuteshellcommand http port.
 """ + color.red + """windows/ms17-010-psexec""" + color.white + """              24/01/13 08:20       for brute force windows smb port.
 """ + color.red + """windows/ssh-login-test""" + color.white + """               24/01/11 05:54       for brute forcing ssh port.
+""" + color.red + """windows/7-zip_cve-2025-0411""" + color.white + """          25/02/04 04:18       This flaw bypasses Windows' MotW protections, allowing remote code execution via malicious archives.
 """)
     elif scconsole == "search site":
         print("""
@@ -245,7 +251,9 @@ search <exploit | windows | site | cve-exploits>
         print(color.red + "tools/cve-exploits/wordfence_cve-2024-8543" + color.white + "             25/01/09 12:39       This is an exploit for a Cross-Site Scripting (XSS) vulnerability in the Slider Comparison Image plugin for WordPress.")
         print(color.red + "tools/cve-exploits/OpenSSH_5-3_32bit_86x_0day" + color.white + "          19/02/01 10:50       OpenSSH 5.3 32-bit x86 remote root 0day exploit.")
         print(color.red + "tools/cve-exploits/OpenSSH_5-3p1_cve-2022-28123" + color.white + "        22/04/08 11:21       OpenSSH 5.3p1 cve-2022-28123 exploit.")
-        print(color.red + "tools/cve/exploits/cve-2023-22518" + color.white + "                      23/09/29 02:19       allow unauthenticated attackers with network access to the Confluence Instance to restore the database of the Confluence instance.")
+        print(color.red + "tools/cve-exploits/cve-2023-22518" + color.white + "                      23/09/29 02:19       allow unauthenticated attackers with network access to the Confluence Instance to restore the database of the Confluence instance.")
+        print(color.red + "tools/cve-exploits/7-zip_cve-2025-0411" + color.white + "                 25/02/04 04:18       This flaw bypasses Windows' MotW protections, allowing remote code execution via malicious archives.")
+        print(color.red + "PCMan_FTP_Server-2_0-pwd_Remote_Buffer_Overflow" + color.white + "        23/09/25 07:11       PCMan FTP Server 2.0 pwd Remote Buffer Overflow.")
         print()
         print("You can't run these exploits from here, you need to run them from ",os.getcwd(),"/tools/cve-exploits/")
         print()
@@ -347,6 +355,10 @@ search <exploit | windows | site | cve-exploits>
         time.sleep(0.5)
         exploitDDDAttack()
         print("using exploit/DD_D_Attack.")
+    elif scconsole == "use exploit/7-zip_cve-2025-0411":
+        time.sleep(0.5)
+        ew7zipcve20250411()
+        print("using exploit/7-zip_cve-2025-0411.")
     elif scconsole == "use windows/ssh-login-test":
         time.sleep(0.5)
         wexploitsshlogintest()
@@ -367,6 +379,10 @@ search <exploit | windows | site | cve-exploits>
         time.sleep(0.5)
         wexploitftplogintest()
         print("using windows/ftp-login-test.")
+    elif scconsole == "use windows/7-zip_cve-2025-0411":
+        time.sleep(0.5)
+        w7zipcve20250411()
+        print("using windows/7-zip_cve-2025-0411.")
     elif scconsole == "use site/XSS":
         time.sleep(0.5)
         texploitXSS()
@@ -1685,10 +1701,10 @@ you will specifiy these options when you run or exploit it!
 """)
         exploitDDDAttack()
     elif scconsole32 == "run":
-        os.system('python exploits/DD_D_Attack.py')
+        os.system('ruby exploits/DD_D_Attack.rb')
         exploitDDDAttack()
     elif scconsole32 == "exploit":
-        os.system('python exploits/DD_D_Attack.py')
+        os.system('ruby exploits/DD_D_Attack.rb')
         exploitDDDAttack()
     elif scconsole32 == "unuse":
         print("unusing exploit/DD_D_Attack.")
@@ -1724,16 +1740,96 @@ you will specifiy these options when you run or exploit it!
 """)
         texploitDDDAttack()
     elif scconsole33 == "run":
-        os.system('python exploits/site/DD_D_Attack.py')
+        os.system('ruby exploits/site/DD_D_Attack.rb')
         texploitDDDAttack()
     elif scconsole33 == "exploit":
-        os.system('python exploits/site/DD_D_Attack.py')
+        os.system('ruby exploits/site/DD_D_Attack.rb')
         texploitDDDAttack()
     elif scconsole33 == "unuse":
         print("unusing site/DD_D_Attack.")
         time.sleep(0.5)
         Console()
     elif scconsole33 == "exit":
+        exit()
+
+def w7zipcve20250411():
+    scconsole34 = input("sc~" + color.red + "(windows/7-zip_cve-2025-0411)" + color.white + ">")
+    if scconsole34 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        w7zipcve20250411()
+    elif scconsole34 == "clear":
+        os.system('clear')
+        w7zipcve20250411()
+    elif scconsole34 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+ATTACKER-IP      | specifiy your ip address.
+ATTACKER-PORT    | specifiy your port.
+LISTEN-PORT      | specifiy the listening port.
+
+you will specifiy these options when you run or exploit it!
+""")
+        w7zipcve20250411()
+    elif scconsole34 == "run":
+        os.system('./exploits/windows/7-zip_cve-2025-0411')
+        w7zipcve20250411()
+    elif scconsole34 == "exploit":
+        os.system('./exploits/windows/7-zip_cve-2025-0411')
+        w7zipcve20250411()
+    elif scconsole34 == "unuse":
+        print("unusing windows/7-zip_cve-2025-0411.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole34 == "exit":
+        exit()
+
+def ew7zipcve20250411():
+    scconsole35 = input("sc~" + color.red + "(exploit/7-zip_cve-2025-0411)" + color.white + ">")
+    if scconsole35 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        ew7zipcve20250411()
+    elif scconsole35 == "clear":
+        os.system('clear')
+        ew7zipcve20250411()
+    elif scconsole35 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+ATTACKER-IP      | specifiy your ip address.
+ATTACKER-PORT    | specifiy your port.
+LISTEN-PORT      | specifiy the listening port.
+
+you will specifiy these options when you run or exploit it!
+""")
+        ew7zipcve20250411()
+    elif scconsole35 == "run":
+        os.system('./exploits/7-zip_cve-2025-0411')
+        ew7zipcve20250411()
+    elif scconsole35 == "exploit":
+        os.system('./exploits/7-zip_cve-2025-0411')
+        ew7zipcve20250411()
+    elif scconsole35 == "unuse":
+        print("unusing exploit/7-zip_cve-2025-0411.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole35 == "exit":
         exit()
 
 def OSconsole():
