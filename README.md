@@ -94,7 +94,11 @@ here is the photos from sc_framework:
 
 [using ssh-login-test exploit](images/scframework.png)
 
+[(images/scframework.png)]
+
 [brute-forcing SSH with ssh-login-test exploit](images/scframework2.png)
+
+[(images/scframework2.png)]
 
 -------------------------------------------------------------------------
 
