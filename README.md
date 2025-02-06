@@ -92,10 +92,10 @@ show payloads ---> to see avalable payloads in sc-framework.
 
 here is the photos from sc_framework:
 
-[using ssh-login-test exploit](images/scframework.png)
+![using ssh-login-test exploit](images/scframework.png)
 
 
-[brute-forcing SSH with ssh-login-test exploit](images/scframework2.png)
+![brute-forcing SSH with ssh-login-test exploit](images/scframework2.png)
 
 
 -------------------------------------------------------------------------
