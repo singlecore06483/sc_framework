@@ -1,13 +1,13 @@
+![SC Framework Banner](images/scbanner.png)
+
 UPDATES
 -
 
 new udates and features in sc_framework:
 
-- added 1 new cve-exploits tools.
-- added 1 new exploits.
 - updated 1 exploit.
 - bugs and errors are fixed.
-
+- fixed the search command.
 
 
 SC FRAMEWORK
@@ -92,9 +92,6 @@ show payloads ---> to see avalable payloads in sc-framework.
 ```
 
 here is the photos from sc_framework:
-
-![using ssh-login-test exploit](images/scframework.png)
-
 
 ![brute-forcing SSH with ssh-login-test exploit](images/scframework2.png)
 
