@@ -1,4 +1,4 @@
-![SC Framework Banner](images/scbanner.png)
+![SC Framework Banner](images/scbanner.jpg)
 
 UPDATES
 -
