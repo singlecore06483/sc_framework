@@ -177,7 +177,7 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """windows/ms17-010-psexec""" + color.white + """                             24/01/13 08:20       for brute force windows smb port.
 """ + color.red + """exploit/bypassuac-eventvwr""" + color.white + """                          24/01/13 10:39       for execute the command with elevated privileges on the target.
 """ + color.red + """exploit/find-vulnerabilites-scan""" + color.white + """                    24/01/14 09:24       for scanning target and finds vulnerabilite on target machine.
-""" + color.red + """site/XSS""" + color.white + """                                            24/01/14 09:35       for alert the XSS attack in html file.
+""" + color.red + """site/XSS-SQLi-PHP-PASS""" + color.white + """                                            24/01/14 09:35       for alert the XSS attack in html file.
 """ + color.red + """site/vuln-curl-website""" + color.white + """                              24/01/14 11:40       for finding vulnerabilite in the target website.
 """ + color.red + """site/find-vulnerabilites-website2""" + color.white + """                   24/01/14 12:31       for finding vulnerabilite with payload you specified.
 """ + color.red + """site/ZIP-exploit""" + color.white + """                                    24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
@@ -192,6 +192,7 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """exploit/cve-2023-22518/vuln-test-for-cve-2023-22518""" + color.white + """ 23/09/29 02:19       allow to test the target to find cve-2023-22518 vulnerabilitie.
 """ + color.red + """site/DD_D_Attack""" + color.white + """                                    25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """windows/7-zip_cve-2025-0411""" + color.white + """                         25/02/04 04:18       This flaw bypasses Windows' MotW protections, allowing remote code execution via malicious archives.
+""" + color.red + """site/Directory-finder""" + color.white + """                               25/02/06 06:11       Finds the Pages and directorys, and brute-forces the directorys.
 """)
     elif scconsole == "search exploit":
         print("""
@@ -218,13 +219,14 @@ search <exploit | windows | site | cve-exploits>
     elif scconsole == "search site":
         print("""
     Exploits                         When created?        Discrepstion 
-""" + color.red + """site/XSS""" + color.white + """                             24/01/14 09:35       for alert the XSS attack in html file.
+""" + color.red + """site/XSS-SQLi-PHP-PASS""" + color.white + """                             24/01/14 09:35       for alert the XSS attack in html file.
 """ + color.red + """site/vuln-curl-website""" + color.white + """               24/01/14 11:40       for finding vulnerabilite in the target website.
 """ + color.red + """site/find-vulnerabilites-website2""" + color.white + """    24/01/14 12:31       for finding vulnerabilite with payload you specified.
 """ + color.red + """site/http-login-test""" + color.white + """                 24/01/19 12:01       for login on port 80 http port.
 """ + color.red + """site/ZIP-exploit""" + color.white + """                     24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
 """ + color.red + """site/tomcat-mgr-login""" + color.white + """                24/01/12 04:23       for brute force login pages.
 """ + color.red + """site/DD_D_Attack""" + color.white + """                     25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
+""" + color.red + """site/Directory-finder""" + color.white + """                25/02/06 06:11       Finds the Pages and directorys, and brute-forces the directorys (works slow).
 """)
     elif scconsole == "search cve-exploits":
         print()
@@ -318,10 +320,10 @@ search <exploit | windows | site | cve-exploits>
         time.sleep(0.5)
         w7zipcve20250411()
         print("using windows/7-zip_cve-2025-0411.")
-    elif scconsole == "use site/XSS":
+    elif scconsole == "use site/XSS-SQLi-PHP-PASS":
         time.sleep(0.5)
         texploitXSS()
-        print("using site/XSS.")
+        print("using site/XSS-SQLi-PHP-PASS.")
     elif scconsole == "use site/DD_D_Attack":
         time.sleep(0.5)
         texploitDDDAttack()
@@ -346,6 +348,10 @@ search <exploit | windows | site | cve-exploits>
         time.sleep(0.5)
         texploittomcatmgrlogin()
         print("using site/tomcat-mgr-login.")
+    elif scconsole == "use site/Directory-finder":
+        time.sleep(0.5)
+        tdirectoryfinder()
+        print("using site/Directory-finder.")
     elif scconsole == "use system commands":
             OSconsole()
             OSconsole()
@@ -821,7 +827,7 @@ you will specifiy these options when you run or exploit it!
         exit()
 
 def texploitXSS():
-    scconsole24 = input("sc~" + color.red + "(site/XSS)" + color.white + ">")
+    scconsole24 = input("sc~" + color.red + "(site/XSS-SQLi-PHP-PASS)" + color.white + ">")
     if scconsole24 == "help":
         print("""
 help ---> to see this help menu.
@@ -838,20 +844,22 @@ show options ---> to see the options.
         texploitXSS()
     elif scconsole24 == "show options":
         print("""
-NO OPTION OR DISCREPTIONS HERE!
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+URL              | specifiy the target url login-page.
+USERNAME         | specifiy the username.
 
-this is not exploit, this for try the payload!
-payload = <img src=x onerror=alert('XSS')>  ---> cross site XSS onerror payload.
+you will specifiy these options when you run or exploit it!
 """)
         texploitXSS()
     elif scconsole24 == "run":
-        os.system('firefox exploits/site/XSS.html')
+        os.system('python exploits/site/XSS-SQLi-PHP-PASS.py')
         texploitXSS()
     elif scconsole24 == "exploit":
-        os.system('firefox exploits/site/XSS.html')
+        os.system('python exploits/site/XSS-SQLi-PHP-PASS.py')
         texploitXSS()
     elif scconsole24 == "unuse":
-        print("unusing site/XSS.")
+        print("unusing site/XSS-SQLi-PHP-PASS.")
         time.sleep(0.5)
         Console()
     elif scconsole24 == "exit":
@@ -1233,6 +1241,45 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole34 == "exit":
+        exit()
+
+def tdirectoryfinder():
+    scconsole35 = input("sc~" + color.red + "(site/Directory-finder)" + color.white + ">")
+    if scconsole35 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        tdirectoryfinder()
+    elif scconsole35 == "clear":
+        os.system('clear')
+        tdirectoryfinder()
+    elif scconsole35 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+URL              | specifiy the target url login-page.
+URLLIST          | specifiy the url-list path.
+
+you will specifiy these options when you run or exploit it!
+""")
+        tdirectoryfinder()
+    elif scconsole35 == "run":
+        os.system('python exploits/site/Directory-finder.py')
+        tdirectoryfinder()
+    elif scconsole35 == "exploit":
+        os.system('python exploits/site/Directory-finder.py')
+        tdirectoryfinder()
+    elif scconsole35 == "unuse":
+        print("unusing site/Directory-finder.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole35 == "exit":
         exit()
 
 def OSconsole():
