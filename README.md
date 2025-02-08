@@ -5,6 +5,7 @@ UPDATES
 
 new udates and features in sc_framework:
 
+- added 1 new exploit.
 - updated 1 exploit.
 - bugs and errors are fixed.
 - fixed the search command.
