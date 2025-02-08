@@ -177,7 +177,7 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """windows/ms17-010-psexec""" + color.white + """                             24/01/13 08:20       for brute force windows smb port.
 """ + color.red + """exploit/bypassuac-eventvwr""" + color.white + """                          24/01/13 10:39       for execute the command with elevated privileges on the target.
 """ + color.red + """exploit/find-vulnerabilites-scan""" + color.white + """                    24/01/14 09:24       for scanning target and finds vulnerabilite on target machine.
-""" + color.red + """site/XSS-SQLi-PHP-PASS""" + color.white + """                                            24/01/14 09:35       for alert the XSS attack in html file.
+""" + color.red + """site/XSS-SQLi-PHP-PASS""" + color.white + """                              24/01/14 09:35       to try passwords, sql injection, xss, php on the taregt login-page.
 """ + color.red + """site/vuln-curl-website""" + color.white + """                              24/01/14 11:40       for finding vulnerabilite in the target website.
 """ + color.red + """site/find-vulnerabilites-website2""" + color.white + """                   24/01/14 12:31       for finding vulnerabilite with payload you specified.
 """ + color.red + """site/ZIP-exploit""" + color.white + """                                    24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
@@ -219,7 +219,7 @@ search <exploit | windows | site | cve-exploits>
     elif scconsole == "search site":
         print("""
     Exploits                         When created?        Discrepstion 
-""" + color.red + """site/XSS-SQLi-PHP-PASS""" + color.white + """                             24/01/14 09:35       for alert the XSS attack in html file.
+""" + color.red + """site/XSS-SQLi-PHP-PASS""" + color.white + """               24/01/14 09:35       for alert the XSS attack in html file.
 """ + color.red + """site/vuln-curl-website""" + color.white + """               24/01/14 11:40       for finding vulnerabilite in the target website.
 """ + color.red + """site/find-vulnerabilites-website2""" + color.white + """    24/01/14 12:31       for finding vulnerabilite with payload you specified.
 """ + color.red + """site/http-login-test""" + color.white + """                 24/01/19 12:01       for login on port 80 http port.
