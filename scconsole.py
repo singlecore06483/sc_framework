@@ -125,16 +125,30 @@ color.blue + """
                   \ \      / / 
                    \ IIIIII /
                     -------- 
+""",
+color.red + """
+                                              .------..------.          
+ .-.  .-.  .-.  .-.  .-.  .-.  .-.  .-.  .-.  |S.--. ||C.--. |          
+((5))((5))((5))((5))((5))((5))((5))((5))((5)) | :/\: || :/\: |          
+ '-.-.'-.-.'-.-.'-.-.'-.-.'-.-.'-.-.'-.-.'-.-.| :\/: || :\/: |          
+  ((1))((1))((1))((1))((1))((1))((1))((1))((1)) '--'S|| '--'C|          
+   '-'  '-'  '-'  '-'  '-'  '-'  '-'  '-'  '-'`------'`------'          
+.------..------..------..------..------..------..------..------..------.
+|F.--. ||R.--. ||A.--. ||M.--. ||E.--. ||W.--. ||O.--. ||R.--. ||K.--. |
+| :(): || :(): || (\/) || (\/) || (\/) || :/\: || :/\: || :(): || :/\: |
+| ()() || ()() || :\/: || :\/: || :\/: || :\/: || :\/: || ()() || :\/: |
+| '--'F|| '--'R|| '--'A|| '--'M|| '--'E|| '--'W|| '--'O|| '--'R|| '--'K|
+`------'`------'`------'`------'`------'`------'`------'`------'`------'
 """]
     random_banner = random.choice(list)
     print(random_banner)
     print()
-    print(color.white + "you can use some of the tools from: ",os.getcwd(),"/tools/")
     print()
-    print("to see help menu type 'help' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
-    print("when you choose a exploit, you will type the options when you run the exploit!")
+    print(color.white + "        *[ " + color.red + "sc_framework v0.3" + color.white + "                          ]")
+    print("        *[ 26 exploits / 12 cve exploits / 8 payloads ]")
     print()
-    print("22 exploits / 12 cve exploits / 8 payloads")
+    print("sc_framework tip: type '" + color.blue + "help" + color.white + "' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
+    print()
     Console()
 
 
@@ -166,12 +180,12 @@ PLEASE CHOOSE AN EXPLOIT THEN TYPE THIS!
         os.system('clear')
     elif scconsole == "search":
         print("""
-search <exploit | windows | site | cve-exploits>        
+search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi>        
 """)
     elif scconsole == "search exploits":
         print("""
     Exploits                                        When created?        Discrepstion 
-""" + color.red + """windows/ssh-login-test""" + color.white + """                              24/01/11 05:54       for brute forcing ssh port (If your Internet is slow, that's gonna works slowly!).
+""" + color.red + """multi/ssh-login-test""" + color.white + """                                24/01/11 05:54       for brute forcing ssh port (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """windows/java-rhino""" + color.white + """                                  24/01/12 02:45       for excuteshellcommand http port.
 """ + color.red + """site/tomcat-mgr-login""" + color.white + """                               24/01/12 04:23       for brute force login pages.
 """ + color.red + """windows/ms17-010-psexec""" + color.white + """                             24/01/13 08:20       for brute force windows smb port.
@@ -183,7 +197,7 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """site/ZIP-exploit""" + color.white + """                                    24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
 """ + color.red + """windows/PDF-exploit""" + color.white + """                                 24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
 """ + color.red + """exploit/ssh-version""" + color.white + """                                 24/01/18 08:32       for scan the ssh port 22, to scan it the port 22 is up or down if it is up shows the version to you.
-""" + color.red + """windows/ftp-login-test""" + color.white + """                              24/01/19 11:15       for login on port 21 or 20 ftp port.
+""" + color.red + """multi/ftp-login-test""" + color.white + """                                24/01/19 11:15       for login on port 21 or 20 ftp port.
 """ + color.red + """site/http-login-test""" + color.white + """                                24/01/19 12:01       for login on port 80 http port.
 """ + color.red + """exploit/reverse-shell""" + color.white + """                               24/01/20 01:12       for get a reverse shell by sending a link.
 """ + color.red + """exploit/handler/handler""" + color.white + """                             24/01/22 02:34       for listen on the target to open the exploit2.php.
@@ -193,6 +207,10 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """site/DD_D_Attack""" + color.white + """                                    25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """windows/7-zip_cve-2025-0411""" + color.white + """                         25/02/04 04:18       This flaw bypasses Windows' MotW protections, allowing remote code execution via malicious archives.
 """ + color.red + """site/Directory-finder""" + color.white + """                               25/02/06 06:11       Finds the Pages and directorys, and brute-forces the directorys.
+""" + color.red + """site/struts2_namespace_ognl""" + color.white + """                         25/02/07 02:12       exploits the Struts2 framework to execute arbitrary code. It uses the OGNL injection vulnerability.
+""" + color.red + """multi/shell_reverse_tcp""" + color.white + """                             25/02/06 02:03       provides a reverse shell payload that can be used to establish a reverse shell connection.
+""" + color.red + """osx/kernel_xnu_ip_fragment_privesc""" + color.white + """                  25/02/06 09:43       exploits a vulnerability in the Apple kernel that allows privilege escalation through the IP fragmentation feature.
+""" + color.red + """osx/kernel_xnu_ip_fragment_privesc_2""" + color.white + """                25/02/06 09:43       exploits a vulnerability in the Apple kernel that allows privilege escalation through the IP fragmentation feature.
 """)
     elif scconsole == "search exploit":
         print("""
@@ -227,6 +245,7 @@ search <exploit | windows | site | cve-exploits>
 """ + color.red + """site/tomcat-mgr-login""" + color.white + """                24/01/12 04:23       for brute force login pages.
 """ + color.red + """site/DD_D_Attack""" + color.white + """                     25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """site/Directory-finder""" + color.white + """                25/02/06 06:11       Finds the Pages and directorys, and brute-forces the directorys (works slow).
+""" + color.red + """site/struts2_namespace_ognl""" + color.white + """          25/02/07 02:12       exploits the Struts2 framework to execute arbitrary code. It uses the OGNL injection vulnerability.
 """)
     elif scconsole == "search cve-exploits":
         print()
@@ -246,6 +265,27 @@ search <exploit | windows | site | cve-exploits>
         print()
         print("You can't run these exploits from here, you need to run them from ",os.getcwd(),"/tools/cve-exploits/")
         print()
+    elif scconsole == "search multi":
+        print("""
+    Exploits                                        When created?        Discrepstion 
+""" + color.red + """multi/ssh-login-test""" + color.white + """                                24/01/11 05:54       for brute forcing ssh port (If your Internet is slow, that's gonna works slowly!).
+""" + color.red + """multi/ftp-login-test""" + color.white + """                                24/01/19 11:15       for login on port 21 or 20 ftp port.
+""" + color.red + """multi/shell_reverse_tcp""" + color.white + """                             25/02/06 02:03       provides a reverse shell payload that can be used to establish a reverse shell connection.
+""")
+    elif scconsole == "search osx":
+        print("""
+    Exploits                                        When created?        Discrepstion 
+""" + color.red + """osx/ssh-login-test""" + color.white + """                                  24/01/11 05:54       for brute forcing ssh port (If your Internet is slow, that's gonna works slowly!).
+""" + color.red + """osx/ftp-login-test""" + color.white + """                                  24/01/19 11:15       for login on port 21 or 20 ftp port.
+""" + color.red + """osx/kernel_xnu_ip_fragment_privesc""" + color.white + """                  25/02/06 09:43       exploits a vulnerability in the Apple kernel that allows privilege escalation through the IP fragmentation feature.
+""" + color.red + """osx/kernel_xnu_ip_fragment_privesc_2""" + color.white + """                25/02/06 09:43       exploits a vulnerability in the Apple kernel that allows privilege escalation through the IP fragmentation feature.
+""")
+    elif scconsole == "search linux":
+        print("""
+    Exploits                                        When created?        Discrepstion 
+""" + color.red + """linux/ssh-login-test""" + color.white + """                                24/01/11 05:54       for brute forcing ssh port (If your Internet is slow, that's gonna works slowly!).
+""" + color.red + """linux/ftp-login-test""" + color.white + """                                24/01/19 11:15       for login on port 21 or 20 ftp port.
+""")
     elif scconsole == "show payloads":
         print("""
 """ + color.green + """' OR 1=1--""" + color.white + """   ---> SQL Injection payload.
@@ -352,6 +392,46 @@ search <exploit | windows | site | cve-exploits>
         time.sleep(0.5)
         tdirectoryfinder()
         print("using site/Directory-finder.")
+    elif scconsole == "use site/struts2_namespace_ognl":
+        time.sleep(0.5)
+        tstruts2namespaceognl()
+        print("using site/struts2_namespace_ognl.")
+    elif scconsole == "use multi/ssh-login-test":
+        time.sleep(0.5)
+        mexploitsshlogintest()
+        print("using multi/ssh-login-test.")
+    elif scconsole == "use multi/ftp-login-test":
+        time.sleep(0.5)
+        mexploitftplogintest()
+        print("using multi/ftp-login-test.")
+    elif scconsole == "use multi/shell_reverse_tcp":
+        time.sleep(0.5)
+        mexploitreverseshell()
+        print("using multi/shell_reverse_tcp.")
+    elif scconsole == "use osx/kernel_xnu_ip_fragment_privesc":
+        time.sleep(0.5)
+        osxkernelxnuipfragmentprivesc()
+        print("using osx/kernel_xnu_ip_fragment_privesc.")
+    elif scconsole == "use osx/kernel_xnu_ip_fragment_privesc_2":
+        time.sleep(0.5)
+        osxkernelxnuipfragmentprivesc2()
+        print("using osx/kernel_xnu_ip_fragment_privesc_2.")
+    elif scconsole == "use osx/ssh-login-test":
+        time.sleep(0.5)
+        oexploitsshlogintest()
+        print("using osx/ssh-login-test.")
+    elif scconsole == "use osx/ftp-login-test":
+        time.sleep(0.5)
+        oexploitftplogintest()
+        print("using osx/ftp-login-test.")
+    elif scconsole == "use linux/ssh-login-test":
+        time.sleep(0.5)
+        lexploitsshlogintest()
+        print("using linux/ssh-login-test.")
+    elif scconsole == "use linux/ftp-login-test":
+        time.sleep(0.5)
+        lexploitftplogintest()
+        print("using linux/ftp-login-test.")
     elif scconsole == "use system commands":
             OSconsole()
             OSconsole()
@@ -665,7 +745,7 @@ you will specifiy these options when you run or exploit it!
         os.system('python exploits/windows/ssh-login-test.py')
         wexploitsshlogintest()
     elif scconsole19 == "unuse":
-        print("unusing exploit/ssh-login-test.")
+        print("unusing windows/ssh-login-test.")
         time.sleep(0.5)
         Console()
     elif scconsole19 == "exit":
@@ -1280,6 +1360,403 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole35 == "exit":
+        exit()
+
+def tstruts2namespaceognl():
+    scconsole36 = input("sc~" + color.red + "(site/struts2_namespace_ognl)" + color.white + ">")
+    if scconsole36 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        tstruts2namespaceognl()
+    elif scconsole36 == "clear":
+        os.system('clear')
+        tstruts2namespaceognl()
+    elif scconsole36 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+URL              | specifiy the target url login-page.
+URLLIST          | specifiy the url-list path.
+
+you will specifiy these options when you run or exploit it!
+""")
+        tstruts2namespaceognl()
+    elif scconsole36 == "run":
+        os.system('python exploits/site/struts2_namespace_ognl.py')
+        tstruts2namespaceognl()
+    elif scconsole36 == "exploit":
+        os.system('python exploits/site/struts2_namespace_ognl.py')
+        tstruts2namespaceognl()
+    elif scconsole36 == "unuse":
+        print("unusing site/struts2_namespace_ognl.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole36 == "exit":
+        exit()
+
+def mexploitsshlogintest():
+    scconsole37 = input("sc~" + color.red + "(multi/ssh-login-test)" + color.white + ">")
+    if scconsole37 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        mexploitsshlogintest()
+    elif scconsole37 == "clear":
+        os.system('clear')
+        mexploitsshlogintest()
+    elif scconsole37 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+LHOST         | specifiy the target ip address or url.
+LPORT         | specified as 22. (ssh port).
+PASSLIST      | specifiy the password list path.
+USERNAMELIST  | specifiy the username list path.
+
+you will specifiy these options when you run or exploit it!
+""")
+        mexploitsshlogintest()
+    elif scconsole37 == "run":
+        os.system('python exploits/multi/ssh-login-test.py')
+        mexploitsshlogintest()
+    elif scconsole37 == "exploit":
+        os.system('python exploits/multi/ssh-login-test.py')
+        mexploitsshlogintest()
+    elif scconsole37 == "unuse":
+        print("unusing multi/ssh-login-test.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole37 == "exit":
+        exit()
+
+def mexploitftplogintest():
+    scconsole38 = input("sc~" + color.red + "(multi/ftp-login-test)" + color.white + ">")
+    if scconsole38 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        mexploitftplogintest()
+    elif scconsole38 == "clear":
+        os.system('clear')
+        mexploitftplogintest()
+    elif scconsole38 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target ip address.
+USERNAMELIST     | specifiy the username list.
+PASSLIST         | specifiy the password list.
+
+you will specifiy these options when you run or exploit it!
+""")
+        mexploitftplogintest()
+    elif scconsole38 == "run":
+        os.system('python exploits/multi/ftp-login-test.py')
+        mexploitftplogintest()
+    elif scconsole38 == "exploit":
+        os.system('python exploits/multi/ftp-login-test.py')
+        mexploitftplogintest()
+    elif scconsole38 == "unuse":
+        print("unusing multi/ftp-login-test.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole38 == "exit":
+        exit()
+
+def mexploitreverseshell():
+    scconsole39 = input("sc~" + color.red + "(multi/shell_reverse_tcp)" + color.white + ">")
+    if scconsole39 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        mexploitreverseshell()
+    elif scconsole39 == "clear":
+        os.system('clear')
+        mexploitreverseshell()
+    elif scconsole39 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy your ip address.
+LPORT            | specifiy your port.
+
+you will specifiy these options when you run or exploit it!
+""")
+        mexploitreverseshell()
+    elif scconsole39 == "run":
+        os.system('python exploits/multi/shell_reverse_tcp.py')
+        mexploitreverseshell()
+    elif scconsole39 == "exploit":
+        os.system('python exploits/multi/shell_reverse_tcp.py')
+        mexploitreverseshell()
+    elif scconsole39 == "unuse":
+        print("unusing multi/shell_reverse_tcp.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole39 == "exit":
+        exit()
+
+def osxkernelxnuipfragmentprivesc():
+    scconsole40 = input("sc~" + color.red + "(osx/kernel_xnu_ip_fragment_privesc)" + color.white + ">")
+    if scconsole40 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        osxkernelxnuipfragmentprivesc()
+    elif scconsole40 == "clear":
+        os.system('clear')
+        osxkernelxnuipfragmentprivesc()
+    elif scconsole40 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target ip address.
+
+you will specifiy these options when you run or exploit it!
+""")
+        osxkernelxnuipfragmentprivesc()
+    elif scconsole40 == "run":
+        os.system('python exploits/osx/kernel_xnu_ip_fragment_privesc.py')
+        osxkernelxnuipfragmentprivesc()
+    elif scconsole40 == "exploit":
+        os.system('python exploits/osx/kernel_xnu_ip_fragment_privesc.py')
+        osxkernelxnuipfragmentprivesc()
+    elif scconsole40 == "unuse":
+        print("unusing osx/kernel_xnu_ip_fragment_privesc.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole40 == "exit":
+        exit()
+    
+def osxkernelxnuipfragmentprivesc2():
+    scconsole41 = input("sc~" + color.red + "(osx/kernel_xnu_ip_fragment_privesc_2)" + color.white + ">")
+    if scconsole41 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        osxkernelxnuipfragmentprivesc2()
+    elif scconsole41 == "clear":
+        os.system('clear')
+        osxkernelxnuipfragmentprivesc2()
+    elif scconsole41 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target ip address.
+
+you will specifiy these options when you run or exploit it!
+""")
+        osxkernelxnuipfragmentprivesc2()
+    elif scconsole41 == "run":
+        os.system('python exploits/osx/kernel_xnu_ip_fragment_privesc_2.py')
+        osxkernelxnuipfragmentprivesc2()
+    elif scconsole41 == "exploit":
+        os.system('python exploits/osx/kernel_xnu_ip_fragment_privesc_2.py')
+        osxkernelxnuipfragmentprivesc2()
+    elif scconsole41 == "unuse":
+        print("unusing osx/kernel_xnu_ip_fragment_privesc_2.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole41 == "exit":
+        exit()
+
+def oexploitsshlogintest():
+    scconsole42 = input("sc~" + color.red + "(osx/ssh-login-test)" + color.white + ">")
+    if scconsole42 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        oexploitsshlogintest()
+    elif scconsole42 == "clear":
+        os.system('clear')
+        oexploitsshlogintest()
+    elif scconsole42 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+LHOST         | specifiy the target ip address or url.
+LPORT         | specified as 22. (ssh port).
+PASSLIST      | specifiy the password list path.
+USERNAMELIST  | specifiy the username list path.
+
+you will specifiy these options when you run or exploit it!
+""")
+        oexploitsshlogintest()
+    elif scconsole42 == "run":
+        os.system('python exploits/osx/ssh-login-test.py')
+        oexploitsshlogintest()
+    elif scconsole42 == "exploit":
+        os.system('python exploits/osx/ssh-login-test.py')
+        oexploitsshlogintest()
+    elif scconsole42 == "unuse":
+        print("unusing osx/ssh-login-test.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole42 == "exit":
+        exit()
+
+def oexploitftplogintest():
+    scconsole43 = input("sc~" + color.red + "(osx/ftp-login-test)" + color.white + ">")
+    if scconsole43 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        oexploitftplogintest()
+    elif scconsole43 == "clear":
+        os.system('clear')
+        oexploitftplogintest()
+    elif scconsole43 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target ip address.
+USERNAMELIST     | specifiy the username list.
+PASSLIST         | specifiy the password list.
+
+you will specifiy these options when you run or exploit it!
+""")
+        oexploitftplogintest()
+    elif scconsole43 == "run":
+        os.system('python exploits/osx/ftp-login-test.py')
+        oexploitftplogintest()
+    elif scconsole43 == "exploit":
+        os.system('python exploits/osx/ftp-login-test.py')
+        oexploitftplogintest()
+    elif scconsole43 == "unuse":
+        print("unusing osx/ftp-login-test.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole43 == "exit":
+        exit()
+
+def lexploitsshlogintest():
+    scconsole44 = input("sc~" + color.red + "(linux/ssh-login-test)" + color.white + ">")
+    if scconsole44 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        lexploitsshlogintest()
+    elif scconsole44 == "clear":
+        os.system('clear')
+        lexploitsshlogintest()
+    elif scconsole44 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+LHOST         | specifiy the target ip address or url.
+LPORT         | specified as 22. (ssh port).
+PASSLIST      | specifiy the password list path.
+USERNAMELIST  | specifiy the username list path.
+
+you will specifiy these options when you run or exploit it!
+""")
+        lexploitsshlogintest()
+    elif scconsole44 == "run":
+        os.system('python exploits/linux/ssh-login-test.py')
+        lexploitsshlogintest()
+    elif scconsole44 == "exploit":
+        os.system('python exploits/linux/ssh-login-test.py')
+        lexploitsshlogintest()
+    elif scconsole44 == "unuse":
+        print("unusing linux/ssh-login-test.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole44 == "exit":
+        exit()
+
+def lexploitftplogintest():
+    scconsole45 = input("sc~" + color.red + "(linux/ftp-login-test)" + color.white + ">")
+    if scconsole45 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        lexploitftplogintest()
+    elif scconsole45 == "clear":
+        os.system('clear')
+        lexploitftplogintest()
+    elif scconsole45 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target ip address.
+USERNAMELIST     | specifiy the username list.
+PASSLIST         | specifiy the password list.
+
+you will specifiy these options when you run or exploit it!
+""")
+        lexploitftplogintest()
+    elif scconsole45 == "run":
+        os.system('python exploits/linux/ftp-login-test.py')
+        lexploitftplogintest()
+    elif scconsole45 == "exploit":
+        os.system('python exploits/linux/ftp-login-test.py')
+        lexploitftplogintest()
+    elif scconsole45 == "unuse":
+        print("unusing linux/ftp-login-test.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole45 == "exit":
         exit()
 
 def OSconsole():
