@@ -3,12 +3,13 @@
 UPDATES
 -
 
-new udates and features in sc_framework:
+new udates and features in sc_framework v0.4:
 
 - added 4 new exploit.
 - bugs and errors are fixed.
 - added 3 search command. ---> search multi, linux, osx
 - added 1 new banner.
+- added a scpgenerator ---> sc payload generator.
 
 
 SC FRAMEWORK
@@ -92,9 +93,20 @@ show options ---> to see the options.
 show payloads ---> to see avalable payloads in sc-framework.
 ```
 
-here is the photos from sc_framework:
+-------------------------------------------------------------------------
 
-![brute-forcing SSH with ssh-login-test exploit](images/scframework2.png)
+SC PAYLOAD GENERATOR
+-
+
+this tool uses 3 reverse shell payloads.
+
+the scpgenerator (sc payload generator) is a tool for generating reverse shell payloads.
+
+here is an example command of scpgenerator:
+
+```
+python scgenrate.py -t reverse_tcp -lh <listener_host> -lp <listener_port> -o <output_file>
+```
 
 
 -------------------------------------------------------------------------
