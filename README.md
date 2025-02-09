@@ -5,17 +5,17 @@ UPDATES
 
 new udates and features in sc_framework:
 
-- added 1 new exploit.
-- updated 1 exploit.
+- added 4 new exploit.
 - bugs and errors are fixed.
-- fixed the search command.
+- added 3 search command. ---> search multi, linux, osx
+- added 1 new banner.
 
 
 SC FRAMEWORK
 -
 
-this tool uses 22 exploits and 12 cve exploits and 8 payloads.
-wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 20 exploits`.
+this tool uses 26 exploits and 12 cve exploits and 8 payloads.
+wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 24 exploits`.
 
 How this tool works?
 -
