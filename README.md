@@ -3,9 +3,10 @@
 UPDATES
 -
 
-new updates and features in sc_framework v0.5:
+new updates and features in sc_framework v0.6:
 
 - added 2 new exploit.
+- added 3 new cve-exploits.
 - bugs and errors are fixed.
 - added 1 search command. ---> search server
 - added 2 payload.
