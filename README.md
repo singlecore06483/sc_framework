@@ -5,18 +5,18 @@ UPDATES
 
 new udates and features in sc_framework v0.4:
 
-- added 4 new exploit.
+- added 2 new exploit.
 - bugs and errors are fixed.
-- added 3 search command. ---> search multi, linux, osx
-- added 1 new banner.
-- added a scpgenerator ---> sc payload generator.
+- added 1 search command. ---> search server
+- added 2 payload.
+- fixed the use command bug : (the bug is when you using a exploit, thats dosen't types 'using <exploit>', thats types it when you unuse the exploit.).
 
 
 SC FRAMEWORK
 -
 
-this tool uses 26 exploits and 12 cve exploits and 8 payloads.
-wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 24 exploits`.
+this tool uses 28 exploits and 12 cve exploits and 10 payloads.
+wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 26 exploits`.
 
 How this tool works?
 -
