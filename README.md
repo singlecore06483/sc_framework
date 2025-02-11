@@ -3,7 +3,7 @@
 UPDATES
 -
 
-new udates and features in sc_framework v0.5:
+new updates and features in sc_framework v0.5:
 
 - added 2 new exploit.
 - bugs and errors are fixed.
