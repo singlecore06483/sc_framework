@@ -6,18 +6,15 @@ UPDATES
 new updates and features in sc_framework v0.6:
 
 - added 2 new exploit.
-- added 3 new cve-exploits.
-- bugs and errors are fixed.
-- added 1 search command. ---> search server
-- added 2 payload.
-- fixed the use command bug : (the bug is when you using a exploit, thats dosen't types 'using <exploit>', thats types it when you unuse the exploit.).
+- updated 1 exploit.
+
 
 
 SC FRAMEWORK
 -
 
-this tool uses 28 exploits and 16 cve exploits and 10 payloads.
-wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 26 exploits`.
+this tool uses 30 exploits and 16 cve exploits and 10 payloads.
+wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 28 exploits`.
 
 How this tool works?
 -
