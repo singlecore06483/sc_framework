@@ -3,18 +3,19 @@
 UPDATES
 -
 
-new updates and features in sc_framework v0.6:
+new updates and features in sc_framework v0.8:
 
-- added 2 new exploit.
-- updated 1 exploit.
+- added 1 new exploit.
+- added 1 new cve-exploit.
+- added 1 new banner.
 
 
 
 SC FRAMEWORK
 -
 
-this tool uses 30 exploits and 16 cve exploits and 10 payloads.
-wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 28 exploits`.
+this tool uses 31 exploits and 17 cve exploits and 10 payloads.
+wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 29 exploits`.
 
 How this tool works?
 -
