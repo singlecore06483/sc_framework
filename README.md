@@ -6,7 +6,7 @@ UPDATES
 new updates and features in sc_framework v0.9:
 
 - added 2 payloads to scpgenerator ----->  ruby payload, bash payload.
-- addded a new feature to scpgenerator that encrypts the payload to keep you safe (like when you send it to your target, when target opens it, can't see your IP Address!).
+- added a new feature to scpgenerator that encrypts the payload to keep you safe (like when you send it to your target, when target opens it, can't see your IP Address!).
 
 
 SC FRAMEWORK
@@ -121,10 +121,12 @@ Supported platforms (as target):
 - Windows
 - Linux
 - Mac
+- server
+- website
 
 -------------------------------------------------------------------------
 
-This tool for educational purposes only! 
+This tool is only for educational purposes !
 
 Donate
 -
