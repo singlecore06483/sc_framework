@@ -159,7 +159,7 @@ color.red + """
     print(random_banner)
     print()
     print()
-    print(color.white + "        *[ " + color.red + "sc_framework v0.8" + color.white + "                          ]")
+    print(color.white + "        +[ " + color.red + "sc_framework v0.9" + color.white + "                          ]+")
     print("        *[ 31 exploits / 17 cve exploits / 10 payloads ]")
     print()
     print("sc_framework tip: type '" + color.blue + "help" + color.white + "' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
