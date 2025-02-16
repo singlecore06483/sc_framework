@@ -3,12 +3,10 @@
 UPDATES
 -
 
-new updates and features in sc_framework v0.8:
+new updates and features in sc_framework v0.9:
 
-- added 1 new exploit.
-- added 1 new cve-exploit.
-- added 1 new banner.
-
+- added 2 payloads to scpgenerator ----->  ruby payload, bash payload.
+- addded a new feature to scpgenerator that encrypts the payload to keep you safe (like when you send it to your target, when target opens it, can't see your IP Address!).
 
 
 SC FRAMEWORK
@@ -97,9 +95,9 @@ show payloads ---> to see avalable payloads in sc-framework.
 SC PAYLOAD GENERATOR
 -
 
-this tool uses 3 reverse shell payloads.
+this tool uses `5` payloads.
 
-the scpgenerator (sc payload generator) is a tool for generating reverse shell payloads.
+the `scpgenerator` (sc payload generator) is a tool for generating `reverse shell payloads`.
 
 here is an example command of scpgenerator:
 
