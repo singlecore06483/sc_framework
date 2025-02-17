@@ -3,17 +3,17 @@
 UPDATES
 -
 
-new updates and features in sc_framework v0.9:
+new updates and features in sc_framework v1.0:
 
-- added 2 payloads to scpgenerator ----->  ruby payload, bash payload.
-- added a new feature to scpgenerator that encrypts the payload to keep you safe (like when you send it to your target, when target opens it, can't see your IP Address!).
+- added 2 new exploits.
+- added 1 cve-exploit.
 
 
 SC FRAMEWORK
 -
 
-this tool uses 31 exploits and 17 cve exploits and 10 payloads.
-wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 29 exploits`.
+this tool uses 33 exploits and 18 cve exploits and 10 payloads.
+wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 31 exploits`.
 
 How this tool works?
 -
