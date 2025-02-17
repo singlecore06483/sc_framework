@@ -159,8 +159,8 @@ color.red + """
     print(random_banner)
     print()
     print()
-    print(color.white + "        +[ " + color.red + "sc_framework v0.9" + color.white + "                          ]+")
-    print("        *[ 31 exploits / 17 cve exploits / 10 payloads ]")
+    print(color.white + "        +[ " + color.red + "sc_framework v1.0" + color.white + "                          ]+")
+    print("        *[ 33 exploits / 18 cve exploits / 10 payloads ]")
     print()
     print("sc_framework tip: type '" + color.blue + "help" + color.white + "' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print()
@@ -231,6 +231,8 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """linux/vulnerability-find""" + color.white + """                            25/02/08 09:27       find vulnerabilities like common open ports, if the password is weak, the kernal version.
 """ + color.red + """server/extract_table_db_column""" + color.white + """                      25/02/08 09:30       extract sensitive information with the payloads have, extract informations like tables, columns, databases.
 """ + color.red + """site/cve-2022-24521""" + color.white + """                                 22/04/12 10:43       CVE-2022-24521 is a stack-based buffer overflow vulnerability in the login.cgi script of the Cisco Small Business 7000 Series IP Phones, which allows an unauthenticated attacker to execute arbitrary commands on the device.
+""" + color.red + """site/information-gather""" + color.white + """                             25/02/17 12:40       gets the information from the website like some links, some images, some more information.
+""" + color.red + """site/port-scan"""  + color.white + """                                     25/02/17 01:15       Scans for open ports (work normaly!).
 """)
     elif scconsole == "search exploit":
         print("""
@@ -268,6 +270,8 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """site/struts2_namespace_ognl""" + color.white + """          25/02/07 02:12       exploits the Struts2 framework to execute arbitrary code. It uses the OGNL injection vulnerability.
 """ + color.red + """site/reverse_http""" + color.white + """                    25/02/08 06:53       the attacker sets up a listener on their own machine and waits for the server to send a request to their machine. When the server makes a request, the attacker's listener intercepts the request and executes a payload on the server. The payload can include commands to download malware, steal sensitive data, or gain access to the server's command-line interface (CLI).
 """ + color.red + """site/cve-2022-24521""" + color.white + """                  22/04/12 10:43       CVE-2022-24521 is a stack-based buffer overflow vulnerability in the login.cgi script of the Cisco Small Business 7000 Series IP Phones, which allows an unauthenticated attacker to execute arbitrary commands on the device.
+""" + color.red + """site/information-gather""" + color.white + """              25/02/17 12:40       gets the information from the website like some links, some images, some more information.
+""" + color.red + """site/port-scan"""  + color.white + """                      25/02/17 01:15       Scans for open ports (work normaly!).
 """)
     elif scconsole == "search cve-exploits":
         print()
@@ -288,6 +292,7 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
         print(color.red + "tools/POODLE_cve-2014-3566" + color.white + "                             14/02/06 05:07       POODLE is a vulnerability in the SSL/TLS protocol that allows attackers to decrypt encrypted traffic.")
         print(color.red + "tools/Slammer_cve-2007-5391" + color.white + "                            07/05/23 01:12       Slammer is a worm-like exploit that targets vulnerable systems running the Windows operating system.")
         print(color.red + "tools/cve-2022-24521" + color.white + "                                   22/04/12 10:43       CVE-2022-24521 is a stack-based buffer overflow vulnerability in the login.cgi script of the Cisco Small Business 7000 Series IP Phones, which allows an unauthenticated attacker to execute arbitrary commands on the device.")
+        print(color.red + "tools/cve-2010-2730" + color.white + "                                    10/06/12 07:11       Buffer overflow in Microsoft Internet Information Services (IIS) 7.5, when FastCGI is enabled, allows remote attackers to execute arbitrary code via crafted headers in a request.")
         print()
         print("You can't run these exploits from here, you need to run them from ",os.getcwd(),"/tools/cve-exploits/")
         print()
@@ -489,6 +494,14 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
         time.sleep(0.5)
         print("using site/cve-2022-24521.")
         tcve202224521()
+    elif scconsole == "use site/information-gather":
+        time.sleep(0.5)
+        print("using site/information-gather.")
+        tinformationgather()
+    elif scconsole == "use site/port-scan":
+        time.sleep(0.5)
+        print("using site/port-scan.")
+        tportscan()
     elif scconsole == "use system commands":
             OSconsole()
             OSconsole()
@@ -2064,6 +2077,84 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole50 == "exit":
+        exit()
+
+def tinformationgather():
+    scconsole51 = input("sc~" + color.red + "(site/information-gather)" + color.white + ">")
+    if scconsole51 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        tinformationgather()
+    elif scconsole51 == "clear":
+        os.system('clear')
+        tinformationgather()
+    elif scconsole51 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+URL              | specifiy the target url.
+
+you will specifiy these options when you run or exploit it!
+""")
+        tinformationgather()
+    elif scconsole51 == "run":
+        os.system('python exploits/site/information-gather.py')
+        tinformationgather()
+    elif scconsole51 == "exploit":
+        os.system('python exploits/site/information-gather.py')
+        tinformationgather()
+    elif scconsole51 == "unuse":
+        print("unusing site/information-gather.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole51 == "exit":
+        exit()
+
+def tportscan():
+    scconsole52 = input("sc~" + color.red + "(site/port-scan)" + color.white + ">")
+    if scconsole52 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        tportscan()
+    elif scconsole52 == "clear":
+        os.system('clear')
+        tportscan()
+    elif scconsole52 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+URL              | specifiy the target url.
+START_PORT       | specifiy the starting port.
+END_PORT         | specifiy the ending port.
+
+you will specifiy these options when you run or exploit it!
+""")
+        tportscan()
+    elif scconsole52 == "run":
+        os.system('python exploits/site/port-scan.py')
+        tportscan()
+    elif scconsole52 == "exploit":
+        os.system('python exploits/site/port-scan.py')
+        tportscan()
+    elif scconsole52 == "unuse":
+        print("unusing site/port-scan.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole52 == "exit":
         exit()
 
 def OSconsole():
