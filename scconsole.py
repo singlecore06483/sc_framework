@@ -6,6 +6,8 @@
 import os
 import time
 import random
+import signal
+import sys
 from exploits import *
 from payloads import *
 from tools import *
@@ -19,7 +21,15 @@ class color:
     green = '\033[92m'
     warning = '\033[93m'
 
+def signal_handler(sig, frame):
 
+    print()
+    print("\nCtrl+C pressed, exiting...")
+
+    sys.exit(0)
+
+
+signal.signal(signal.SIGINT, signal_handler)
 
 def start():
     os.system('clear')
@@ -159,8 +169,8 @@ color.red + """
     print(random_banner)
     print()
     print()
-    print(color.white + "        +[ " + color.red + "sc_framework v1.0" + color.white + "                          ]+")
-    print("        *[ 33 exploits / 18 cve exploits / 10 payloads ]")
+    print(color.white + "        +[ " + color.red + "sc_framework v1.1" + color.white + "                          ]+")
+    print("        *[ 37 exploits / 18 cve exploits / 10 payloads ]")
     print()
     print("sc_framework tip: type '" + color.blue + "help" + color.white + "' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print()
@@ -195,7 +205,7 @@ PLEASE CHOOSE AN EXPLOIT THEN TYPE THIS!
         os.system('clear')
     elif scconsole == "search":
         print("""
-search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi | server>        
+search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi | server | dos | php>        
 """)
     elif scconsole == "search exploits":
         print("""
@@ -219,7 +229,7 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """exploit/handler/listining""" + color.white + """                           24/01/22 04:12       for listen on the target to open the exploit.php.
 """ + color.red + """exploit/cve-2023-22518/cve-2023-22518""" + color.white + """               23/09/29 02:19       allow unauthenticated attackers with network access to the Confluence Instance to restore the database of the Confluence instance.
 """ + color.red + """exploit/cve-2023-22518/vuln-test-for-cve-2023-22518""" + color.white + """ 23/09/29 02:19       allow to test the target to find cve-2023-22518 vulnerabilitie.
-""" + color.red + """site/DD_D_Attack""" + color.white + """                                    25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
+""" + color.red + """dos/DD_D_Attack""" + color.white + """                                     25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """windows/7-zip_cve-2025-0411""" + color.white + """                         25/02/04 04:18       This flaw bypasses Windows' MotW protections, allowing remote code execution via malicious archives.
 """ + color.red + """site/Directory-finder""" + color.white + """                               25/02/06 06:11       Finds the Pages and directorys, and brute-forces the directorys.
 """ + color.red + """site/struts2_namespace_ognl""" + color.white + """                         25/02/07 02:12       exploits the Struts2 framework to execute arbitrary code. It uses the OGNL injection vulnerability.
@@ -232,7 +242,11 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """server/extract_table_db_column""" + color.white + """                      25/02/08 09:30       extract sensitive information with the payloads have, extract informations like tables, columns, databases.
 """ + color.red + """site/cve-2022-24521""" + color.white + """                                 22/04/12 10:43       CVE-2022-24521 is a stack-based buffer overflow vulnerability in the login.cgi script of the Cisco Small Business 7000 Series IP Phones, which allows an unauthenticated attacker to execute arbitrary commands on the device.
 """ + color.red + """site/information-gather""" + color.white + """                             25/02/17 12:40       gets the information from the website like some links, some images, some more information.
-""" + color.red + """site/port-scan"""  + color.white + """                                     25/02/17 01:15       Scans for open ports (work normaly!).
+""" + color.red + """site/port-scan"""  + color.white + """                                      25/02/17 01:15       Scans for open ports (work normaly!).
+""" + color.red + """dos/ciscodos""" + color.white + """                                        03/07/22 10:07       Remote DoS against the recent Cisco IOS vuln.
+""" + color.red + """windows/MS04-007_LSASS-exe_Pro_Remote_DoS""" + color.white + """           04/02/14 04/37       Microsoft Windows - ASN.1 'LSASS.exe' Remote Denial of Service (MS04-007).
+""" + color.red + """linux/tcpdump_packet_sniffer""" + color.white + """                        04/04/05 12:17       tcpdump - ISAKMP Identification Payload Integer Overflow.
+""" + color.red + """php/RCE_via_PHP""" + color.white + """                                     25/02/18 12:53       This exploit exploits a vulnerability in a PHP application that allows arbitrary code execution on the server.
 """)
     elif scconsole == "search exploit":
         print("""
@@ -248,13 +262,14 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """)
     elif scconsole == "search windows":
         print("""
-    Exploits                         When created?        Discrepstion 
-""" + color.red + """windows/PDF-exploit""" + color.white + """                  24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
-""" + color.red + """windows/ftp-login-test""" + color.white + """               24/01/19 11:15       for login on port 21 or 20 ftp port.
-""" + color.red + """windows/java-rhino""" + color.white + """                   24/01/12 02:45       for excuteshellcommand http port.
-""" + color.red + """windows/ms17-010-psexec""" + color.white + """              24/01/13 08:20       for brute force windows smb port.
-""" + color.red + """windows/ssh-login-test""" + color.white + """               24/01/11 05:54       for brute forcing ssh port.
-""" + color.red + """windows/7-zip_cve-2025-0411""" + color.white + """          25/02/04 04:18       This flaw bypasses Windows' MotW protections, allowing remote code execution via malicious archives.
+    Exploits                              When created?        Discrepstion 
+""" + color.red + """windows/PDF-exploit""" + color.white + """                       24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
+""" + color.red + """windows/ftp-login-test""" + color.white + """                    24/01/19 11:15       for login on port 21 or 20 ftp port.
+""" + color.red + """windows/java-rhino""" + color.white + """                        24/01/12 02:45       for excuteshellcommand http port.
+""" + color.red + """windows/ms17-010-psexec""" + color.white + """                   24/01/13 08:20       for brute force windows smb port.
+""" + color.red + """windows/ssh-login-test""" + color.white + """                    24/01/11 05:54       for brute forcing ssh port.
+""" + color.red + """windows/7-zip_cve-2025-0411""" + color.white + """               25/02/04 04:18       This flaw bypasses Windows' MotW protections, allowing remote code execution via malicious archives.
+""" + color.red + """windows/MS04-007_LSASS-exe_Pro_Remote_DoS""" + color.white + """ 04/02/14 04/37       Microsoft Windows - ASN.1 'LSASS.exe' Remote Denial of Service (MS04-007).
 """)
     elif scconsole == "search site":
         print("""
@@ -265,7 +280,6 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """site/http-login-test""" + color.white + """                 24/01/19 12:01       for login on port 80 http port.
 """ + color.red + """site/ZIP-exploit""" + color.white + """                     24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
 """ + color.red + """site/tomcat-mgr-login""" + color.white + """                24/01/12 04:23       for brute force login pages.
-""" + color.red + """site/DD_D_Attack""" + color.white + """                     25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """site/Directory-finder""" + color.white + """                25/02/06 06:11       Finds the Pages and directorys, and brute-forces the directorys (works slow).
 """ + color.red + """site/struts2_namespace_ognl""" + color.white + """          25/02/07 02:12       exploits the Struts2 framework to execute arbitrary code. It uses the OGNL injection vulnerability.
 """ + color.red + """site/reverse_http""" + color.white + """                    25/02/08 06:53       the attacker sets up a listener on their own machine and waits for the server to send a request to their machine. When the server makes a request, the attacker's listener intercepts the request and executes a payload on the server. The payload can include commands to download malware, steal sensitive data, or gain access to the server's command-line interface (CLI).
@@ -317,12 +331,24 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """linux/ssh-login-test""" + color.white + """                                24/01/11 05:54       for brute forcing ssh port (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """linux/ftp-login-test""" + color.white + """                                24/01/19 11:15       for login on port 21 or 20 ftp port.
 """ + color.red + """linux/vulnerability-find""" + color.white + """                            25/02/08 09:27       find vulnerabilities like common open ports, if the password is weak, the kernal version.
+""" + color.red + """linux/tcpdump_packet_sniffer""" + color.white + """                        04/04/05 12:17       tcpdump - ISAKMP Identification Payload Integer Overflow.
 """)
     elif scconsole == "search server":
         print("""
     Exploits                                        When created?        Discrepstion 
 """ + color.red + """server/browser_autopwn2""" + color.white + """                             18/02/03 07:10        This module exploits a Cross-Site Scripting (XSS) vulnerability to steal user credentials and deliver a phishing email to the user.
 """ + color.red + """server/extract_table_db_column""" + color.white + """                      25/02/08 09:30        extract sensitive information with the payloads have, extract informations like tables, columns, databases.
+""")
+    elif scconsole == "search dos":
+        print("""
+    Exploits                                        When created?        Discrepstion 
+""" + color.red + """dos/ciscodos""" + color.white + """                                            03/07/22 10:07       Remote DoS against the recent Cisco IOS vuln.
+""" + color.red + """dos/DD_D_Attack""" + color.white + """                                         25/02/01 02:01       for DoS and DDoS Attack (If your Internet is slow, that's gonna works slowly!).
+""")
+    elif scconsole == "search php":
+        print("""
+    Exploits                                        When created?        Discrepstion 
+""" + color.red + """php/RCE_via_PHP""" + color.white + """                                         25/02/18 12:53       This exploit exploits a vulnerability in a PHP application that allows arbitrary code execution on the server.
 """)
     elif scconsole == "show payloads":
         print("""
@@ -406,9 +432,9 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
         time.sleep(0.5)
         print("using site/XSS-SQLi-PHP-PASS.")
         texploitXSS()
-    elif scconsole == "use site/DD_D_Attack":
+    elif scconsole == "use dos/DD_D_Attack":
         time.sleep(0.5)
-        print("using site/DD_D_Attack.")
+        print("using dos/DD_D_Attack.")
         texploitDDDAttack()
     elif scconsole == "use site/vuln-curl-website":
         time.sleep(0.5)
@@ -502,6 +528,22 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
         time.sleep(0.5)
         print("using site/port-scan.")
         tportscan()
+    elif scconsole == "use dos/ciscodos":
+        time.sleep(0.5)
+        print("using dos/ciscodos.")
+        dciscodos()
+    elif scconsole == "use windows/MS04-007_LSASS-exe_Pro_Remote_DoS":
+        time.sleep(0.5)
+        print("using windows/MS04-007_LSASS-exe_Pro_Remote_DoS.")
+        wMS04007LSASSexeProRemoteDoS()
+    elif scconsole == "use linux/tcpdump_packet_sniffer":
+        time.sleep(0.5)
+        print("using linux/tcpdump_packet_sniffer.")
+        ltcpdumppacketsniffer()
+    elif scconsole == "use php/RCE_via_PHP":
+        time.sleep(0.5)
+        print("using php/RCE_via_PHP.")
+        pRCEviaPHP()
     elif scconsole == "use system commands":
             OSconsole()
             OSconsole()
@@ -1319,7 +1361,7 @@ you will specifiy these options when you run or exploit it!
         exit()
 
 def texploitDDDAttack():
-    scconsole33 = input("sc~" + color.red + "(site/DD_D_Attack)" + color.white + ">")
+    scconsole33 = input("sc~" + color.red + "(dos/DD_D_Attack)" + color.white + ">")
     if scconsole33 == "help":
         print("""
 help ---> to see this help menu.
@@ -1345,13 +1387,13 @@ you will specifiy these options when you run or exploit it!
 """)
         texploitDDDAttack()
     elif scconsole33 == "run":
-        os.system('ruby exploits/site/DD_D_Attack.rb')
+        os.system('ruby exploits/dos/DD_D_Attack.rb')
         texploitDDDAttack()
     elif scconsole33 == "exploit":
-        os.system('ruby exploits/site/DD_D_Attack.rb')
+        os.system('ruby exploits/dos/DD_D_Attack.rb')
         texploitDDDAttack()
     elif scconsole33 == "unuse":
-        print("unusing site/DD_D_Attack.")
+        print("unusing dos/DD_D_Attack.")
         time.sleep(0.5)
         Console()
     elif scconsole33 == "exit":
@@ -2155,6 +2197,175 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole52 == "exit":
+        exit()
+
+def dciscodos():
+    scconsole53 = input("sc~" + color.red + "(dos/ciscodos)" + color.white + ">")
+    if scconsole53 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        dciscodos()
+    elif scconsole53 == "clear":
+        os.system('clear')
+        dciscodos()
+    elif scconsole53 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+IP               | specifiy the target ip address (Cisco IOS software router IP - Internetwork Operating System).
+TTL              | specifiy the ttl (Time-to-Live).
+
+you will specifiy these options when you run or exploit it!
+""")
+        dciscodos()
+    elif scconsole53 == "run":
+        routerip = input("IP: ")
+        ttl = int(input("TTL: "))
+        os.system(f'./exploits/dos/ciscodos.sh {routerip} {ttl}')
+        dciscodos()
+    elif scconsole53 == "exploit":
+        routerip2 = input("IP: ")
+        ttl2 = int(input("TTL: "))
+        os.system(f'./exploits/dos/ciscodos.sh {routerip2} {ttl2}')
+        dciscodos()
+    elif scconsole53 == "unuse":
+        print("unusing dos/ciscodos.sh.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole53 == "exit":
+        exit()
+
+def wMS04007LSASSexeProRemoteDoS():
+    scconsole54 = input("sc~" + color.red + "(windows/MS04-007_LSASS-exe_Pro_Remote_DoS)" + color.white + ">")
+    if scconsole54 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        wMS04007LSASSexeProRemoteDoS()
+    elif scconsole54 == "clear":
+        os.system('clear')
+        wMS04007LSASSexeProRemoteDoS()
+    elif scconsole54 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target ip address.
+LPORT            | specifiy the port.
+NETBIOS          | specifiy the netbios.
+
+you will specifiy these options when you run or exploit it!
+""")
+        wMS04007LSASSexeProRemoteDoS()
+    elif scconsole54 == "run":
+        lhost54 = input("LHOST: ")
+        lport54 = int(input("LPORT: "))
+        netbios54 = input("NETBIOS: ")
+        os.system(f'./exploits/windows/MS04-007_LSASS-exe_Pro_Remote_DoS {lhost54} {lport54} {netbios54}')
+        wMS04007LSASSexeProRemoteDoS()
+    elif scconsole54 == "exploit":
+        lhost55 = input("LHOST: ")
+        lport55 = int(input("LPORT: "))
+        netbios55 = input("NETBIOS: ")
+        os.system(f'./exploits/windows/MS04-007_LSASS-exe_Pro_Remote_DoS {lhost55} {lport55} {netbios55}')
+        wMS04007LSASSexeProRemoteDoS()
+    elif scconsole54 == "unuse":
+        print("unusing windows/MS04-007_LSASS-exe_Pro_Remote_DoS.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole54 == "exit":
+        exit()
+
+def ltcpdumppacketsniffer():
+    scconsole55 = input("sc~" + color.red + "(linux/tcpdump_packet_sniffer)" + color.white + ">")
+    if scconsole55 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        ltcpdumppacketsniffer()
+    elif scconsole55 == "clear":
+        os.system('clear')
+        ltcpdumppacketsniffer()
+    elif scconsole55 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specifiy the target ip address.
+
+you will specifiy these options when you run or exploit it!
+""")
+        ltcpdumppacketsniffer()
+    elif scconsole55 == "run":
+        lhost56 = input("LHOST: ")
+        os.system(f'./exploits/linux/tcpdump_packet_sniffer {lhost56}')
+        ltcpdumppacketsniffer()
+    elif scconsole55 == "exploit":
+        lhost57 = input("LHOST: ")
+        os.system(f'./exploits/linux/tcpdump_packet_sniffer {lhost57}')
+        ltcpdumppacketsniffer()
+    elif scconsole55 == "unuse":
+        print("unusing linux/tcpdump_packet_sniffer.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole55 == "exit":
+        exit()
+
+def pRCEviaPHP():
+    scconsole56 = input("sc~" + color.red + "(php/RCE_via_PHP)" + color.white + ">")
+    if scconsole56 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        pRCEviaPHP()
+    elif scconsole56 == "clear":
+        os.system('clear')
+        pRCEviaPHP()
+    elif scconsole56 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+LHOST         | specifiy the target ip address (website).
+LPORT         | specifiy the port.
+COMMAND       | specifiy the command you want.
+
+you will specifiy these options when you run or exploit it!
+""")
+        pRCEviaPHP()
+    elif scconsole56 == "run":
+        os.system('php exploits/php/RCE_via_PHP.php')
+        pRCEviaPHP()
+    elif scconsole56 == "exploit":
+        os.system('php exploits/php/RCE_via_PHP.php')
+        pRCEviaPHP()
+    elif scconsole56 == "unuse":
+        print("unusing php/RCE_via_PHP.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole56 == "exit":
         exit()
 
 def OSconsole():
