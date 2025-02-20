@@ -150,7 +150,7 @@ join us and use our `tools` and `exploit` our see our new `updates` from `telegr
 
 --------------------------------------------------------------------------
 
-[Trailer of sc_framework](images/SC_framework_video.mp4)
+![Trailer of sc_framework](images/SC_framework_video.mp4)
 
 --------------------------------------------------------------------------
 
