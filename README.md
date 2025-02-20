@@ -3,17 +3,19 @@
 UPDATES
 -
 
-new updates and features in sc_framework v1.0:
+new updates and features in sc_framework v1.1:
 
-- added 2 new exploits.
-- added 1 cve-exploit.
+- added 4 new exploits.
+- added 2 new search commands. ---> dos, php
+- fixed the install file.
+- fixed the bugs and error.
 
 
 SC FRAMEWORK
 -
 
-this tool uses 33 exploits and 18 cve exploits and 10 payloads.
-wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 31 exploits`.
+this tool uses 37 exploits and 18 cve exploits and 10 payloads.
+wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 35 exploits`.
 
 How this tool works?
 -
@@ -139,6 +141,18 @@ FLO: `FIO6CkKECn61WFE8vbhfQFzuHrk7K9g23NmC8g45nG4kisrbypBHi`
 
 -------------------------------------------------------------------------
 
+Our Telegram Channel
+-
+
+https://t.me/its_Single_Core
+
+join us and use our `tools` and `exploit` our see our new `updates` from `telegram`.
+
+--------------------------------------------------------------------------
+
+[Trailer of sc_framework](images/SC_framework_video.mp4)
+
+--------------------------------------------------------------------------
 
 ```
 Malevolent code crawled through cybernetic veins,
