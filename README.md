@@ -3,19 +3,20 @@
 UPDATES
 -
 
-new updates and features in sc_framework v1.1:
+new updates and features in sc_framework v1.2:
 
-- added 4 new exploits.
-- added 2 new search commands. ---> dos, php
-- fixed the install file.
+- added GUI version of scconsole.
+- added 5 new exploits.
+- added 2 cve-exploits.
 - fixed the bugs and error.
+- fixed the requirements file.
 
 
 SC FRAMEWORK
 -
 
-this tool uses 37 exploits and 18 cve exploits and 10 payloads.
-wich some of the exploit like `ssh-loign-test, PDF-exploit, and more 35 exploits`.
+this tool uses 42 exploits and 20 cve exploits and 10 payloads.
+which some of the exploit like `ssh-loign-test, PDF-exploit, and more 40 exploits`.
 
 How this tool works?
 -
@@ -107,6 +108,35 @@ here is an example command of scpgenerator:
 python scgenrate.py -t reverse_tcp -lh <listener_host> -lp <listener_port> -o <output_file>
 ```
 
+
+-------------------------------------------------------------------------
+
+SC FRAMEWORK GUI
+-
+
+The `GUI` version of scconsole, that created with python, the `GUI` version haves `9 exploits`.
+
+to run the tool, you need to run it as root with sudo, here is the command :
+
+```
+sudo python scconsolegui.py
+```
+
+and pop up a new window that you can use scconsole as GUI version.
+
+to run an exploit, click on `Tools` bar, then choose type of exploit or attack, then choose an exploit.
+
+and in your terminal that shows you an input to enter your option, so if you look at the `Tools ---> <Type of exploit> ---> <exploit>`, we what does the exploit needs, there is just to : (LHOST and URL)
+
+if URL, you need to put your tagret url.
+
+and if LHOST, you need to put your target ip address.
+
+and when you typed and clicked on ENTER, the exploit will runs and shows you the result in the `GUI`.
+
+after you done with your tagret, you can save the results or logs in a path you need as .txt format. here is how :
+
+first go to `File` bar then click on `save logs as...` then the new window pops up, in there you will choose your path and file name to save the result or logs.
 
 -------------------------------------------------------------------------
 
