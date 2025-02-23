@@ -8,6 +8,7 @@ import time
 import random
 import signal
 import sys
+import arrow
 from exploits import *
 from payloads import *
 from tools import *
@@ -69,6 +70,7 @@ def start():
 
 
 def Menu():
+    os.system('clear')
     list = [color.green + """
                                                                                     *  *    *
          o O o                                                                       * ______   *
@@ -169,8 +171,10 @@ color.red + """
     print(random_banner)
     print()
     print()
-    print(color.white + "        +[ " + color.red + "sc_framework v1.1" + color.white + "                          ]+")
-    print("        *[ 37 exploits / 18 cve exploits / 10 payloads ]")
+    now = arrow.now()
+    print(now.format("         YYYY-MM-DD - HH:mm:ss"))
+    print(color.white + "        +[ " + color.red + "sc_framework v1.2" + color.white + "                           ]+")
+    print("        -* 42 exploits - 20 cve exploits - 10 payloads *-")
     print()
     print("sc_framework tip: type '" + color.blue + "help" + color.white + "' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print()
@@ -247,6 +251,11 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """windows/MS04-007_LSASS-exe_Pro_Remote_DoS""" + color.white + """           04/02/14 04/37       Microsoft Windows - ASN.1 'LSASS.exe' Remote Denial of Service (MS04-007).
 """ + color.red + """linux/tcpdump_packet_sniffer""" + color.white + """                        04/04/05 12:17       tcpdump - ISAKMP Identification Payload Integer Overflow.
 """ + color.red + """php/RCE_via_PHP""" + color.white + """                                     25/02/18 12:53       This exploit exploits a vulnerability in a PHP application that allows arbitrary code execution on the server.
+""" + color.red + """php/SOPlanning_1-52-01_RCE""" + color.white + """                          24/11/15 08:29       SOPlanning 1.52.01 (Simple Online Planning Tool) - Remote Code Execution (RCE)(Authenticated).
+""" + color.red + """multi/Typora_v1-7-4""" + color.white + """                                 24/01/29 08:48       Typora v1.7.4 - OS Command Injection.
+""" + color.red + """php/Wp2Fac""" + color.white + """                                          23/09/08 09:24       Wp2Fac - OS Command Injection.
+""" + color.red + """multi/os_detector""" + color.white + """                                   25/02/19 12:43       try to detect the target OS with the port you typed.
+""" + color.red + """multi/pop3-pass""" + color.white + """                                     25/02/20 11:57       exploits a buffer overflow vulnerability in a POP3 server.
 """)
     elif scconsole == "search exploit":
         print("""
@@ -316,6 +325,9 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """multi/ssh-login-test""" + color.white + """                                24/01/11 05:54       for brute forcing ssh port (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """multi/ftp-login-test""" + color.white + """                                24/01/19 11:15       for login on port 21 or 20 ftp port.
 """ + color.red + """multi/shell_reverse_tcp""" + color.white + """                             25/02/06 02:03       provides a reverse shell payload that can be used to establish a reverse shell connection.
+""" + color.red + """multi/Typora_v1-7-4""" + color.white + """                                 24/01/29 08:48       Typora v1.7.4 - OS Command Injection.
+""" + color.red + """multi/os_detector""" + color.white + """                                   25/02/19 12:43       try to detect the target OS with the port you typed.
+""" + color.red + """multi/pop3-pass""" + color.white + """                                     25/02/20 11:57       exploits a buffer overflow vulnerability in a POP3 server.
 """)
     elif scconsole == "search osx":
         print("""
@@ -349,6 +361,8 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
         print("""
     Exploits                                        When created?        Discrepstion 
 """ + color.red + """php/RCE_via_PHP""" + color.white + """                                         25/02/18 12:53       This exploit exploits a vulnerability in a PHP application that allows arbitrary code execution on the server.
+""" + color.red + """php/SOPlanning_1-52-01_RCE""" + color.white + """                              24/11/15 08:29       SOPlanning 1.52.01 (Simple Online Planning Tool) - Remote Code Execution (RCE)(Authenticated).
+""" + color.red + """php/Wp2Fac""" + color.white + """                                              23/09/08 09:24       Wp2Fac - OS Command Injection.
 """)
     elif scconsole == "show payloads":
         print("""
@@ -544,6 +558,26 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
         time.sleep(0.5)
         print("using php/RCE_via_PHP.")
         pRCEviaPHP()
+    elif scconsole == "use php/SOPlanning_1-52-01_RCE":
+        time.sleep(0.5)
+        print("using php/SOPlanning_1-52-01_RCE.")
+        pSOPlanning15201RCE()
+    elif scconsole == "use multi/Typora_v1-7-4":
+        time.sleep(0.5)
+        print("using multi/Typora_v1-7-4.")
+        mTyporav174()
+    elif scconsole == "use php/Wp2Fac":
+        time.sleep(0.5)
+        print("using php/Wp2Fac.")
+        pWp2Fac()
+    elif scconsole == "use multi/os_detector":
+        time.sleep(0.5)
+        print("using multi/os_detector.")
+        mosdetector()
+    elif scconsole == "use multi/pop3-pass":
+        time.sleep(0.5)
+        print("using multi/pop3-pass.")
+        mpop3pass()
     elif scconsole == "use system commands":
             OSconsole()
             OSconsole()
@@ -578,10 +612,10 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
-USERNAMELIST     | specifiy the username list.
-PASSLIST         | specifiy the password list.
-CMD              | specifiy the cmd command.
+LHOST            | specify the target ip address.
+USERNAMELIST     | specify the username list.
+PASSLIST         | specify the password list.
+CMD              | specify the cmd command.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -619,8 +653,8 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
-CMD              | specifiy the cmd command.
+LHOST            | specify the target ip address.
+CMD              | specify the cmd command.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -658,7 +692,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
+LHOST            | specify the target ip address.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -696,7 +730,7 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specifiy the target ip address or url.
+LHOST         | specify the target ip address or url.
 LPORT         | specified as 22. (ssh port).
 
 you will specifiy these options when you run or exploit it!
@@ -735,8 +769,8 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy your ip address.
-LPORT            | specifiy your port.
+LHOST            | specify your ip address.
+LPORT            | specify your port.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -842,10 +876,10 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specifiy the target ip address or url.
+LHOST         | specify the target ip address or url.
 LPORT         | specified as 22. (ssh port).
-PASSLIST      | specifiy the password list path.
-USERNAMELIST  | specifiy the username list path.
+PASSLIST      | specify the password list path.
+USERNAMELIST  | specify the username list path.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -883,9 +917,9 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specifiy the target ip address.
-LPORT         | specifiy the target port (port 445 needs to open on target).
-CMD           | specifiy the cmd command.
+LHOST         | specify the target ip address.
+LPORT         | specify the target port (port 445 needs to open on target).
+CMD           | specify the cmd command.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -923,10 +957,10 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
-USERNAMELIST     | specifiy the username list.
-PASSLIST         | specifiy the password list.
-CMD              | specifiy the cmd command.
+LHOST            | specify the target ip address.
+USERNAMELIST     | specify the username list.
+PASSLIST         | specify the password list.
+CMD              | specify the cmd command.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -998,9 +1032,9 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
-USERNAMELIST     | specifiy the username list.
-PASSLIST         | specifiy the password list.
+LHOST            | specify the target ip address.
+USERNAMELIST     | specify the username list.
+PASSLIST         | specify the password list.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1038,8 +1072,8 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-URL              | specifiy the target url login-page.
-USERNAME         | specifiy the username.
+URL              | specify the target url login-page.
+USERNAME         | specify the username.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1077,7 +1111,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target url.
+LHOST            | specify the target url.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1116,8 +1150,8 @@ show payloads ---> to see avalable payloads in sc-framework.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
-PAYLOAD          | specifiy the payload you want.
+LHOST            | specify the target ip address.
+PAYLOAD          | specify the payload you want.
 
 please copy the payload you want by typing (show payloads)!
 you will specifiy these options when you run or exploit it!
@@ -1179,9 +1213,9 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
-USERNAMELIST     | specifiy the username list.
-PASSLIST         | specifiy the password list.
+LHOST            | specify the target ip address.
+USERNAMELIST     | specify the username list.
+PASSLIST         | specify the password list.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1219,7 +1253,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-URL              | specifiy the target url to upload zip file.
+URL              | specify the target url to upload zip file.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1257,10 +1291,10 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target url.
-USERNAMELIST     | specifiy the username list.
-PASSLIST         | specifiy the password list.
-BRUTEFORCE-SPEED | specifiy the brute force speed.
+LHOST            | specify the target url.
+USERNAMELIST     | specify the username list.
+PASSLIST         | specify the password list.
+BRUTEFORCE-SPEED | specify the brute force speed.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1298,8 +1332,8 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-URL              | specifiy the target url.
-ZIP              | specifiy the zip from /sc_framework/exploits/cve-2023-22518/xmlexport-20231109-060519-1.zip .
+URL              | specify the target url.
+ZIP              | specify the zip from /sc_framework/exploits/cve-2023-22518/xmlexport-20231109-060519-1.zip .
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1337,8 +1371,8 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-URL              | specifiy the target url.
-URLLIST          | specifiy the path of url list.
+URL              | specify the target url.
+URLLIST          | specify the path of url list.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1380,8 +1414,8 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-URL              | specifiy the target url.
-TIME             | specifiy the time.
+URL              | specify the target url.
+TIME             | specify the time.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1419,9 +1453,9 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-ATTACKER-IP      | specifiy your ip address.
-ATTACKER-PORT    | specifiy your port.
-LISTEN-PORT      | specifiy the listening port.
+ATTACKER-IP      | specify your ip address.
+ATTACKER-PORT    | specify your port.
+LISTEN-PORT      | specify the listening port.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1459,8 +1493,8 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-URL              | specifiy the target url login-page.
-URLLIST          | specifiy the url-list path.
+URL              | specify the target url login-page.
+URLLIST          | specify the url-list path.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1498,8 +1532,8 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-URL              | specifiy the target url login-page.
-URLLIST          | specifiy the url-list path.
+URL              | specify the target url login-page.
+URLLIST          | specify the url-list path.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1537,10 +1571,10 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specifiy the target ip address or url.
+LHOST         | specify the target ip address or url.
 LPORT         | specified as 22. (ssh port).
-PASSLIST      | specifiy the password list path.
-USERNAMELIST  | specifiy the username list path.
+PASSLIST      | specify the password list path.
+USERNAMELIST  | specify the username list path.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1578,9 +1612,9 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
-USERNAMELIST     | specifiy the username list.
-PASSLIST         | specifiy the password list.
+LHOST            | specify the target ip address.
+USERNAMELIST     | specify the username list.
+PASSLIST         | specify the password list.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1618,8 +1652,8 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy your ip address.
-LPORT            | specifiy your port.
+LHOST            | specify your ip address.
+LPORT            | specify your port.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1657,7 +1691,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
+LHOST            | specify the target ip address.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1695,7 +1729,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
+LHOST            | specify the target ip address.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1733,10 +1767,10 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specifiy the target ip address or url.
+LHOST         | specify the target ip address or url.
 LPORT         | specified as 22. (ssh port).
-PASSLIST      | specifiy the password list path.
-USERNAMELIST  | specifiy the username list path.
+PASSLIST      | specify the password list path.
+USERNAMELIST  | specify the username list path.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1774,9 +1808,9 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
-USERNAMELIST     | specifiy the username list.
-PASSLIST         | specifiy the password list.
+LHOST            | specify the target ip address.
+USERNAMELIST     | specify the username list.
+PASSLIST         | specify the password list.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1814,10 +1848,10 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specifiy the target ip address or url.
+LHOST         | specify the target ip address or url.
 LPORT         | specified as 22. (ssh port).
-PASSLIST      | specifiy the password list path.
-USERNAMELIST  | specifiy the username list path.
+PASSLIST      | specify the password list path.
+USERNAMELIST  | specify the username list path.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1855,9 +1889,9 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
-USERNAMELIST     | specifiy the username list.
-PASSLIST         | specifiy the password list.
+LHOST            | specify the target ip address.
+USERNAMELIST     | specify the username list.
+PASSLIST         | specify the password list.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1895,7 +1929,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target url.
+LHOST            | specify the target url.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1934,9 +1968,9 @@ show payloads ---> to see avalable payloads in sc-framework.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target URL.
-PAYLOAD          | specifiy the payload you want.
-PHISHING URL     | specifiy the phishing url.
+LHOST            | specify the target URL.
+PAYLOAD          | specify the payload you want.
+PHISHING URL     | specify the phishing url.
 
 please copy the payload you want by typing (show payloads)!
 you will specifiy these options when you run or exploit it!
@@ -1993,8 +2027,8 @@ show payloads ---> to see avalable payloads in sc-framework.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target URL.
-PAYLOAD          | specifiy the payload(you don't need to specifiy it uses own payloads!).
+LHOST            | specify the target URL.
+PAYLOAD          | specify the payload(you don't need to specifiy it uses own payloads!).
 
 please copy the payload you want by typing (show payloads)!
 you will specifiy these options when you run or exploit it!
@@ -2056,7 +2090,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
+LHOST            | specify the target ip address.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -2094,9 +2128,9 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-RHOST            | specifiy the target ip address(website IP Address).
-LHOST            | specifiy the listening host.
-LPORT            | specifiy yhe listening port.
+RHOST            | specify the target ip address(website IP Address).
+LHOST            | specify the listening host.
+LPORT            | specify yhe listening port.
 
 run this command in another terminal after specifiying the options ---> """ + color.green + """nc -lvnp <port>""" + color.white + """
 you will specifiy these options when you run or exploit it!
@@ -2141,7 +2175,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-URL              | specifiy the target url.
+URL              | specify the target url.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -2179,9 +2213,9 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-URL              | specifiy the target url.
-START_PORT       | specifiy the starting port.
-END_PORT         | specifiy the ending port.
+URL              | specify the target url.
+START_PORT       | specify the starting port.
+END_PORT         | specify the ending port.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -2219,8 +2253,8 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-IP               | specifiy the target ip address (Cisco IOS software router IP - Internetwork Operating System).
-TTL              | specifiy the ttl (Time-to-Live).
+IP               | specify the target ip address (Cisco IOS software router IP - Internetwork Operating System).
+TTL              | specify the ttl (Time-to-Live).
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -2262,9 +2296,9 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
-LPORT            | specifiy the port.
-NETBIOS          | specifiy the netbios.
+LHOST            | specify the target ip address.
+LPORT            | specify the port.
+NETBIOS          | specify the netbios.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -2308,7 +2342,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specifiy the target ip address.
+LHOST            | specify the target ip address.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -2348,9 +2382,9 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specifiy the target ip address (website).
-LPORT         | specifiy the port.
-COMMAND       | specifiy the command you want.
+LHOST         | specify the target ip address (website).
+LPORT         | specify the port.
+COMMAND       | specify the command you want.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -2366,6 +2400,216 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole56 == "exit":
+        exit()
+
+def pSOPlanning15201RCE():
+    scconsole57 = input("sc~" + color.red + "(php/SOPlanning_1-52-01_RCE)" + color.white + ">")
+    if scconsole57 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        pSOPlanning15201RCE()
+    elif scconsole57 == "clear":
+        os.system('clear')
+        pSOPlanning15201RCE()
+    elif scconsole57 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the target url (with port, example: https://example.com:9090).
+USERNAME      | specify the username.
+PASSWORD      | specify the password.
+
+you will specifiy these options when you run or exploit it!
+""")
+        pSOPlanning15201RCE()
+    elif scconsole57 == "run":
+        url57 = input("URL: ")
+        username57 = input("USERNAME: ")
+        password57 = input("PASSWORD: ")
+        os.system(f'python exploits/php/SOPlanning_1-52-01_RCE.py -t {url57} -u {username57} -p {password57}')
+        pSOPlanning15201RCE()
+    elif scconsole57 == "exploit":
+        url58 = input("URL: ")
+        username58 = input("USERNAME: ")
+        password58 = input("PASSWORD: ")
+        os.system(f'python exploits/php/SOPlanning_1-52-01_RCE.py -t {url58} -u {username58} -p {password58}')
+        pSOPlanning15201RCE()
+    elif scconsole57 == "unuse":
+        print("unusing php/SOPlanning_1-52-01_RCE.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole57 == "exit":
+        exit()
+
+def mTyporav174():
+    scconsole58 = input("sc~" + color.red + "(multi/Typora_v1-7-4)" + color.white + ">")
+    if scconsole58 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        mTyporav174()
+    elif scconsole58 == "clear":
+        os.system('clear')
+        mTyporav174()
+    elif scconsole58 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specify your ip address.
+LPORT            | specify your port.
+PDF              | specify the PDF name.
+
+The PDF file exploit will save in : /sc_framework/exploits/multi/[pdfname].pdf .
+
+After Thats creates, Send the  PDF to your target!
+you will specifiy these options when you run or exploit it!
+""")
+        mTyporav174()
+    elif scconsole58 == "run":
+        os.system('python exploits/multi/Typora_v1-7-4.py')
+        mTyporav174()
+    elif scconsole58 == "exploit":
+        os.system('python exploits/multi/Typora_v1-7-4.py')
+        mTyporav174()
+    elif scconsole58 == "unuse":
+        print("unusing multi/Typora_v1-7-4.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole58 == "exit":
+        exit()
+
+def pWp2Fac():
+    scconsole59 = input("sc~" + color.red + "(php/Wp2Fac)" + color.white + ">")
+    if scconsole59 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        pWp2Fac()
+    elif scconsole59 == "clear":
+        os.system('clear')
+        pWp2Fac()
+    elif scconsole59 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+LHOST         | specify the target ip address (website).
+R-S-COMMAND   | specify the reverse-shell-command you want.
+
+you will specifiy these options when you run or exploit it!
+""")
+        pWp2Fac()
+    elif scconsole59 == "run":
+        os.system('python exploits/php/Wp2Fac.py')
+        pWp2Fac()
+    elif scconsole59 == "exploit":
+        os.system('python exploits/php/Wp2Fac.py')
+        pWp2Fac()
+    elif scconsole59 == "unuse":
+        print("unusing php/Wp2Fac.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole59 == "exit":
+        exit()
+
+def mosdetector():
+    scconsole60 = input("sc~" + color.red + "(multi/os_detector)" + color.white + ">")
+    if scconsole60 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        mosdetector()
+    elif scconsole60 == "clear":
+        os.system('clear')
+        mosdetector()
+    elif scconsole60 == "show options":
+        print("""
+OPTIONS          | DISCREPTIONS
+-----------------|----------------------
+LHOST            | specify target ip address.
+LPORT            | specify the port to start detecting.
+
+you will specifiy these options when you run or exploit it!
+""")
+        mosdetector()
+    elif scconsole60 == "run":
+        targetip60 = input("LHOST: ")
+        targetport60 = int(input("LPORT: "))
+        os.system(f'sudo python exploits/multi/os_detector.py {targetip60} {targetport60}')
+        mosdetector()
+    elif scconsole60 == "exploit":
+        targetip61 = input("LHOST: ")
+        targetport61 = int(input("LPORT: "))
+        os.system(f'sudo python exploits/multi/os_detector.py {targetip61} {targetport61}')
+        mosdetector()
+    elif scconsole60 == "unuse":
+        print("unusing multi/os_detector.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole60 == "exit":
+        exit()
+
+def mpop3pass():
+    scconsole61 = input("sc~" + color.red + "(multi/pop3-pass)" + color.white + ">")
+    if scconsole61 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        mpop3pass()
+    elif scconsole61 == "clear":
+        os.system('clear')
+        mpop3pass()
+    elif scconsole61 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+LHOST         | specify the target ip address.
+LPORT         | specified as 110 (pop3 port).
+
+you will specifiy these options when you run or exploit it!
+""")
+        mpop3pass()
+    elif scconsole61 == "run":
+        os.system('python exploits/multi/pop3-pass.py')
+        mpop3pass()
+    elif scconsole61 == "exploit":
+        os.system('python exploits/multi/pop3-pass.py')
+        mpop3pass()
+    elif scconsole61 == "unuse":
+        print("unusing multi/pop3-pass.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole61 == "exit":
         exit()
 
 def OSconsole():
