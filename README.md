@@ -5,18 +5,17 @@ UPDATES
 
 new updates and features in sc_framework v1.2:
 
-- added GUI version of scconsole.
-- added 5 new exploits.
-- added 2 cve-exploits.
+- updated GUI version of scconsole.
+- added 1 new exploits.
+- added 6 auxiliary exploits.
 - fixed the bugs and error.
-- fixed the requirements file.
 
 
 SC FRAMEWORK
 -
 
-this tool uses 42 exploits and 20 cve exploits and 10 payloads.
-which some of the exploit like `ssh-loign-test, PDF-exploit, and more 40 exploits`.
+this tool uses 43 exploits and 20 cve exploits and 10 payloads and 6 auxiliary exploits.
+which some of the exploit like `ssh-loign-test, PDF-exploit, and more 41 exploits`.
 
 How this tool works?
 -
@@ -114,7 +113,7 @@ python scgenrate.py -t reverse_tcp -lh <listener_host> -lp <listener_port> -o <o
 SC FRAMEWORK GUI
 -
 
-The `GUI` version of scconsole, that created with python, the `GUI` version haves `9 exploits`.
+The `GUI` version of scconsole, that created with python, the `GUI` version haves `11 exploits`.
 
 to run the tool, you need to run it as root with sudo, here is the command :
 
@@ -126,17 +125,15 @@ and pop up a new window that you can use scconsole as GUI version.
 
 to run an exploit, click on `Tools` bar, then choose type of exploit or attack, then choose an exploit.
 
-and in your terminal that shows you an input to enter your option, so if you look at the `Tools ---> <Type of exploit> ---> <exploit>`, we what does the exploit needs, there is just to : (LHOST and URL)
+and in your terminal that shows you an input to enter your option, so if you look at the `Tools ---> <exploit>`, what does the exploit needs, there is just two : (LHOST and URL)
 
-if URL, you need to put your tagret url.
+you need to click on `Tagret` bar to enter your tagret.
 
-and if LHOST, you need to put your target ip address.
-
-and when you typed and clicked on ENTER, the exploit will runs and shows you the result in the `GUI`.
+and when you typed and clicked on ENTER, and clicked on `start` button or bar, the exploit will runs and shows you the result in the `GUI`.
 
 after you done with your tagret, you can save the results or logs in a path you need as .txt format. here is how :
 
-first go to `File` bar then click on `save logs as...` then the new window pops up, in there you will choose your path and file name to save the result or logs.
+click on `save logs as...` then the new window pops up, in there you will choose your path and file name to save the result or logs.
 
 -------------------------------------------------------------------------
 
