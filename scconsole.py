@@ -71,18 +71,7 @@ def start():
 
 def Menu():
     os.system('clear')
-    list = [color.green + """
-                                                                                    *  *    *
-         o O o                                                                       * ______   *
-                o O                                                                   |      |* 
-                   o                  |''''''''''''|=========[***  ***  ***  ***      |""" + color.red + """error!""" + color.green + """|
-  |^^^^^^^^^^^^^^^|]___               |  """ + color.green + """EXPLOIT   \                                * |______|  *
-  |    """ + color.red + """PAYLOAD""" + color.green + """      |""\___,          |_____________\_______                             ||*
-  |_________________|__|)__|          |==[""" + color.white + """sc~>""" + color.green + """ ]============\                       * |""" + color.warning + """target""" + color.green + """| *
-  |(@)(@)'''***|(@)(@)**|(@)          |_____________________\\
-                                      \(O)(O)(O)(O)(O)(O)(O)/
-""",
-color.red + """
+    list = [color.red + """
  ▄▀▀▀▀▄  ▄▀▄▄▄▄  
 █ █   ▐ █ █    ▌ 
    ▀▄   ▐ █      
@@ -171,10 +160,10 @@ color.red + """
     print(random_banner)
     print()
     print()
-    now = arrow.now()
-    print(now.format("         YYYY-MM-DD - HH:mm:ss"))
-    print(color.white + "        +[ " + color.red + "sc_framework v1.2" + color.white + "                           ]+")
-    print("        -* 42 exploits - 20 cve exploits - 10 payloads *-")
+    print()
+    print(color.white + "        +[ " + color.red + "sc_framework v1.3" + color.white + "                           ]+")
+    print("        -* 43 exploits - 20 cve exploits - 10 payloads *-")
+    print("        -* 6 auxiliary *-")
     print()
     print("sc_framework tip: type '" + color.blue + "help" + color.white + "' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print()
@@ -196,6 +185,7 @@ use system commands ---> to use system tools and commands 3 times, to come back 
     elif scconsole == "h":
         print("""
 help ---> to see the full help menu.
+
 clear ---> to clear the screen.
 search ---> to see the search options.
 exit ---> to exit from sc-console.
@@ -209,7 +199,9 @@ PLEASE CHOOSE AN EXPLOIT THEN TYPE THIS!
         os.system('clear')
     elif scconsole == "search":
         print("""
-search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi | server | dos | php>        
+search [ exploits | exploit | windows | site | cve-exploits ]
+       [ osx | linux | multi | server | dos | php           ]
+       [ auxiliary                                          ]
 """)
     elif scconsole == "search exploits":
         print("""
@@ -256,6 +248,7 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """php/Wp2Fac""" + color.white + """                                          23/09/08 09:24       Wp2Fac - OS Command Injection.
 """ + color.red + """multi/os_detector""" + color.white + """                                   25/02/19 12:43       try to detect the target OS with the port you typed.
 """ + color.red + """multi/pop3-pass""" + color.white + """                                     25/02/20 11:57       exploits a buffer overflow vulnerability in a POP3 server.
+""" + color.red + """multi/pop3-brute-force""" + color.white + """                              25/02/21 01:44       brute-forcing the pop3 port.
 """)
     elif scconsole == "search exploit":
         print("""
@@ -328,6 +321,7 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """multi/Typora_v1-7-4""" + color.white + """                                 24/01/29 08:48       Typora v1.7.4 - OS Command Injection.
 """ + color.red + """multi/os_detector""" + color.white + """                                   25/02/19 12:43       try to detect the target OS with the port you typed.
 """ + color.red + """multi/pop3-pass""" + color.white + """                                     25/02/20 11:57       exploits a buffer overflow vulnerability in a POP3 server.
+""" + color.red + """multi/pop3-brute-force""" + color.white + """                              25/02/21 01:44       brute-forcing the pop3 port.
 """)
     elif scconsole == "search osx":
         print("""
@@ -363,6 +357,16 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
 """ + color.red + """php/RCE_via_PHP""" + color.white + """                                         25/02/18 12:53       This exploit exploits a vulnerability in a PHP application that allows arbitrary code execution on the server.
 """ + color.red + """php/SOPlanning_1-52-01_RCE""" + color.white + """                              24/11/15 08:29       SOPlanning 1.52.01 (Simple Online Planning Tool) - Remote Code Execution (RCE)(Authenticated).
 """ + color.red + """php/Wp2Fac""" + color.white + """                                              23/09/08 09:24       Wp2Fac - OS Command Injection.
+""")
+    elif scconsole == "search auxiliary":
+        print("""
+    Exploits                                        When created?        Discrepstion 
+""" + color.red + """auxiliary/robots_txt""" + color.white + """                                    25/02/21 07:47       Retrieves and parses robots.txt files.
+""" + color.red + """auxiliary/dirs_brute""" + color.white + """                                    25/02/20 08:08       Brute forces directories on web servers.
+""" + color.red + """auxiliary/http-version""" + color.white + """                                  25/02/21 08:18       Scans web servers for their HTTP version.
+""" + color.red + """auxiliary/enum_apache_user""" + color.white + """                              25/02/21 09:50       Enumerates Apache users.
+""" + color.red + """auxiliary/vuln-scan""" + color.white + """                                     25/02/21 10:17       Perform a vulnerability scan on a target.
+""" + color.red + """auxiliary/smtp-version""" + color.white + """                                  25/02/22 10:24       Scan a target for SMTP vulnerabilities.
 """)
     elif scconsole == "show payloads":
         print("""
@@ -578,6 +582,34 @@ search <exploits | exploit | windows | site | cve-exploits | osx | linux | multi
         time.sleep(0.5)
         print("using multi/pop3-pass.")
         mpop3pass()
+    elif scconsole == "use multi/pop3-brute-force":
+        time.sleep(0.5)
+        print("using multi/pop3-brute-force.")
+        mpop3bruteforce()
+    elif scconsole == "use auxiliary/robots_txt":
+        time.sleep(0.5)
+        print("using auxiliary/robots_txt.")
+        aauxiliaryrobotstxt()
+    elif scconsole == "use auxiliary/dirs_brute":
+        time.sleep(0.5)
+        print("using auxiliary/dirs_brute.")
+        aauxiliarydirsbrute()
+    elif scconsole == "use auxiliary/http-version":
+        time.sleep(0.5)
+        print("using auxiliary/http-version.")
+        aauxiliaryhttpversion()
+    elif scconsole == "use auxiliary/enum_apache_user":
+        time.sleep(0.5)
+        print("using auxiliary/enum_apache_user.")
+        aauxiliaryenumapacheuser()
+    elif scconsole == "use auxiliary/vuln-scan":
+        time.sleep(0.5)
+        print("using auxiliary/vuln-scan.")
+        aauxiliaryvulnscan()
+    elif scconsole == "use auxiliary/smtp-version":
+        time.sleep(0.5)
+        print("using auxiliary/smtp-version.")
+        aauxiliarysmtpversion()
     elif scconsole == "use system commands":
             OSconsole()
             OSconsole()
@@ -2610,6 +2642,277 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole61 == "exit":
+        exit()
+
+def mpop3bruteforce():
+    scconsole62 = input("sc~" + color.red + "(multi/pop3-brute-force)" + color.white + ">")
+    if scconsole62 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        mpop3bruteforce()
+    elif scconsole62 == "clear":
+        os.system('clear')
+        mpop3bruteforce()
+    elif scconsole62 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+LHOST         | specify the target ip address.
+LPORT         | specified as 110 (pop3 port).
+USERNAMELIST  | specify the username list path.
+PASSWORDLIST  | specify the password list path.
+
+you will specifiy these options when you run or exploit it!
+""")
+        mpop3bruteforce()
+    elif scconsole62 == "run":
+        os.system('python exploits/multi/pop3-brute-force.py')
+        mpop3bruteforce()
+    elif scconsole62 == "exploit":
+        os.system('python exploits/multi/pop3-brute-force.py')
+        mpop3bruteforce()
+    elif scconsole62 == "unuse":
+        print("unusing multi/pop3-brute-force.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole62 == "exit":
+        exit()
+
+def aauxiliaryrobotstxt():
+    scconsole63 = input("sc~" + color.red + "(auxiliary/robots_txt)" + color.white + ">")
+    if scconsole63 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        aauxiliaryrobotstxt()
+    elif scconsole63 == "clear":
+        os.system('clear')
+        aauxiliaryrobotstxt()
+    elif scconsole63 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliaryrobotstxt()
+    elif scconsole63 == "run":
+        os.system('python exploits/auxiliary/robots_txt.py')
+        aauxiliaryrobotstxt()
+    elif scconsole63 == "exploit":
+        os.system('python exploits/auxiliary/robots_txt.py')
+        aauxiliaryrobotstxt()
+    elif scconsole63 == "unuse":
+        print("unusing auxiliary/robots_txt.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole63 == "exit":
+        exit()
+
+def aauxiliarydirsbrute():
+    scconsole64 = input("sc~" + color.red + "(auxiliary/dirs_brute)" + color.white + ">")
+    if scconsole64 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        aauxiliarydirsbrute()
+    elif scconsole64 == "clear":
+        os.system('clear')
+        aauxiliarydirsbrute()
+    elif scconsole64 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+WORDLIST_PATH | specify the url-list path.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliarydirsbrute()
+    elif scconsole64 == "run":
+        os.system('python exploits/auxiliary/dirs_brute.py')
+        aauxiliarydirsbrute()
+    elif scconsole64 == "exploit":
+        os.system('python exploits/auxiliary/dirs_brute.py')
+        aauxiliarydirsbrute()
+    elif scconsole64 == "unuse":
+        print("unusing auxiliary/dirs_brute.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole64 == "exit":
+        exit()
+
+def aauxiliaryhttpversion():
+    scconsole65 = input("sc~" + color.red + "(auxiliary/http-version)" + color.white + ">")
+    if scconsole65 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        aauxiliaryhttpversion()
+    elif scconsole65 == "clear":
+        os.system('clear')
+        aauxiliaryhttpversion()
+    elif scconsole65 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliaryhttpversion()
+    elif scconsole65 == "run":
+        os.system('python exploits/auxiliary/http-version.py')
+        aauxiliaryhttpversion()
+    elif scconsole65 == "exploit":
+        os.system('python exploits/auxiliary/http-version.py')
+        aauxiliaryhttpversion()
+    elif scconsole65 == "unuse":
+        print("unusing auxiliary/http-version.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole65 == "exit":
+        exit()
+
+def aauxiliaryenumapacheuser():
+    scconsole66 = input("sc~" + color.red + "(auxiliary/enum_apache_user)" + color.white + ">")
+    if scconsole66 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        aauxiliaryenumapacheuser()
+    elif scconsole66 == "clear":
+        os.system('clear')
+        aauxiliaryenumapacheuser()
+    elif scconsole66 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+USERNAMELIST  | specify the username list.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliaryenumapacheuser()
+    elif scconsole66 == "run":
+        os.system('python exploits/auxiliary/enum_apache_user.py')
+        aauxiliaryenumapacheuser()
+    elif scconsole66 == "exploit":
+        os.system('python exploits/auxiliary/enum_apache_user.py')
+        aauxiliaryenumapacheuser()
+    elif scconsole66 == "unuse":
+        print("unusing auxiliary/enum_apache_user.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole66 == "exit":
+        exit()
+
+def aauxiliaryvulnscan():
+    scconsole67 = input("sc~" + color.red + "(auxiliary/vuln-scan)" + color.white + ">")
+    if scconsole67 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        aauxiliaryvulnscan()
+    elif scconsole67 == "clear":
+        os.system('clear')
+        aauxiliaryvulnscan()
+    elif scconsole67 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliaryvulnscan()
+    elif scconsole67 == "run":
+        os.system('python exploits/auxiliary/vuln-scan.py')
+        aauxiliaryvulnscan()
+    elif scconsole67 == "exploit":
+        os.system('python exploits/auxiliary/vuln-scan.py')
+        aauxiliaryvulnscan()
+    elif scconsole67 == "unuse":
+        print("unusing auxiliary/vuln-scan.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole67 == "exit":
+        exit()
+
+def aauxiliarysmtpversion():
+    scconsole68 = input("sc~" + color.red + "(auxiliary/smtp-version)" + color.white + ">")
+    if scconsole68 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        aauxiliarysmtpversion()
+    elif scconsole68 == "clear":
+        os.system('clear')
+        aauxiliarysmtpversion()
+    elif scconsole68 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliarysmtpversion()
+    elif scconsole68 == "run":
+        os.system('python exploits/auxiliary/smtp-version.py')
+        aauxiliarysmtpversion()
+    elif scconsole68 == "exploit":
+        os.system('python exploits/auxiliary/smtp-version.py')
+        aauxiliarysmtpversion()
+    elif scconsole68 == "unuse":
+        print("unusing auxiliary/smtp-version.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole68 == "exit":
         exit()
 
 def OSconsole():
