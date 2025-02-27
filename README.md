@@ -3,7 +3,7 @@
 UPDATES
 -
 
-new updates and features in sc_framework v1.2:
+new updates and features in sc_framework v1.3:
 
 - updated GUI version of scconsole.
 - added 1 new exploits.
