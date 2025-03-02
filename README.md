@@ -116,7 +116,7 @@ SC FRAMEWORK GUI
 
 ![Photo of scconsole gui](images/scframeworkgui-v1-4.png)
 
-The `GUI` version of scconsole, that created with python, the `GUI` version haves `11 exploits`.
+The `GUI` version of scconsole, that created with python, the `GUI` version haves `14 exploits`.
 
 to run the tool, you need to run it as root with sudo, here is the command :
 
