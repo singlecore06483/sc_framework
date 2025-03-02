@@ -1,4 +1,4 @@
-![SC Framework Icon](images/SCframework-icon.png {width=300 height=300})
+![SC Framework Banner](images/scbanner.jpg)
 
 UPDATES
 -
@@ -179,9 +179,6 @@ join us and use our `tools` and `exploit` our see our new `updates` from `telegr
 
 --------------------------------------------------------------------------
 
-![SC Framework Banner](images/scbanner.jpg)
-
---------------------------------------------------------------------------
 
 ```
 Malevolent code crawled through cybernetic veins,
