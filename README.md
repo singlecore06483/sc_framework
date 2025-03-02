@@ -3,11 +3,12 @@
 UPDATES
 -
 
-new updates and features in sc_framework v1.3:
+new updates and features in sc_framework v1.4:
 
 - updated GUI version of scconsole.
 - added 1 new exploits.
-- added 6 auxiliary exploits.
+- added 4 auxiliary exploits.
+- added 1 payload.
 - fixed the bugs and error.
 
 
