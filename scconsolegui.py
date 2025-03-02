@@ -5,7 +5,7 @@ import threading
 import os
 from PIL import Image, ImageTk
 import io
-import sys  # Import the sys module
+import sys
 
 if not 'SUDO_UID' in os.environ.keys():
     print("Please try running SC-Console GUI with sudo.")
@@ -21,9 +21,8 @@ class SCFrameworkGUI:
         self.root.geometry("500x600")
         self.root.configure(bg="#333333")
 
-        # Set Icon
         try:
-            image = Image.open("images/SCframework-icon.png")  # Replace with your .png file path
+            image = Image.open("images/SCframework-icon.png")
             photo = ImageTk.PhotoImage(image)
             self.root.iconphoto(False, photo)
         except FileNotFoundError:
@@ -31,7 +30,6 @@ class SCFrameworkGUI:
         except Exception as e:
             print(f"Icon setting error: {e}")
 
-        # Store the main UI elements as attributes for easier manipulation
         self.top_buttons_frame = None
         self.bottom_buttons_frame = None
 
@@ -46,7 +44,6 @@ class SCFrameworkGUI:
             "font": ("Arial", 10)
         }
 
-        # Initialize selected exploit and target
         self.selected_exploit = None
         self.target = None
         global logs_input
@@ -58,11 +55,9 @@ class SCFrameworkGUI:
         for widget in self.root.winfo_children():
             widget.destroy()
 
-        # Recreate top frame
         self.top_buttons_frame = tk.Frame(self.root, bg="#333333")
         self.top_buttons_frame.pack(side=tk.TOP, fill=tk.X, padx=5, pady=5)
 
-        # Define and pack all the top buttons
         self.quit_button = tk.Button(self.top_buttons_frame, text="Quit", command=self.exit_application, **self.button_style)
         self.quit_button.pack(side=tk.LEFT, padx=(0, 5))
 
@@ -72,40 +67,32 @@ class SCFrameworkGUI:
         self.tools_button = tk.Button(self.top_buttons_frame, text="Tools", command=self.tools_action, **self.button_style)
         self.tools_button.pack(side=tk.LEFT, padx=5)
 
-        # Add Help button
         self.help_button = tk.Button(self.top_buttons_frame, text="Help", command=self.help_action, **self.button_style)
         self.help_button.pack(side=tk.LEFT, padx=5)
 
         self.start_top_button = tk.Button(self.top_buttons_frame, text="Start", command=self.start_exploit, **self.button_style)
         self.start_top_button.pack(side=tk.LEFT, padx=5)
 
-        # "Output" Label
         output_label = tk.Label(self.root, text="Output", bg="#333333", fg="#FFFFFF", font=("Arial", 10))
         output_label.pack(side=tk.TOP, anchor=tk.W, padx=5, pady=(5, 0))
 
-        # Output Text Area
         global logs_input
         logs_input = tk.Text(self.root, bg="#444444", fg="#FFFFFF", height=25, width=80, relief=tk.FLAT, borderwidth=0)
         logs_input.pack(side=tk.TOP, fill=tk.BOTH, expand=True, padx=5, pady=5)
         self.logs_input = logs_input
 
-        # Bottom Buttons Frame
         self.bottom_buttons_frame = tk.Frame(self.root, bg="#333333")
         self.bottom_buttons_frame.pack(side=tk.BOTTOM, fill=tk.X, padx=5, pady=5)
 
-        # Start button (bottom)
         self.start_bottom_button = tk.Button(self.bottom_buttons_frame, text="Start", command=self.start_exploit, **self.button_style)
         self.start_bottom_button.pack(side=tk.LEFT, padx=5)
 
-        # Stop button
         self.stop_button = tk.Button(self.bottom_buttons_frame, text="Stop", command=self.stop_action, **self.button_style)
         self.stop_button.pack(side=tk.LEFT, padx=5)
 
-        # Save Output button
         self.save_output_button = tk.Button(self.bottom_buttons_frame, text="Save Output", command=self.save_logs_as, **self.button_style)
         self.save_output_button.pack(side=tk.LEFT, padx=5)
 
-        # Clear Output button
         self.clear_output_button = tk.Button(self.bottom_buttons_frame, text="Clear Output", command=self.clear_logs, **self.button_style)
         self.clear_output_button.pack(side=tk.LEFT, padx=5)
 
@@ -113,16 +100,13 @@ class SCFrameworkGUI:
         # Ask the user for the target IP or URL
         target = simpledialog.askstring("Target", "Enter target IP or URL:")
         if target:
-            # Store the target or use it as needed
             self.target = target
             self.logs_input.insert(tk.END, f"Target set: {target}\n")
             self.logs_input.see(tk.END)
 
     def tools_action(self):
-        # Remove the main window content
         self.root.withdraw()
 
-        # Create a new window to choose the exploit
         self.create_tools_window()
 
     def create_tools_window(self):
@@ -146,15 +130,16 @@ class SCFrameworkGUI:
             "sc-gui/kernal_xnu_ip_fragment_privesc_2.py",
             "sc-gui/pop3-pass.py",
             "sc-gui/information-gather.py",
-            "sc-gui/extract_table_db_column.py"
+            "sc-gui/extract_table_db_column.py",
+            "sc-gui/robots_txt.py",
+            "sc-gui/wordpress-scan.py",
+            "sc-gui/title.py"
         ]
 
-        # Exploit buttons
         for exploit in exploits:
             exploit_button = tk.Button(tools_frame, text=exploit, command=lambda ex=exploit: self.select_exploit(ex, tools_window), **self.button_style)
             exploit_button.pack(side=tk.TOP, fill=tk.X, padx=2, pady=2)
 
-        # Go back button
         back_button = tk.Button(tools_window, text="Back", command=lambda: self.back_to_main(tools_window), **self.button_style)
         back_button.pack(side=tk.BOTTOM, fill=tk.X, padx=5, pady=5)
 
@@ -167,13 +152,11 @@ class SCFrameworkGUI:
 
 
     def help_action(self):
-        # Remove the main window content
         for widget in self.root.winfo_children():
             widget.destroy()
         self.create_help_window()
 
     def create_help_window(self):
-        # Clear the main window content
         for widget in self.root.winfo_children():
             widget.destroy()
 
@@ -192,7 +175,7 @@ class SCFrameworkGUI:
 
         -! The exploits will timeout after 100 second.
 
-                     -* 11 exploits *-
+                       -* 14 exploits *-
         """
 
         help_label = tk.Label(help_frame, text=help_text, bg="#333333", fg="#FFFFFF", font=("Arial", 10), justify=tk.LEFT)
@@ -206,27 +189,22 @@ class SCFrameworkGUI:
         self.logs_input.see(tk.END)
 
     def run_exploit(self, exploit_path):
-        # Store the selected exploit
         self.selected_exploit = exploit_path
-        timeout = 100  # Increased timeout
+        timeout = 100
 
-        # Execute the selected exploit and capture the output in real-time
-        command = ["sudo", "python3", f"exploits/{self.selected_exploit}"]  # Specify python3
+        command = ["sudo", "python3", f"exploits/{self.selected_exploit}"]
 
         try:
             process = subprocess.Popen(command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                        stderr=subprocess.PIPE)
 
-            # Display the user input and output in the logs input in real-time
             self.logs_input.insert(tk.END, f"Running: {' '.join(command)}\n")
             self.logs_input.see(tk.END)
 
-            # Pass the target as input to the process
             if self.target:
-                # Ensure the input is bytes, encoding it with the system's encoding
                 target_bytes = (self.target + "\n").encode(sys.stdout.encoding, errors='replace')
                 process.stdin.write(target_bytes)
-                process.stdin.flush()  # Ensure data is sent immediately
+                process.stdin.flush()
                 self.logs_input.insert(tk.END, f"Inputting to script: {self.target}\n")
                 self.logs_input.see(tk.END)
             process.stdin.close()
@@ -240,9 +218,8 @@ class SCFrameworkGUI:
                     error_message = f"Error reading output: {e}\n"
                     self.logs_input.insert(tk.END, error_message)
                     self.logs_input.see(tk.END)
-                    print(error_message)  # Also print to console for debugging
+                    print(error_message)
 
-            # Start threads to read stdout and stderr
             stdout_thread = threading.Thread(target=read_output, args=(process.stdout,))
             stderr_thread = threading.Thread(target=read_output, args=(process.stderr, True))
             stdout_thread.daemon = True
@@ -263,7 +240,7 @@ class SCFrameworkGUI:
         except subprocess.TimeoutExpired:
             self.logs_input.insert(tk.END, f"Exploit timed out after {timeout} seconds.\n")
             self.logs_input.see(tk.END)
-            if process.poll() is None: # Kill process only if it is still running
+            if process.poll() is None:
                process.kill()
         except Exception as e:
             self.logs_input.insert(tk.END, f"An error occurred while running the exploit: {e}\n")
@@ -279,7 +256,6 @@ class SCFrameworkGUI:
             messagebox.showerror("Error", "Please set a Target first.")
             return
 
-        # Run the exploit
         threading.Thread(target=self.run_exploit, args=(self.selected_exploit,)).start()
 
     def back_to_main(self, window):
@@ -298,15 +274,12 @@ class SCFrameworkGUI:
     def exit_application(self):
         self.root.destroy()
 
-# Declare logs_input as global *before* creating the class
 global logs_input
 
-# Create the main window
 root = tk.Tk()
 # Initialize logs_input before creating the GUI
 # logs_input = tk.Text(root, bg="#444444", fg="#FFFFFF", height=25, width=80, relief=tk.FLAT, borderwidth=0)
 
-# Create the SCFrameworkGUI instance
 app = SCFrameworkGUI(root)
 # Start the main event loop
 root.mainloop()

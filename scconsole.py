@@ -161,9 +161,9 @@ color.red + """
     print()
     print()
     print()
-    print(color.white + "        +[ " + color.red + "sc_framework v1.3" + color.white + "                           ]+")
-    print("        -* 43 exploits - 20 cve exploits - 10 payloads *-")
-    print("        -* 6 auxiliary *-")
+    print(color.white + "        +[ " + color.red + "sc_framework v1.4" + color.white + "                           ]+")
+    print("        -* 44 exploits - 20 cve exploits - 11 payloads *-")
+    print("        -* 10 auxiliary *-")
     print()
     print("sc_framework tip: type '" + color.blue + "help" + color.white + "' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print()
@@ -209,7 +209,7 @@ search [ exploits | exploit | windows | site | cve-exploits ]
 """ + color.red + """multi/ssh-login-test""" + color.white + """                                24/01/11 05:54       for brute forcing ssh port (If your Internet is slow, that's gonna works slowly!).
 """ + color.red + """windows/java-rhino""" + color.white + """                                  24/01/12 02:45       for excuteshellcommand http port.
 """ + color.red + """site/tomcat-mgr-login""" + color.white + """                               24/01/12 04:23       for brute force login pages.
-""" + color.red + """windows/ms17-010-psexec""" + color.white + """                             24/01/13 08:20       for brute force windows smb port.
+""" + color.red + """windows/ms17_010""" + color.white + """                                    24/01/13 08:20       for brute force windows smb port.
 """ + color.red + """exploit/bypassuac-eventvwr""" + color.white + """                          24/01/13 10:39       for execute the command with elevated privileges on the target.
 """ + color.red + """exploit/find-vulnerabilites-scan""" + color.white + """                    24/01/14 09:24       for scanning target and finds vulnerabilite on target machine.
 """ + color.red + """site/XSS-SQLi-PHP-PASS""" + color.white + """                              24/01/14 09:35       to try passwords, sql injection, xss, php on the taregt login-page.
@@ -249,6 +249,7 @@ search [ exploits | exploit | windows | site | cve-exploits ]
 """ + color.red + """multi/os_detector""" + color.white + """                                   25/02/19 12:43       try to detect the target OS with the port you typed.
 """ + color.red + """multi/pop3-pass""" + color.white + """                                     25/02/20 11:57       exploits a buffer overflow vulnerability in a POP3 server.
 """ + color.red + """multi/pop3-brute-force""" + color.white + """                              25/02/21 01:44       brute-forcing the pop3 port.
+""" + color.red + """windows/shell-storm""" + color.white + """                                 25/02/23 08:00       trys to send buffer overflow and take a shellcode.
 """)
     elif scconsole == "search exploit":
         print("""
@@ -268,10 +269,11 @@ search [ exploits | exploit | windows | site | cve-exploits ]
 """ + color.red + """windows/PDF-exploit""" + color.white + """                       24/01/18 04:43       for genrate a pdf file, then send the pdf file to your target, when opened, you geted reverse shell.
 """ + color.red + """windows/ftp-login-test""" + color.white + """                    24/01/19 11:15       for login on port 21 or 20 ftp port.
 """ + color.red + """windows/java-rhino""" + color.white + """                        24/01/12 02:45       for excuteshellcommand http port.
-""" + color.red + """windows/ms17-010-psexec""" + color.white + """                   24/01/13 08:20       for brute force windows smb port.
+""" + color.red + """windows/ms17_010""" + color.white + """                          24/01/13 08:20       for brute force windows smb port.
 """ + color.red + """windows/ssh-login-test""" + color.white + """                    24/01/11 05:54       for brute forcing ssh port.
 """ + color.red + """windows/7-zip_cve-2025-0411""" + color.white + """               25/02/04 04:18       This flaw bypasses Windows' MotW protections, allowing remote code execution via malicious archives.
 """ + color.red + """windows/MS04-007_LSASS-exe_Pro_Remote_DoS""" + color.white + """ 04/02/14 04/37       Microsoft Windows - ASN.1 'LSASS.exe' Remote Denial of Service (MS04-007).
+""" + color.red + """windows/shell-storm""" + color.white + """                       25/02/23 08:00       trys to send buffer overflow and take a shellcode.
 """)
     elif scconsole == "search site":
         print("""
@@ -367,6 +369,10 @@ search [ exploits | exploit | windows | site | cve-exploits ]
 """ + color.red + """auxiliary/enum_apache_user""" + color.white + """                              25/02/21 09:50       Enumerates Apache users.
 """ + color.red + """auxiliary/vuln-scan""" + color.white + """                                     25/02/21 10:17       Perform a vulnerability scan on a target.
 """ + color.red + """auxiliary/smtp-version""" + color.white + """                                  25/02/22 10:24       Scan a target for SMTP vulnerabilities.
+""" + color.red + """auxiliary/title""" + color.white + """                                         25/02/21 12:18       This exploit retrieves the title of the target webpage.
+""" + color.red + """auxiliary/wordpress-scan""" + color.white + """                                25/01/21 12:22       scans the tagret web server to if that running wordpress.
+""" + color.red + """auxiliary/wordpress-scan""" + color.white + """                                25/01/21 12:22       This exploit scans for Wordpress vulnerabilities on the target server.
+""" + color.red + """auxiliary/drupal-scan""" + color.white + """                                   25/02/21 12:35       scans the target web server to if that running drupal.
 """)
     elif scconsole == "show payloads":
         print("""
@@ -389,6 +395,8 @@ search [ exploits | exploit | windows | site | cve-exploits ]
 """ + color.green + """<a href=javascript:alert('XSS')>Click Me</a>""" + color.white + """  ---> cross site XSS Click Me payload.
 
 """ + color.green + """javascript:alert('XSS')""" + color.white + """  ---> cross site XSS javascript payload.
+
+""" + color.green + """shell_reverse_tcp""" + color.white + """ ---> trys to get a reverse shell from target.
 """)
     elif scconsole == "use exploit/bypassuac-eventvwr":
         time.sleep(0.5)
@@ -430,9 +438,9 @@ search [ exploits | exploit | windows | site | cve-exploits ]
         time.sleep(0.5)
         print("using windows/java-rhino.")
         wexploitjavarhino()
-    elif scconsole == "use windows/ms17-010-psexec":
+    elif scconsole == "use windows/ms17_010":
         time.sleep(0.5)
-        print("using windows/ms17-010-psexec.")
+        print("using windows/ms17_010.")
         wexploitms17010psexec()
     elif scconsole == "use windows/PDF-exploit":
         time.sleep(0.5)
@@ -610,6 +618,26 @@ search [ exploits | exploit | windows | site | cve-exploits ]
         time.sleep(0.5)
         print("using auxiliary/smtp-version.")
         aauxiliarysmtpversion()
+    elif scconsole == "use windows/shell-storm":
+        time.sleep(0.5)
+        print("using windows/shell-storm.")
+        wshellstorm()
+    elif scconsole == "use auxiliary/title":
+        time.sleep(0.5)
+        print("using auxiliary/title.")
+        aauxiliarytitle()
+    elif scconsole == "use auxiliary/wordpress-scan":
+        time.sleep(0.5)
+        print("using auxiliary/wordpress-scan.")
+        aauxiliarywordpressscan()
+    elif scconsole == "use auxiliary/wordpress-vuln":
+        time.sleep(0.5)
+        print("using auxiliary/wordpress-vuln.")
+        aauxiliarywordpressvuln()
+    elif scconsole == "use auxiliary/drupal-scan":
+        time.sleep(0.5)
+        print("using auxiliary/drupal-scan.")
+        aauxiliarydrupalscan()
     elif scconsole == "use system commands":
             OSconsole()
             OSconsole()
@@ -644,7 +672,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
+RHOST            | specify the target ip address.
 USERNAMELIST     | specify the username list.
 PASSLIST         | specify the password list.
 CMD              | specify the cmd command.
@@ -685,7 +713,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
+RHOST            | specify the target ip address.
 CMD              | specify the cmd command.
 
 you will specifiy these options when you run or exploit it!
@@ -724,7 +752,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
+RHOST            | specify the target ip address.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -762,8 +790,8 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specify the target ip address or url.
-LPORT         | specified as 22. (ssh port).
+RHOST         | specify the target ip address or url.
+RPORT         | specified as 22. (ssh port).
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -908,7 +936,7 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specify the target ip address or url.
+RHOST         | specify the target ip address or url.
 LPORT         | specified as 22. (ssh port).
 PASSLIST      | specify the password list path.
 USERNAMELIST  | specify the username list path.
@@ -949,8 +977,8 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specify the target ip address.
-LPORT         | specify the target port (port 445 needs to open on target).
+RHOST         | specify the target ip address.
+RPORT         | specify the target port (port 445 needs to open on target).
 CMD           | specify the cmd command.
 
 you will specifiy these options when you run or exploit it!
@@ -970,7 +998,7 @@ you will specifiy these options when you run or exploit it!
         exit()
 
 def wexploitms17010psexec():
-    scconsole21 = input("sc~" + color.red + "(windows/ms17-010-psexec)" + color.white + ">")
+    scconsole21 = input("sc~" + color.red + "(windows/ms17_010)" + color.white + ">")
     if scconsole21 == "help":
         print("""
 help ---> to see this help menu.
@@ -989,22 +1017,19 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
-USERNAMELIST     | specify the username list.
-PASSLIST         | specify the password list.
-CMD              | specify the cmd command.
+RHOST            | specify the target ip address.
 
 you will specifiy these options when you run or exploit it!
 """)
         wexploitms17010psexec()
     elif scconsole21 == "run":
-        os.system('python exploits/windows/ms17-010-psexec.py')
+        os.system('python exploits/windows/ms17_010.py')
         wexploitms17010psexec()
     elif scconsole21 == "exploit":
-        os.system('python exploits/windows/ms17-010-psexec.py')
+        os.system('python exploits/windows/ms17_010.py')
         wexploitms17010psexec()
     elif scconsole21 == "unuse":
-        print("unusing windows/ms17-010-psexec.")
+        print("unusing windows/ms17_010.")
         time.sleep(0.5)
         Console()
     elif scconsole21 == "exit":
@@ -1064,7 +1089,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
+RHOST            | specify the target ip address.
 USERNAMELIST     | specify the username list.
 PASSLIST         | specify the password list.
 
@@ -1143,7 +1168,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target url.
+URL              | specify the target url.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1182,7 +1207,7 @@ show payloads ---> to see avalable payloads in sc-framework.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
+RHOST            | specify the target ip address.
 PAYLOAD          | specify the payload you want.
 
 please copy the payload you want by typing (show payloads)!
@@ -1245,7 +1270,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
+RHOST            | specify the target ip address.
 USERNAMELIST     | specify the username list.
 PASSLIST         | specify the password list.
 
@@ -1323,7 +1348,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target url.
+URL              | specify the target url.
 USERNAMELIST     | specify the username list.
 PASSLIST         | specify the password list.
 BRUTEFORCE-SPEED | specify the brute force speed.
@@ -1485,7 +1510,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-ATTACKER-IP      | specify your ip address.
+LHOST            | specify your ip address.
 ATTACKER-PORT    | specify your port.
 LISTEN-PORT      | specify the listening port.
 
@@ -1603,8 +1628,8 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specify the target ip address or url.
-LPORT         | specified as 22. (ssh port).
+RHOST         | specify the target ip address or url.
+RPORT         | specified as 22. (ssh port).
 PASSLIST      | specify the password list path.
 USERNAMELIST  | specify the username list path.
 
@@ -1644,7 +1669,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
+RHOST            | specify the target ip address.
 USERNAMELIST     | specify the username list.
 PASSLIST         | specify the password list.
 
@@ -1723,7 +1748,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
+RHOST            | specify the target ip address.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1761,7 +1786,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
+RHOST            | specify the target ip address.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -1799,8 +1824,8 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specify the target ip address or url.
-LPORT         | specified as 22. (ssh port).
+RHOST         | specify the target ip address or url.
+RPORT         | specified as 22. (ssh port).
 PASSLIST      | specify the password list path.
 USERNAMELIST  | specify the username list path.
 
@@ -1840,7 +1865,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
+RHOST            | specify the target ip address.
 USERNAMELIST     | specify the username list.
 PASSLIST         | specify the password list.
 
@@ -1880,8 +1905,8 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specify the target ip address or url.
-LPORT         | specified as 22. (ssh port).
+RHOST         | specify the target ip address or url.
+RPORT         | specified as 22. (ssh port).
 PASSLIST      | specify the password list path.
 USERNAMELIST  | specify the username list path.
 
@@ -1921,7 +1946,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
+RHOST            | specify the target ip address.
 USERNAMELIST     | specify the username list.
 PASSLIST         | specify the password list.
 
@@ -1961,7 +1986,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target url.
+URL              | specify the target url.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -2000,7 +2025,7 @@ show payloads ---> to see avalable payloads in sc-framework.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target URL.
+URL              | specify the target URL.
 PAYLOAD          | specify the payload you want.
 PHISHING URL     | specify the phishing url.
 
@@ -2059,7 +2084,7 @@ show payloads ---> to see avalable payloads in sc-framework.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target URL.
+URL              | specify the target URL.
 PAYLOAD          | specify the payload(you don't need to specifiy it uses own payloads!).
 
 please copy the payload you want by typing (show payloads)!
@@ -2122,7 +2147,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
+RHOST            | specify the target ip address.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -2285,7 +2310,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-IP               | specify the target ip address (Cisco IOS software router IP - Internetwork Operating System).
+RHOST            | specify the target ip address (Cisco IOS software router IP - Internetwork Operating System).
 TTL              | specify the ttl (Time-to-Live).
 
 you will specifiy these options when you run or exploit it!
@@ -2328,8 +2353,8 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
-LPORT            | specify the port.
+RHOST            | specify the target ip address.
+RPORT            | specify the port.
 NETBIOS          | specify the netbios.
 
 you will specifiy these options when you run or exploit it!
@@ -2374,7 +2399,7 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify the target ip address.
+RHOST            | specify the target ip address.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -2414,8 +2439,8 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specify the target ip address (website).
-LPORT         | specify the port.
+RHOST         | specify the target ip address (website).
+RPORT         | specify the port.
 COMMAND       | specify the command you want.
 
 you will specifiy these options when you run or exploit it!
@@ -2543,7 +2568,7 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specify the target ip address (website).
+RHOST         | specify the target ip address (website).
 R-S-COMMAND   | specify the reverse-shell-command you want.
 
 you will specifiy these options when you run or exploit it!
@@ -2582,8 +2607,8 @@ show options ---> to see the options.
         print("""
 OPTIONS          | DISCREPTIONS
 -----------------|----------------------
-LHOST            | specify target ip address.
-LPORT            | specify the port to start detecting.
+RHOST            | specify target ip address.
+PORT             | specify the port to start detecting.
 
 you will specifiy these options when you run or exploit it!
 """)
@@ -2625,7 +2650,7 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specify the target ip address.
+RHOST         | specify the target ip address.
 LPORT         | specified as 110 (pop3 port).
 
 you will specifiy these options when you run or exploit it!
@@ -2664,8 +2689,8 @@ show options ---> to see the options.
         print("""
 OPTIONS       | DISCREPTIONS
 --------------|----------------------
-LHOST         | specify the target ip address.
-LPORT         | specified as 110 (pop3 port).
+RHOST         | specify the target ip address.
+PORT          | specified as 110 (pop3 port).
 USERNAMELIST  | specify the username list path.
 PASSWORDLIST  | specify the password list path.
 
@@ -2913,6 +2938,250 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole68 == "exit":
+        exit()
+
+def wshellstorm():
+    scconsole69 = input("sc~" + color.red + "(windows/shell-storm)" + color.white + ">")
+    if scconsole69 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+show payloads ---> to show the payloads can used in this exploit.
+use <payload> ---> to use a payload.
+""")
+        wshellstorm()
+    elif scconsole69 == "clear":
+        os.system('clear')
+        wshellstorm()
+    elif scconsole69 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+RHOST         | specify the target ip address.
+RPORT         | specify the target port.
+LHOST         | specify your ip for listener.
+LPORT         | specify port for listener.
+
+you will specifiy these options when you run or exploit it!
+""")
+        wshellstorm()
+    elif scconsole69 == "show payloads":
+        print("""
+""" + color.green + """shell_reverse_tcp""" + color.white + """ ---> trys to get a reverse shell from target.
+""")
+        wshellstorm()
+    elif scconsole69 == "use shell_reverse_tcp":
+        print("using shell_reverse_tcp")
+        wshellstorm2()
+    elif scconsole69 == "run":
+        os.system('python exploits/windows/shell-storm.py')
+        wshellstorm()
+    elif scconsole69 == "exploit":
+        os.system('python exploits/windows/shell-storm.py')
+        wshellstorm()
+    elif scconsole69 == "unuse":
+        print("unusing windows/shell-storm.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole69 == "exit":
+        exit()
+
+def wshellstorm2():
+    scconsole74 = input("sc~" + color.red + color.underline + "(windows/shell-storm)" + color.white + ">")
+    if scconsole74 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        wshellstorm2()
+    elif scconsole74 == "clear":
+        os.system('clear')
+        wshellstorm2()
+    elif scconsole74 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+RHOST         | specify the target ip address.
+RPORT         | specify the target port.
+
+PAYLOAD    ---> shell_reverse_tcp
+
+you will specifiy these options when you run or exploit it!
+""")
+        wshellstorm2()
+    elif scconsole74 == "run":
+        os.system('python payloads/shell_reverse_tcp.py')
+        wshellstorm2()
+    elif scconsole74 == "exploit":
+        os.system('python payloads/shell_reverse_tcp.py')
+        wshellstorm2()
+    elif scconsole74 == "unuse":
+        print("unusing " + color.underline + "windows/shell-storm.")
+        time.sleep(0.5)
+        wshellstorm()
+    elif scconsole74 == "exit":
+        exit()
+
+def aauxiliarytitle():
+    scconsole70 = input("sc~" + color.red + "(auxiliary/title)" + color.white + ">")
+    if scconsole70 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        aauxiliarytitle()
+    elif scconsole70 == "clear":
+        os.system('clear')
+        aauxiliarytitle()
+    elif scconsole70 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliarytitle()
+    elif scconsole70 == "run":
+        os.system('python exploits/auxiliary/title.py')
+        aauxiliarytitle()
+    elif scconsole70 == "exploit":
+        os.system('python exploits/auxiliary/title.py')
+        aauxiliarytitle()
+    elif scconsole70 == "unuse":
+        print("unusing auxiliary/title.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole70 == "exit":
+        exit()
+
+def aauxiliarywordpressscan():
+    scconsole71 = input("sc~" + color.red + "(auxiliary/wordpress-scan)" + color.white + ">")
+    if scconsole71 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        aauxiliarywordpressscan()
+    elif scconsole71 == "clear":
+        os.system('clear')
+        aauxiliarywordpressscan()
+    elif scconsole71 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliarywordpressscan()
+    elif scconsole71 == "run":
+        os.system('python exploits/auxiliary/wordpress-scan.py')
+        aauxiliarywordpressscan()
+    elif scconsole71 == "exploit":
+        os.system('python exploits/auxiliary/wordpress-scan.py')
+        aauxiliarywordpressscan()
+    elif scconsole71 == "unuse":
+        print("unusing auxiliary/wordpress-scan.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole71 == "exit":
+        exit()
+
+def aauxiliarywordpressvuln():
+    scconsole72 = input("sc~" + color.red + "(auxiliary/wordpress-vuln)" + color.white + ">")
+    if scconsole72 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        aauxiliarywordpressvuln()
+    elif scconsole72 == "clear":
+        os.system('clear')
+        aauxiliarywordpressvuln()
+    elif scconsole72 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliarywordpressvuln()
+    elif scconsole72 == "run":
+        os.system('python exploits/auxiliary/wordpress-vuln.py')
+        aauxiliarywordpressvuln()
+    elif scconsole72 == "exploit":
+        os.system('python exploits/auxiliary/wordpress-vuln.py')
+        aauxiliarywordpressvuln()
+    elif scconsole72 == "unuse":
+        print("unusing auxiliary/wordpress-vuln.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole72 == "exit":
+        exit()
+
+def aauxiliarydrupalscan():
+    scconsole73 = input("sc~" + color.red + "(auxiliary/drupal-scan)" + color.white + ">")
+    if scconsole73 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        aauxiliarydrupalscan()
+    elif scconsole73 == "clear":
+        os.system('clear')
+        aauxiliarydrupalscan()
+    elif scconsole73 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliarydrupalscan()
+    elif scconsole73 == "run":
+        os.system('python exploits/auxiliary/drupal-scan.py')
+        aauxiliarydrupalscan()
+    elif scconsole73 == "exploit":
+        os.system('python exploits/auxiliary/drupal-scan.py')
+        aauxiliarydrupalscan()
+    elif scconsole73 == "unuse":
+        print("unusing auxiliary/drupal-scan.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole73 == "exit":
         exit()
 
 def OSconsole():
