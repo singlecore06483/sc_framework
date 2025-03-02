@@ -16,7 +16,7 @@ SC FRAMEWORK
 -
 
 this tool uses 44 exploits and 20 cve exploits and 11 payloads and 10 auxiliary exploits.
-which some of the exploit like `ssh-loign-test, PDF-exploit, and more 41 exploits`.
+which some of the exploit like `ssh-loign-test, PDF-exploit, and more 42 exploits`.
 
 How this tool works?
 -
