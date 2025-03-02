@@ -1,4 +1,4 @@
-![SC Framework Banner](images/scbanner.jpg)
+![SC Framework Icon](images/SCframework-icon.png)
 
 UPDATES
 -
@@ -113,6 +113,8 @@ python scgenrate.py -t reverse_tcp -lh <listener_host> -lp <listener_port> -o <o
 SC FRAMEWORK GUI
 -
 
+![Photo of scconsole gui](images/scframeworkgui-v1-4.png)
+
 The `GUI` version of scconsole, that created with python, the `GUI` version haves `11 exploits`.
 
 to run the tool, you need to run it as root with sudo, here is the command :
@@ -177,7 +179,7 @@ join us and use our `tools` and `exploit` our see our new `updates` from `telegr
 
 --------------------------------------------------------------------------
 
-![Trailer of sc_framework](images/SC_framework_video.mp4)
+![SC Framework Banner](images/scbanner.jpg)
 
 --------------------------------------------------------------------------
 
