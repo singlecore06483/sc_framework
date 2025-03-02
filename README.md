@@ -1,4 +1,4 @@
-![SC Framework Icon](images/SCframework-icon.png){width=50 height=50}
+![SC Framework Icon](images/SCframework-icon.png){width=10 height=10}
 
 UPDATES
 -
