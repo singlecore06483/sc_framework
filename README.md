@@ -115,7 +115,6 @@ python scgenrate.py -t reverse_tcp -lh <listener_host> -lp <listener_port> -o <o
 SC FRAMEWORK GUI
 -
 
-![Photo of scconsole gui](images/scframeworkgui-v1-4.png)
 
 The `GUI` version of scconsole, that created with python, the `GUI` version haves `14 exploits`.
 
