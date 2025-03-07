@@ -3,20 +3,21 @@
 UPDATES
 -
 
-new updates and features in sc_framework v1.4:
+new updates and features in sc_framework v1.5:
 
-- updated GUI version of scconsole.
-- added 1 new exploits.
+- added shellcode generator.
+- added 2 new exploits.
 - added 4 auxiliary exploits.
-- added 1 payload.
+- added Database (If the exploits dosen't works good, use DataBase to make them ready.).
 - fixed the bugs and error.
+- added a scanner to scconsole.
 
 
 SC FRAMEWORK
 -
 
-this tool uses 44 exploits and 20 cve exploits and 11 payloads and 10 auxiliary exploits.
-which some of the exploit like `ssh-loign-test, PDF-exploit, and more 42 exploits`.
+this tool uses 46 exploits and 20 cve exploits and 11 payloads and 16 auxiliary exploits.
+which some of the exploit like `ssh-loign-test, PDF-exploit, and more 44 exploits`.
 
 How this tool works?
 -
@@ -137,6 +138,48 @@ and when you typed and clicked on ENTER, and clicked on `start` button or bar, t
 after you done with your tagret, you can save the results or logs in a path you need as .txt format. here is how :
 
 click on `save logs as...` then the new window pops up, in there you will choose your path and file name to save the result or logs.
+
+-------------------------------------------------------------------------
+
+SC SHELLCODE GENERATOR
+-
+
+This tool generates a shellcodes for linux, macos and windows systems.
+
+use this tool to generate a shellcode.
+
+-------------------------------------------------------------------------
+
+What is DataBase in SC Framework ?
+-
+So sometimes you see the exploits works bad or slow.
+
+so you can use `db_scconsole.py` to make the files and exploits ready to use.
+
+-------------------------------------------------------------------------
+
+How to use db_scscanner in scconsole ?
+-
+
+so to use `db_scscanner`, first you need to run scconsole by typing : 
+
+```
+python scconsole.py
+```
+
+then use these commands : 
+
+```
+db_scscanner
+db_scscanner -h
+db_scscanner -o
+db_scscanner -p
+db_scscanner -w
+db_scscanner results
+db_scscanner -n-scan
+```
+
+then when you choose your option and type one of these commands, that will ask you for target, ports or port, website, etc.
 
 -------------------------------------------------------------------------
 
