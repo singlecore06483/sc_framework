@@ -9,6 +9,7 @@ import random
 import signal
 import sys
 import arrow
+import psutil
 from exploits import *
 from payloads import *
 from tools import *
@@ -161,9 +162,9 @@ color.red + """
     print()
     print()
     print()
-    print(color.white + "        +[ " + color.red + "sc_framework v1.4" + color.white + "                           ]+")
-    print("        -* 44 exploits - 20 cve exploits - 11 payloads *-")
-    print("        -* 10 auxiliary *-")
+    print(color.white + "        +[ " + color.red + "sc_framework v1.5" + color.white + "                           ]+")
+    print("        -* 46 exploits - 20 cve exploits - 11 payloads *-")
+    print("        -* 14 auxiliary *-")
     print()
     print("sc_framework tip: type '" + color.blue + "help" + color.white + "' to see the " + color.underline + color.green + "scconsole" + color.white + " commands.")
     print()
@@ -181,6 +182,7 @@ search ---> to see the search options.
 exit ---> to exit from sc-console.
 show payloads ---> to see avalable payloads in sc-framework.
 use system commands ---> to use system tools and commands 3 times, to come back here use (back to sc-console).
+db_scscanner ---> normal scanner of scconsole, type 'db_scscanner -h' to see help menu of db_scscanner.
 """)
     elif scconsole == "h":
         print("""
@@ -250,6 +252,8 @@ search [ exploits | exploit | windows | site | cve-exploits ]
 """ + color.red + """multi/pop3-pass""" + color.white + """                                     25/02/20 11:57       exploits a buffer overflow vulnerability in a POP3 server.
 """ + color.red + """multi/pop3-brute-force""" + color.white + """                              25/02/21 01:44       brute-forcing the pop3 port.
 """ + color.red + """windows/shell-storm""" + color.white + """                                 25/02/23 08:00       trys to send buffer overflow and take a shellcode.
+""" + color.red + """site/Aurba-501""" + color.white + """                                      24/08/24 05:14       Remote Command Execution | Aurba 501.
+""" + color.red + """site/HughesNet-HT2000W-Satellite-Modem""" + color.white + """              24/08/24 09:58      HughesNet HT2000W Satellite Modem (Arcadyan httpd 1.0) - Password Reset.
 """)
     elif scconsole == "search exploit":
         print("""
@@ -277,19 +281,21 @@ search [ exploits | exploit | windows | site | cve-exploits ]
 """)
     elif scconsole == "search site":
         print("""
-    Exploits                         When created?        Discrepstion 
-""" + color.red + """site/XSS-SQLi-PHP-PASS""" + color.white + """               24/01/14 09:35       for alert the XSS attack in html file.
-""" + color.red + """site/vuln-curl-website""" + color.white + """               24/01/14 11:40       for finding vulnerabilite in the target website.
-""" + color.red + """site/find-vulnerabilites-website2""" + color.white + """    24/01/14 12:31       for finding vulnerabilite with payload you specified.
-""" + color.red + """site/http-login-test""" + color.white + """                 24/01/19 12:01       for login on port 80 http port.
-""" + color.red + """site/ZIP-exploit""" + color.white + """                     24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
-""" + color.red + """site/tomcat-mgr-login""" + color.white + """                24/01/12 04:23       for brute force login pages.
-""" + color.red + """site/Directory-finder""" + color.white + """                25/02/06 06:11       Finds the Pages and directorys, and brute-forces the directorys (works slow).
-""" + color.red + """site/struts2_namespace_ognl""" + color.white + """          25/02/07 02:12       exploits the Struts2 framework to execute arbitrary code. It uses the OGNL injection vulnerability.
-""" + color.red + """site/reverse_http""" + color.white + """                    25/02/08 06:53       the attacker sets up a listener on their own machine and waits for the server to send a request to their machine. When the server makes a request, the attacker's listener intercepts the request and executes a payload on the server. The payload can include commands to download malware, steal sensitive data, or gain access to the server's command-line interface (CLI).
-""" + color.red + """site/cve-2022-24521""" + color.white + """                  22/04/12 10:43       CVE-2022-24521 is a stack-based buffer overflow vulnerability in the login.cgi script of the Cisco Small Business 7000 Series IP Phones, which allows an unauthenticated attacker to execute arbitrary commands on the device.
-""" + color.red + """site/information-gather""" + color.white + """              25/02/17 12:40       gets the information from the website like some links, some images, some more information.
-""" + color.red + """site/port-scan"""  + color.white + """                      25/02/17 01:15       Scans for open ports (work normaly!).
+    Exploits                          When created?        Discrepstion 
+""" + color.red + """site/XSS-SQLi-PHP-PASS""" + color.white + """                 24/01/14 09:35       for alert the XSS attack in html file.
+""" + color.red + """site/vuln-curl-website""" + color.white + """                 24/01/14 11:40       for finding vulnerabilite in the target website.
+""" + color.red + """site/find-vulnerabilites-website2""" + color.white + """      24/01/14 12:31       for finding vulnerabilite with payload you specified.
+""" + color.red + """site/http-login-test""" + color.white + """                   24/01/19 12:01       for login on port 80 http port.
+""" + color.red + """site/ZIP-exploit""" + color.white + """                       24/01/16 01:49       for genrate a zip file, then send the zip file to your target website, when unziped, you geted reverse shell.
+""" + color.red + """site/tomcat-mgr-login""" + color.white + """                  24/01/12 04:23       for brute force login pages.
+""" + color.red + """site/Directory-finder""" + color.white + """                  25/02/06 06:11       Finds the Pages and directorys, and brute-forces the directorys (works slow).
+""" + color.red + """site/struts2_namespace_ognl""" + color.white + """            25/02/07 02:12       exploits the Struts2 framework to execute arbitrary code. It uses the OGNL injection vulnerability.
+""" + color.red + """site/reverse_http""" + color.white + """                      25/02/08 06:53       the attacker sets up a listener on their own machine and waits for the server to send a request to their machine. When the server makes a request, the attacker's listener intercepts the request and executes a payload on the server. The payload can include commands to download malware, steal sensitive data, or gain access to the server's command-line interface (CLI).
+""" + color.red + """site/cve-2022-24521""" + color.white + """                    22/04/12 10:43       CVE-2022-24521 is a stack-based buffer overflow vulnerability in the login.cgi script of the Cisco Small Business 7000 Series IP Phones, which allows an unauthenticated attacker to execute arbitrary commands on the device.
+""" + color.red + """site/information-gather""" + color.white + """                25/02/17 12:40       gets the information from the website like some links, some images, some more information.
+""" + color.red + """site/port-scan"""  + color.white + """                         25/02/17 01:15       Scans for open ports (work normaly!).
+""" + color.red + """site/Aurba-501""" + color.white + """                         24/08/24 05:14       Remote Command Execution | Aurba 501.
+""" + color.red + """site/HughesNet-HT2000W-Satellite-Modem""" + color.white + """ 24/08/24 09:58      HughesNet HT2000W Satellite Modem (Arcadyan httpd 1.0) - Password Reset.
 """)
     elif scconsole == "search cve-exploits":
         print()
@@ -373,6 +379,10 @@ search [ exploits | exploit | windows | site | cve-exploits ]
 """ + color.red + """auxiliary/wordpress-scan""" + color.white + """                                25/01/21 12:22       scans the tagret web server to if that running wordpress.
 """ + color.red + """auxiliary/wordpress-scan""" + color.white + """                                25/01/21 12:22       This exploit scans for Wordpress vulnerabilities on the target server.
 """ + color.red + """auxiliary/drupal-scan""" + color.white + """                                   25/02/21 12:35       scans the target web server to if that running drupal.
+""" + color.red + """auxiliary/cookie_stolen""" + color.white + """                                 25/02/24 04:56       finds cookies on the target website.
+""" + color.red + """auxiliary/basic-auth""" + color.white + """                                    25/02/26 10:23       This module attempts to brute force HTTP basic authentication credentials.
+""" + color.red + """auxiliary/ftp-anonymous""" + color.white + """                                 25/02/26 10:33       This module attempts to log into an FTP server anonymously.
+""" + color.red + """auxiliary/http_put""" + color.white + """                                      25/02/26 06:19       This module attempts to PUT files on a web server.
 """)
     elif scconsole == "show payloads":
         print("""
@@ -396,8 +406,79 @@ search [ exploits | exploit | windows | site | cve-exploits ]
 
 """ + color.green + """javascript:alert('XSS')""" + color.white + """  ---> cross site XSS javascript payload.
 
-""" + color.green + """shell_reverse_tcp""" + color.white + """ ---> trys to get a reverse shell from target.
+""" + color.green + """shell_reverse_tcp""" + color.white + """ ---> trys to get a reverse shell from target, then connects back to the attacker.
 """)
+    elif scconsole == "db_scscanner -h":
+        print("""
+Usage: db_scscanner [option]
+
+Examples: db_scscanner -o
+          db_scscanner -p
+          db_scscanner -w
+          db_scscanner -h
+          db_scscanner results
+          db_scscanner -n-scan
+
+Options:
+  -h --->   Display this help message
+  -p --->   Scan specific ports on a host
+  -o --->   Scan for the operating system of a host from 7,21,22,80 and 8080 ports
+  -w --->   Scan a website for good information
+  results --->   Display the scans you done
+  -n-scan --->   Normal scan
+
+Arguments:
+  [host]               Single host IP address or range (e.g., 10.11.1.0 or 10.11.1.1-254)
+  [port]               Single port number or comma-separated list of ports (e.g., 80 or 7,22,80,8080)
+  [website]            Website URL (e.g., example.com)
+
+the tool will asks for target IP or URL!
+
+sudo reqired!!
+""")
+    elif scconsole == "db_scscanner":
+        print("""
+Usage: db_scscanner [option]
+
+Examples: db_scscanner -o
+          db_scscanner -p
+          db_scscanner -w
+          db_scscanner -h
+          db_scscanner results
+          db_scscanner -n-scan
+
+Options:
+  -h --->   Display this help message
+  -p --->   Scan specific ports on a host
+  -o --->   Scan for the operating system of a host from 7,21,22,80 and 8080 ports
+  -w --->   Scan a website for good information
+  results --->   Display the scans you done
+  -n-scan --->   Normal scan
+
+Arguments:
+  [host]               Single host IP address or range (e.g., 10.11.1.0 or 10.11.1.1-254)
+  [port]               Single port number or comma-separated list of ports (e.g., 80 or 7,22,80,8080)
+  [website]            Website URL (e.g., example.com)
+
+the tool will asks for target IP or URL!
+
+sudo reqired!!
+""")
+    elif scconsole == "db_scscanner -n-scan":
+        targetsip00 = input("Enter taregt IP: ")
+        os.system(f'sudo python db_scscanner.py {targetsip00}')
+    elif scconsole == "db_scscanner -p":
+        targetportsorport = input("Enter the ports or port: ")
+        targetip00 = input("Enter Target IP: ")
+        os.system(f'sudo python db_scscanner.py -p={targetportsorport} {targetip00}')
+    elif scconsole == "db_scscanner -o":
+        targetip331 = input("Enter tagret IP: ")
+        os.system(f'sudo python db_scscanner.py -o {targetip331}')
+    elif scconsole == "db_scscanner -w":
+        targeturl441 = input("Enter target URL: ")
+        os.system(f'sudo python db_scscanner.py -w {targeturl441}')
+    elif scconsole == "db_scscanner results":
+        os.system(f'python db_scscanner.py results')
     elif scconsole == "use exploit/bypassuac-eventvwr":
         time.sleep(0.5)
         print("using exploit/bypassuac-eventvwr.")
@@ -638,6 +719,30 @@ search [ exploits | exploit | windows | site | cve-exploits ]
         time.sleep(0.5)
         print("using auxiliary/drupal-scan.")
         aauxiliarydrupalscan()
+    elif scconsole == "use auxiliary/cookie_stolen":
+        time.sleep(0.5)
+        print("using auxiliary/cookie_stolen.")
+        aauxiliarycookiestolen()
+    elif scconsole == "use site/Aurba-501":
+        time.sleep(0.5)
+        print("using site/Aurba-501.")
+        tAurba501()
+    elif scconsole == "use site/HughesNet-HT2000W-Satellite-Modem":
+        time.sleep(0.5)
+        print("using site/HughesNet-HT2000W-Satellite-Modem.")
+        tHughesNetHT2000WSatelliteModem()
+    elif scconsole == "use auxiliary/basic-auth":
+        time.sleep(0.5)
+        print("using auxiliary/basic-auth.")
+        aauxiliarybasicauth()
+    elif scconsole == "use auxiliary/ftp-anonymous":
+        time.sleep(0.5)
+        print("using auxiliary/ftp-anonymous.")
+        aauxiliaryftpanonymous()
+    elif scconsole == "use auxiliary/http_put":
+        time.sleep(0.5)
+        print("using auxiliary/http_put.")
+        aauxiliaryhttpput()
     elif scconsole == "use system commands":
             OSconsole()
             OSconsole()
@@ -3182,6 +3287,249 @@ you will specifiy these options when you run or exploit it!
         time.sleep(0.5)
         Console()
     elif scconsole73 == "exit":
+        exit()
+
+def aauxiliarycookiestolen():
+    scconsole75 = input("sc~" + color.red + "(auxiliary/cookie_stolen)" + color.white + ">")
+    if scconsole75 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+show RESULT ---> shows the result after scan.
+""")
+        aauxiliarycookiestolen()
+    elif scconsole75 == "clear":
+        os.system('clear')
+        aauxiliarycookiestolen()
+    elif scconsole75 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+
+RESULT        | results of stolen cookies will be saved into cookies.txt.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliarycookiestolen()
+    elif scconsole75 == "run":
+        os.system('python exploits/auxiliary/cookie_stolen.py')
+        aauxiliarycookiestolen()
+    elif scconsole75 == "exploit":
+        os.system('python exploits/auxiliary/cookie_stolen.py')
+        aauxiliarycookiestolen()
+    elif scconsole75 == "show RESULT":
+        os.system('cat exploits/auxiliary/cookies.txt')
+        aauxiliarycookiestolen()
+    elif scconsole75 == "unuse":
+        print("unusing auxiliary/cookie_stolen.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole75 == "exit":
+        exit()
+
+def tAurba501():
+    scconsole76 = input("sc~" + color.red + "(site/Aurba-501)" + color.white + ">")
+    if scconsole76 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        tAurba501()
+    elif scconsole76 == "clear":
+        os.system('clear')
+        tAurba501()
+    elif scconsole76 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+USERNAME      | specify the username.
+PASSWORD      | specify the password.
+
+you will specifiy these options when you run or exploit it!
+""")
+        tAurba501()
+    elif scconsole76 == "run":
+        os.system('python exploits/site/Aurba-501.py')
+        tAurba501()
+    elif scconsole76 == "exploit":
+        os.system('python exploits/site/Aurba-501.py')
+        tAurba501()
+    elif scconsole76 == "unuse":
+        print("unusing site/Aurba-501.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole76 == "exit":
+        exit()
+
+def tHughesNetHT2000WSatelliteModem():
+    scconsole77 = input("sc~" + color.red + "(site/HughesNet-HT2000W-Satellite-Modem)" + color.white + ">")
+    if scconsole77 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        tHughesNetHT2000WSatelliteModem()
+    elif scconsole77 == "clear":
+        os.system('clear')
+        tHughesNetHT2000WSatelliteModem()
+    elif scconsole77 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+PASSWORD      | specify the password to reset.
+URL           | specify the taregt url.
+
+you will specifiy these options when you run or exploit it!
+""")
+        tHughesNetHT2000WSatelliteModem()
+    elif scconsole77 == "run":
+        passowrdforreset = input("Enter password for reset: ")
+        taregturlforreset = input("Target URL: ")
+        os.system(f'python exploits/site/HughesNet-HT2000W-Satellite-Modem.py {passowrdforreset} {taregturlforreset}')
+        tHughesNetHT2000WSatelliteModem()
+    elif scconsole77 == "exploit":
+        passowrdforreset2 = input("Enter password for reset: ")
+        taregturlforreset2 = input("Target URL: ")
+        os.system(f'python exploits/site/HughesNet-HT2000W-Satellite-Modem.py {passowrdforreset2} {taregturlforreset2}')
+        tHughesNetHT2000WSatelliteModem()
+    elif scconsole77 == "unuse":
+        print("unusing site/HughesNet-HT2000W-Satellite-Modem.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole77 == "exit":
+        exit()
+
+def aauxiliarybasicauth():
+    scconsole78 = input("sc~" + color.red + "(auxiliary/basic-auth)" + color.white + ">")
+    if scconsole78 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        aauxiliarybasicauth()
+    elif scconsole78 == "clear":
+        os.system('clear')
+        aauxiliarybasicauth()
+    elif scconsole78 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+USERNAMELIST  | specify the username list.
+PASSWORDLIST  | specify the password list.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliarybasicauth()
+    elif scconsole78 == "run":
+        os.system('python exploits/auxiliary/basic-auth.py')
+        aauxiliarybasicauth()
+    elif scconsole78 == "exploit":
+        os.system('python exploits/auxiliary/basic-auth.py')
+        aauxiliarybasicauth()
+    elif scconsole78 == "unuse":
+        print("unusing auxiliary/basic-auth.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole78 == "exit":
+        exit()
+
+def aauxiliaryftpanonymous():
+    scconsole79 = input("sc~" + color.red + "(auxiliary/ftp-anonymous)" + color.white + ">")
+    if scconsole79 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        aauxiliaryftpanonymous()
+    elif scconsole79 == "clear":
+        os.system('clear')
+        aauxiliaryftpanonymous()
+    elif scconsole79 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliaryftpanonymous()
+    elif scconsole79 == "run":
+        os.system('python exploits/auxiliary/ftp-anonymous.py')
+        aauxiliaryftpanonymous()
+    elif scconsole79 == "exploit":
+        os.system('python exploits/auxiliary/ftp-anonymous.py')
+        aauxiliaryftpanonymous()
+    elif scconsole79 == "unuse":
+        print("unusing auxiliary/ftp-anonymous.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole79 == "exit":
+        exit()
+
+def aauxiliaryhttpput():
+    scconsole80 = input("sc~" + color.red + "(auxiliary/http_put)" + color.white + ">")
+    if scconsole80 == "help":
+        print("""
+help ---> to see this help menu.
+clear ---> to clear the screen.
+unuse ---> to unuse this exploit.
+exit ---> to exit from scconsole.
+run ---> to run the exploit you selected.
+exploit ---> to run the exploit you selected.
+show options ---> to see the options.
+""")
+        aauxiliaryhttpput()
+    elif scconsole80 == "clear":
+        os.system('clear')
+        aauxiliaryhttpput()
+    elif scconsole80 == "show options":
+        print("""
+OPTIONS       | DISCREPTIONS
+--------------|----------------------
+URL           | specify the taregt url.
+
+you will specifiy these options when you run or exploit it!
+""")
+        aauxiliaryhttpput()
+    elif scconsole80 == "run":
+        os.system('python exploits/auxiliary/http_put.py')
+        aauxiliaryhttpput()
+    elif scconsole80 == "exploit":
+        os.system('python exploits/auxiliary/http_put.py')
+        aauxiliaryhttpput()
+    elif scconsole80 == "unuse":
+        print("unusing auxiliary/http_put.")
+        time.sleep(0.5)
+        Console()
+    elif scconsole80 == "exit":
         exit()
 
 def OSconsole():
